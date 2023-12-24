@@ -106,7 +106,7 @@
   /* About us */
 
   .About{
-    background-image:url(/assets/pexels-asad-photo-maldives-1268855.jpg) ;
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -124,19 +124,19 @@
   @keyframes slideshow {
     /* Define keyframes for the slideshow */
     0% {
-      background-image: url('/assets/back2.jpg');
+      background-image: url('../assets/back2.jpg');
     }
     25% {
-      background-image: url('/assets/back3.jpg');
+      background-image: url('../assets/back3.jpg');
     }
     50% {
-      background-image: url('/assets/back4.jpg');
+      background-image: url('../assets/back4.jpg');
     }
     75% {
-      background-image: url('/assets/back5.jpg');
+      background-image: url('../assets/back5.jpg');
     }
     100% {
-      background-image: url('/assets/back6.jpg');
+      background-image: url('../assets/back6.jpg');
     }
   }
   .About h1{

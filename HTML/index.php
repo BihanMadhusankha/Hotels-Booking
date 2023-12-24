@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My WebSite</title>
-    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../Script/script.js"></script>
 </head>
 <body>
    <!-- navigation  -->
@@ -19,8 +20,8 @@
             <li id="analys"><a href="#">Analys</a></li>
             </div>
             <div class="login_regester">
-                <li><button class="regester">Regester</button></li>
-            <li><button class="Login">Log in</button></li>
+                <li><button class="regester" href="registerPage()" onclick="registerPage( )">Regester</button></li>
+            <li><button class="Login" onclick="loginPage()">Log in</button></li>
             </div>
             
             
@@ -59,20 +60,20 @@
             <div class="star_row">
                 <div class="star_rate">
         
-                    <img src="/assets/onestar.png" alt="Leader images">
+                    <img src="../assets/onestar.png" alt="Leader images">
                     <h1><a href="#"><samp>★</samp>★★★★★★</a></h1>
                     <button type="menu" id="star_button" >Continue</button>
                     
                 </div>
                 <div class="star_rate">
         
-                    <img src="/assets/2star.jpg" alt="Leader images">
+                    <img src="../assets/2star.jpg" alt="Leader images">
                     <h1><a href="#"><samp>★★</samp>★★★★★</a></h1>
                     <button type="menu" id="star_button" >Continue</button>
                 </div>
                 <div class="star_rate">
         
-                    <img src="/assets/threestar.png" alt="Leader images">
+                    <img src="../assets/threestar.png" alt="Leader images">
                     <h1><a href="#"><samp>★★★</samp>★★★★</a></h1>
                     <button type="menu" id="star_button" >Continue</button>
                     
@@ -80,28 +81,28 @@
 
                 <div class="star_rate">
         
-                    <img src="/assets/fourstar.png" alt="Leader images">
+                    <img src="../assets/fourstar.png" alt="Leader images">
                     <h1><a href="#"><samp>★★★★</samp>★★★</a></h1>
                     <button type="menu" id="star_button" >Continue</button>
                     
                 </div>
                 <div class="star_rate">
         
-                    <img src="/assets/fivestar.jpg" alt="Leader images">
+                    <img src="../assets/fivestar.jpg" alt="Leader images">
                     <h1><a href="#"><samp>★★★★★</samp>★★</a></h1>
                     <button type="menu" id="star_button" >Continue</button>
                    
                 </div>
                 <div class="star_rate">
         
-                    <img src="/assets/sixstasr.png" alt="Leader images">
+                    <img src="../assets/sixstasr.png" alt="Leader images">
                     <h1><a href="#"><samp>★★★★★★</samp>★</a></h1>
                     <button type="menu" id="star_button" >Continue</button>
                     
                 </div>
                 <div class="star_rate">
         
-                    <img src="/assets/sevenstar.jpg" alt="Leader images">
+                    <img src="../assets/sevenstar.jpg" alt="Leader images">
                     <h1><a href="#"><samp>★★★★★★★</samp></a></h1>
                     <button type="menu" id="star_button" >Continue</button>
                     
@@ -120,7 +121,7 @@
                 <div class="leader-image-data">
                     <div class="leader-image">
             
-                        <img src="/assets/Trending1.jpg" alt="Leader images">
+                        <img src="../assets/Trending1.jpg" alt="Leader images">
                         <div class="treanding_hotel_delais">
                             <h2>ROYAL COLOMBO</h2>
                             <h2 id="status">Available</2>
@@ -130,7 +131,7 @@
                     </div>
                     <div class="leader-image">
             
-                        <img src="/assets/trendind2.jpg" alt="Leader images">
+                        <img src="../assets/trendind2.jpg" alt="Leader images">
                         <div  class="treanding_hotel_delais">
                             <h2>ROYAL GALLE</h2>
                             <h2 id="status">Available</2>
@@ -140,7 +141,7 @@
                     </div>
                     <div class="leader-image">
             
-                        <img src="/assets/trending3.jpg" alt="Leader images">
+                        <img src="../assets/trending3.jpg" alt="Leader images">
                         <div  class="treanding_hotel_delais">
                             <h2>ROYAL NEGOMBO</h2>
                             <h2 id="status">Available</2>

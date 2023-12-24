@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/CSS/styleLogin.css">
+    <link rel="stylesheet" href="../CSS/styleLogin.css">
+    
 </head>
 <body>
  <!-- navigation  -->
@@ -24,25 +25,26 @@
 </nav>
     <div class="Login_screan">
         
-            <form action="" class="login_form">
+            <form action="../HTML/indexLogin.php" class="login_form" method="POST">
                 <fieldset class="login_form_fieldset">
                     <h2>Login</h2><br></br>
                         <div class="login_form_fieldset_input">
-                            <input type="text" placeholder="User Name / Email"><br></br>
-                            <input type="password" placeholder=Password><br><br>
+                            
+                            <input type="text" placeholder="User Name / Email" name="username"><br></br>
+                            <input type="password" placeholder=Password name="loginpassword"><br><br>
                         </div>
                     
 
                     <a  href="#">Forget Password?</a><br>
 
-                    <input type="button" id="button-login" name="button" value="Log in" button-align="center" ><br>
+                    <input type="submit" id="button-login" name="button" value="Log in" button-align="center" ><br>
                     
-                    <h4>Don't have an account? <a href="#">Regester</a></h4>
+                    <h4>Don't have an account? <a href="../HTML/indexRegester.php">Regester</a></h4>
 
                     <div class="icon_logo">
-                                <a href="#"><img src="/assets/facebook.png" alt="Description" width="30" height="30"></a>
-                                <a href="#"><img src="/assets/google.png" alt="Description" width="30" height="30"> </a>
-                                <a href="#"><img src="/assets/apple.png" alt="Description" width="30" height="30"></a>
+                                <a href="#"><img src="../assets/facebook.png" alt="Description" width="30" height="30"></a>
+                                <a href="#"><img src="../assets/google.png" alt="Description" width="30" height="30"> </a>
+                                <a href="#"><img src="../assets/apple.png" alt="Description" width="30" height="30"></a>
                     </div>
                 
                     <div>
