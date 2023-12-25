@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +17,7 @@
    <nav>
 
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
+        
         <ul class="nav_list">
 
             <div class="nav_list_tem">
@@ -22,6 +27,15 @@
             <div class="login_regester">
                 <li><button class="regester" href="registerPage()" onclick="registerPage( )">Regester</button></li>
             <li><button class="Login" onclick="loginPage()">Log in</button></li>
+            <li>
+            <?php
+                if(isset($_SESSION["username"])){
+                echo '<a href="#">'. $_SESSION["username"] . '!';
+            }
+                else{
+                 echo '<a href="indexLogin.php">login</a>';
+                } ?>
+            </li>
             </div>
             
             

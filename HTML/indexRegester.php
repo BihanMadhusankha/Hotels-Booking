@@ -1,33 +1,6 @@
 <?php
     session_start();
-
-    include("db.php");
-
-    if($_SERVER['REQUEST_METHOD']=="POST"){
-       $user_Fname =$_POST["firstname"]; 
-       $user_Lname =$_POST["lastname"]; 
-       $user_Email =$_POST["email"]; 
-       $user_Birthday =$_POST["date"]; 
-       $user_Creatpass =$_POST["creatpassword"]; 
-       $user_Conformpass =$_POST["conformpassword"]; 
-       $user_Country =$_POST["country"]; 
-
-       if(!empty($user_Email) && !empty($user_Creatpass) && !empty($user_Conformpass) && !is_numeric($user_Email)){
-
-            $query= "insert into form (firstName,LastName,email,birthday,createPassword,conformPassword,country) values('$user_Fname','$user_Lname','$user_Email','$user_Birthday','$user_Creatpass','$user_Conformpass','$user_Country')";
-
-            mysqli_query($con,$query);
-
-            echo "<script type='text/javascript'> alert('Successfully Register')</script>";
-       }
-
-       else{
-
-        echo "<script type='text/javascript'> alert('Please Enter some Valid information')</script>";
-       }
-    }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +28,7 @@
 </nav>
     <div class="Login_screan">
         
-            <form action="indexRegester.php" class="login_form" method="POST" id="registrationForm">
+            <form action="../publicFile/registerHandle.php" class="login_form" method="POST" id="registrationForm">
                 <fieldset class="login_form_fieldset">
                     <h2>Regester</h2><br></br>
                         <div class="login_form_fieldset_input">
@@ -76,7 +49,7 @@
                             
                         </div>
                     
-                    <input type="submit" id="button-login" name="button" value="Regester" button-align="center" ><br>
+                    <input type="submit" id="button-login" name="submit" value="Regester" button-align="center" ><br>
                     <h3>You have account?<a href="../HTML/indexLogin.php">Log in</a></h3>
                     <div>
                         <hr><br>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +29,7 @@
 </nav>
     <div class="Login_screan">
         
-            <form action="../HTML/indexLogin.php" class="login_form" method="POST">
+            <form action="../publicFile/loginHandle.php" class="login_form" method="POST">
                 <fieldset class="login_form_fieldset">
                     <h2>Login</h2><br></br>
                         <div class="login_form_fieldset_input">
@@ -37,7 +41,7 @@
 
                     <a  href="#">Forget Password?</a><br>
 
-                    <input type="submit" id="button-login" name="button" value="Log in" button-align="center" ><br>
+                    <input type="submit" id="button-login" name="submit" value="Log in" button-align="center" ><br>
                     
                     <h4>Don't have an account? <a href="../HTML/indexRegester.php">Regester</a></h4>
 
