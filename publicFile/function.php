@@ -108,23 +108,23 @@ function emptyInputsLogin($userName,$userPassword){
 function loginUser($conn,$userName,$userPassword){
    $uidExists = UseIdExists($conn, $userName,$userName);
     if($uidExists===false){
-        header("Location:../HTML/indexRegester.php");
+        header("Location:../HTML/indexLogin.php?error=loginerror");
         exit();
     }
 
     $hashuserPassword=$uidExists["conformPassword"];
     $checkuserPassword = password_verify($userPassword,$hashuserPassword);
 
-    if($checkuserPassword===false){
-        header("Location:../HTML/indexRegester.php");
-        exit();
-    }
+    // if($checkuserPassword===false){
+    //     header("Location:../HTML/indexRegester.php");
+    //     exit();
+    // }
 
-    else if($checkuserPassword=== true){
-        session_start();
-        $_SESSION["userid"]=$uidExists["userId"];
-        $_SESSION["username"]=$uidExists["firstName"];
-    }
+    // else if($checkuserPassword=== true){
+    //     session_start();
+    //     $_SESSION["userid"]=$uidExists["userId"];
+    //     $_SESSION["username"]=$uidExists["firstName"];
+    // }
 
 }
 ?>

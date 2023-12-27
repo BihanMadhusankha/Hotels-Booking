@@ -61,12 +61,42 @@
                 
                     </div>
                 </fieldset>
-                    
+
+                <?php
+                    if(isset($_GET["error"])){
+                        if($_GET["error"]=="EmptyInput"){
+                            echo '<div class="error">Somthing went wrong</div>';
+                        }
+
+                        else if($_GET["error"]=="InvalidUserId"){
+                            echo '<div class="error">Invalid user name</div>';
+                        }
+                        else if($_GET["error"]=="InvalidUserId"){
+                            echo '<div class="error">Invalid user name</div>';
+                        }
+                        else if($_GET["error"]=="InvalidEmail"){
+                            echo '<div class="error">Invalid user Email</div>';
+                        }
+                        else if($_GET["error"]=="InvalidBirthDay"){
+                            echo '<div class="error">Invalid user Birth Day</div>';
+                        }
+                        else if($_GET["error"]=="PasswordDontMatch"){
+                            echo '<div class="error">Invalid user Password Do not match</div>';
+                        }
+                        else if($_GET["error"]=="InvalidCountry"){
+                            echo '<div class="error">Invalid user Country</div>';
+                        }
+                        else if($_GET["error"]=="UserNameTaken"){
+                            echo '<div class="error"> User Name or Email already have </div>';
+                        }
+                        else if($_GET["error"]=="none"){
+                            echo '<div class="error">Account Created!</div>';
+                        }
+                    }
+                ?>
 
             </form>
-           
-        
-          
+
     </div>
 
     

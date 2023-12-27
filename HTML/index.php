@@ -27,15 +27,16 @@ session_start();
             <div class="login_regester">
                 <li><button class="regester" href="registerPage()" onclick="registerPage( )">Regester</button></li>
             <li><button class="Login" onclick="loginPage()">Log in</button></li>
-            <li>
+            
             <?php
                 if(isset($_SESSION["username"])){
-                echo '<a href="#">'. $_SESSION["username"] . '!';
+                echo '<li><a href="#">'. $_SESSION["username"] . '! </a></li>';
+                echo '<li><a href="../publicFile/logoutHandle.php"> LogOut ! </a></li>';
             }
                 else{
-                 echo '<a href="indexLogin.php">login</a>';
+                 echo '<li><a href="indexLogin.php">login</a>,</li>';
                 } ?>
-            </li>
+            
             </div>
             
             

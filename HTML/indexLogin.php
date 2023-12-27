@@ -60,6 +60,29 @@ session_start();
                                 <p2>Copyright (2006-2023)-Next.com<sup>TM</sup></p2>
                 
                     </div>
+
+                    <?php
+                    if(isset($_GET["error"])){
+                        if($_GET["error"]=="EmptyInput"){
+                            echo '<div class="error">Somthing went wrong</div>';
+                        }
+
+                        else if($_GET["error"]=="InvalidUserId"){
+                            echo '<div class="error">Invalid user name</div>';
+                        }
+                       
+                        else if($_GET["error"]=="InvalidEmail"){
+                            echo '<div class="error">Invalid user Email</div>';
+                        }
+                        
+                        else if($_GET["error"]=="none"){
+                            echo '<div class="error">Account Login!</div>';
+                        }
+                        else if($_GET["error"]=="loginerror"){
+                            echo '<div class="error">Empty Login</div>';
+                        }
+                    }
+                ?>
                 </fieldset>
                     
 

@@ -77,7 +77,7 @@ nav ul li a{
 /* login form */
 
 .Login_screan {
-  display: flex;
+  display:flex;
   justify-content: center;
   align-items: center;
   height: 89vh;
@@ -148,6 +148,15 @@ width: 90%;
   color: #000000;
 }
   
-  .login_form_fieldset sup {
+.login_form_fieldset sup {
     font-size: 8px;
   }
+
+.error{
+  color: red;
+  padding: 1px;
+  
+  font-size: 22px;
+  margin-bottom: 2px;
+
+}

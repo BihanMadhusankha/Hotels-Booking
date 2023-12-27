@@ -9,6 +9,7 @@
 
         if(function_exists('emptyInputsLogin')){
             if(emptyInputsLogin($userName,$userPassword) !== false){
+                header("Location: ../HTML/indexLogin.php?error=emptyLogin");
                 exit();
             }
             
