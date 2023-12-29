@@ -1,6 +1,49 @@
 <?php
-session_start();
+    $login=0;
+    $invalid=0;
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        include 'db.php';
+    
+        if (isset($_POST['username']) && isset($_POST['loginpassword'])) {
+            $username = $_POST["username"];
+            $password = $_POST['loginpassword'];
+    
+            // Use prepared statements to prevent SQL injection
+            $sql_check_existing = "SELECT * FROM `userregistation` WHERE username=? AND conformPassword=?";
+            $stmt_check_existing = mysqli_prepare($con, $sql_check_existing);
+            mysqli_stmt_bind_param($stmt_check_existing, "ss", $username,$password);
+            mysqli_stmt_execute($stmt_check_existing);
+            $result_check_existing = mysqli_stmt_get_result($stmt_check_existing);
+    
+            if ($result_check_existing) {
+                $num = mysqli_num_rows($result_check_existing);
+                if ($num > 0) {
+                   
+                    $login =1;
+                    session_start();
+                    $_SESSION['username']=$username;
+                    header('location:index.php');
+                }else {
+                    $invalid =1;
+                    
+                }
+            } else {
+                echo "Error: " . mysqli_stmt_error($stmt_check_existing);
+            }
+    
+            // Close the prepared statements
+            mysqli_stmt_close($stmt_check_existing);
+            
+        } else {
+            echo "Username and password are required.";
+        }
+    
+        // Close the database connection when done
+        mysqli_close($con);
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +72,7 @@ session_start();
 </nav>
     <div class="Login_screan">
         
-            <form action="../publicFile/loginHandle.php" class="login_form" method="POST">
+            <form action="../HTML/indexLogin.php" class="login_form" method="POST">
                 <fieldset class="login_form_fieldset">
                     <h2>Login</h2><br></br>
                         <div class="login_form_fieldset_input">
@@ -61,28 +104,7 @@ session_start();
                 
                     </div>
 
-                    <?php
-                    if(isset($_GET["error"])){
-                        if($_GET["error"]=="EmptyInput"){
-                            echo '<div class="error">Somthing went wrong</div>';
-                        }
-
-                        else if($_GET["error"]=="InvalidUserId"){
-                            echo '<div class="error">Invalid user name</div>';
-                        }
-                       
-                        else if($_GET["error"]=="InvalidEmail"){
-                            echo '<div class="error">Invalid user Email</div>';
-                        }
-                        
-                        else if($_GET["error"]=="none"){
-                            echo '<div class="error">Account Login!</div>';
-                        }
-                        else if($_GET["error"]=="loginerror"){
-                            echo '<div class="error">Empty Login</div>';
-                        }
-                    }
-                ?>
+                   
                 </fieldset>
                     
 

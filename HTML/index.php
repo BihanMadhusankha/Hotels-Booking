@@ -30,8 +30,8 @@ session_start();
             
             <?php
                 if(isset($_SESSION["username"])){
-                echo '<li><a href="#">'. $_SESSION["username"] . '! </a></li>';
-                echo '<li><a href="../publicFile/logoutHandle.php"> LogOut ! </a></li>';
+                echo '<li><a href="#" hello'. $_SESSION["username"] . '! </a></li>';
+                
             }
                 else{
                  echo '<li><a href="indexLogin.php">login</a>,</li>';
