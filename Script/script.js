@@ -8,3 +8,6 @@ function loginPage(){
     window.open("../HTML/indexLogin.php");
 }
 
+function lookingHotel(){
+    window.open("../HTML/indexHotelprofile.php");
+}

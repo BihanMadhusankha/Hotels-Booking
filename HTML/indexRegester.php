@@ -17,7 +17,7 @@ $users=0;
             $createpassword = $_POST["createpassword"];
             $conformpassword = $_POST["conformpassword"];
     
-            // Use prepared statements to prevent SQL injection
+           
             $sql_check_existing = "SELECT * FROM `userregistation` WHERE fullName=? AND userName=? AND Email=? AND contactNumber=? AND homeTown=? AND DOB=? AND NIC=? AND password=? AND conformPassword=?";
             $stmt_check_existing = mysqli_prepare($con, $sql_check_existing);
             mysqli_stmt_bind_param($stmt_check_existing, "sssssssss",  $fullname,$username,$email,$nic,$dob,$country,$phonenum,$createpassword,$conformpassword);
@@ -30,14 +30,14 @@ $users=0;
                    
                     $users=1;
                 } else {
-                    // Use prepared statement for INSERT
+                    
                     $sql_insert_user = "INSERT INTO `userregistation` (fullName,userName,Email,contactNumber,homeTown,DOB,NIC,password,conformPassword) VALUES (?,?,?,?,?,?,?,?,?)";
                     $stmt_insert_user = mysqli_prepare($con, $sql_insert_user);
                     mysqli_stmt_bind_param($stmt_insert_user, "sssssssss", $fullname,$username,$email,$nic,$dob,$country,$phonenum,$createpassword,$conformpassword);
                     $result_insert_user = mysqli_stmt_execute($stmt_insert_user);
     
                     if ($result_insert_user) {
-                        // echo "Sign Up successfully";
+                        
                         $succes=1;
                         header('Location:../HTML/indexLogin.php');
                     } else {
@@ -49,14 +49,13 @@ $users=0;
                 echo "Error: " . mysqli_stmt_error($stmt_check_existing);
             }
     
-            // Close the prepared statements
-            mysqli_stmt_close($stmt_check_existing);
+                        mysqli_stmt_close($stmt_check_existing);
             
         } else {
             echo "Username and password are required.";
         }
     
-        // Close the database connection when done
+        
         mysqli_close($con);
     }
 ?>
