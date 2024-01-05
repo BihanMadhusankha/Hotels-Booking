@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Hotel</title>
     <link rel="stylesheet" href="../CSS/styleHotelProfile.css">
-    
+
 </head>
 
 <body>

@@ -26,8 +26,15 @@ session_start();
 
             <div class="login_regester" id="login_regester">
 
-                <li><button id="regester" class="regester" href="registerPage()" onclick="registerPage( )">Regester</button></li>
-                <li><button id="Login" class="Login" onclick="loginPage()">Log in</button></li>
+                <?php
+                if (isset($_SESSION["username"])) {
+                    echo '<li><a id="RegisterdUser" href="#">Hello ' . $_SESSION["username"] . ' !</a></li>';
+                    echo '<li><a id="RegisterdUser" href="../Includes/loginout.php">Logout</a></li>';
+                } else {
+                    echo '<li><button id="regester" class="regester" href="registerPage()" onclick="registerPage( )">Regester</button></li>
+                                  <li><button id="Login" class="Login" onclick="loginPage()">Log in</button></li> ';
+                }
+                ?>
 
 
                 <div class="nav_list_tem">
@@ -36,7 +43,7 @@ session_start();
 
 
             </div>
-          
+
         </ul>
     </nav>
     <!-- about -->
