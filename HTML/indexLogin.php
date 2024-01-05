@@ -21,9 +21,18 @@
                 if ($num > 0) {
                    
                     $login =1;
-                    session_start();
+                    if($username=='kasun20' && $password=='20201206'){
+                        session_start();
+                    $_SESSION['username']=$username;
+                    header('location:indexAdminPanel.php');
+
+                    }
+                    else{
+                        session_start();
                     $_SESSION['username']=$username;
                     header('location:index.php');
+                    }
+                    
                 }else {
                     $invalid =1;
                     
@@ -84,7 +93,7 @@
 
                     <a  href="#">Forget Password?</a><br>
 
-                    <input type="submit" id="button-login" name="submit" value="Log in" button-align="center" ><br>
+                    <input type="submit" id="button-login" name="submit" value="Log in" button-align="center" onclick="comeHome()"><br>
                     
                     <h4>Don't have an account? <a href="../HTML/indexRegester.php">Regester</a></h4>
 

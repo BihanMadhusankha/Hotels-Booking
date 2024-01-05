@@ -16,11 +16,19 @@ $users=0;
             $phonenum = $_POST["phonenum"];
             $createpassword = $_POST["createpassword"];
             $conformpassword = $_POST["conformpassword"];
+           
+
+            if ($username == 'kasun20' && $conformpassword == '20201206') {
+                $userroole ='Admin';
+            }
+            else{
+                $userroole = 'User';
+            }
     
            
-            $sql_check_existing = "SELECT * FROM `userregistation` WHERE fullName=? AND userName=? AND Email=? AND contactNumber=? AND homeTown=? AND DOB=? AND NIC=? AND password=? AND conformPassword=?";
+            $sql_check_existing = "SELECT * FROM `userregistation` WHERE fullName=? AND userName=? AND Email=? AND contactNumber=? AND homeTown=? AND DOB=? AND NIC=? AND password=? AND conformPassword=? AND userRoole=?";
             $stmt_check_existing = mysqli_prepare($con, $sql_check_existing);
-            mysqli_stmt_bind_param($stmt_check_existing, "sssssssss",  $fullname,$username,$email,$nic,$dob,$country,$phonenum,$createpassword,$conformpassword);
+            mysqli_stmt_bind_param($stmt_check_existing, "ssssssssss",  $fullname,$username,$email,$nic,$dob,$country,$phonenum,$createpassword,$conformpassword,$userroole);
             mysqli_stmt_execute($stmt_check_existing);
             $result_check_existing = mysqli_stmt_get_result($stmt_check_existing);
     
@@ -31,17 +39,23 @@ $users=0;
                     $users=1;
                 } else {
                     
-                    $sql_insert_user = "INSERT INTO `userregistation` (fullName,userName,Email,contactNumber,homeTown,DOB,NIC,password,conformPassword) VALUES (?,?,?,?,?,?,?,?,?)";
+                    $sql_insert_user = "INSERT INTO `userregistation` (fullName,userName,Email,contactNumber,homeTown,DOB,NIC,password,conformPassword,userroole) VALUES (?,?,?,?,?,?,?,?,?,?)";
                     $stmt_insert_user = mysqli_prepare($con, $sql_insert_user);
-                    mysqli_stmt_bind_param($stmt_insert_user, "sssssssss", $fullname,$username,$email,$nic,$dob,$country,$phonenum,$createpassword,$conformpassword);
+                    mysqli_stmt_bind_param($stmt_insert_user, "ssssssssss", $fullname,$username,$email,$nic,$dob,$country,$phonenum,$createpassword,$conformpassword,$userroole);
                     $result_insert_user = mysqli_stmt_execute($stmt_insert_user);
     
                     if ($result_insert_user) {
                         
                         $succes=1;
                         header('Location:../HTML/indexLogin.php');
+                        // echo"<script>
+                        //     alert('User Register successfully....!');
+                        // </script>";
                     } else {
                         echo "Error: " . mysqli_stmt_error($stmt_insert_user);
+                        // echo"<script>
+                        //     alert('pleace fill the all file....!');
+                        // </script>";
                     }
                     mysqli_stmt_close($stmt_insert_user);
                 }
@@ -105,6 +119,7 @@ $users=0;
                                 <input type="text" placeholder="Contact Number" name="phonenum">
                                 <input type="password" placeholder=Create_Password name="createpassword">
                                 <input type="password" placeholder= Conform_Password name="conformpassword">
+                                <input type="hidden" name="userRoole" value="Admin">
                                 
                             </div>
                             
