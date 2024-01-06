@@ -1,0 +1,75 @@
+.adminpost {
+    flex: 10%;
+    width: 200px;
+    height: 250px;
+    background-color: rgba(206, 210, 211, 0.301);
+    border-radius: 19px;
+    box-shadow: initial;
+    border-style: ridge;
+    cursor: pointer;
+
+}
+
+.button {
+
+    border: none;
+    color: white;
+    padding: 7px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 1px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    /* position: relative;
+    bottom: 20px;
+    top: 210PX;
+    left: 32PX; */
+
+}
+
+.hotelstar {
+    position: relative;
+    /* bottom: 10px; */
+    /* left: 15px; */
+    border-radius: 19px;
+    /* height: 210px; */
+
+}
+
+.ADD {
+    background-color: white;
+    color: black;
+    border: 2px solid #04AA6D;
+}
+
+.ADD:hover {
+    background-color: #0a0a0a;
+    color: white;
+}
+
+
+.hotelfulld {
+    display: flex;
+    position: relative;
+    top: 60px;
+}
+
+
+.textarea {
+    width: 500px;
+}
+
+.hotelform {
+    position: relative;
+    top: 11px;
+    flex: 80%;
+
+}
+
+.uploadb {
+    position: relative;
+    left: 69px
+
+}

@@ -107,12 +107,61 @@ function loginUser($conn, $username, $conformpassword)
     } else if ($checkpwd === true) {
         session_start();
 
+        $_SESSION["fullname"] = $uidExists["fullName"];
         $_SESSION["username"] = $uidExists["userName"];
+        $_SESSION["email"] = $uidExists["Email"];
+        $_SESSION["phonenum"] = $uidExists["contactNumber"];
+        $_SESSION["country"] = $uidExists["homeTown"];
+        $_SESSION["date"] = $uidExists["DOB"];
+        $_SESSION["nic"] = $uidExists["NIC"];
+        $_SESSION["createpassword"] = $uidExists["password"];
+        $_SESSION["conformpassword"] = $uidExists["conformPassword"];
         if ($uidExists['userRoole'] == "admin") {
-            header('Location:../HTML/indexAdminPanel.php');
+            header('Location:../HTML/indexAdmin.php');
         } else {
             header("Location:../HTML/index.php");
         }
         exit();
+    }
+}
+
+
+////user
+
+function emptyInputUser($fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword)
+{
+    $result = false;
+    if (empty($username) || empty($email) || empty($fullname) || empty($phonenum) || empty($country) || empty($dob) || empty($nic) || empty($createpassword) || empty($conformpassword)) {
+        $result = true;
+    }
+
+    return $result;
+}
+
+function editProfile($conn,$fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword)
+{
+    $sql = "UPDATE userregistation SET fullName=? AND  userName=? AND Email=? AND contactNumber=? AND homeTown=? AND DOB=? AND NIC=? AND password=? AND conformPassword=? WHERE userName='$username';";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location:../HTML/indexLogin.php?error=stmtfailed");
+        exit();
+    }
+  
+    mysqli_stmt_bind_param($stmt, "sssssssss", $fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword);
+    mysqli_stmt_execute($stmt);
+    if (mysqli_stmt_get_result($stmt)) {
+        
+        $resultData = mysqli_stmt_get_result($stmt);
+        $row = mysqli_fetch_assoc($resultData);
+        mysqli_stmt_close($stmt);
+    
+        if ($row) {
+            return $row;
+        } else {
+            return false;
+        }
+    }else{
+        mysqli_stmt_close($stmt);
+    return true;
     }
 }

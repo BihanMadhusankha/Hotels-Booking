@@ -11,10 +11,12 @@ function loginPage(){
     
 }
 
- 
 function lookingHotel(){
     window.open("../HTML/indexHotelprofile.php");
 }
 
+function hotelADD(){
+    window.open("../HTML/admin2page.html");
+}
 
 
