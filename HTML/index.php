@@ -112,7 +112,8 @@ session_start();
             <div class="item"><a href="../HTML/index.php"><i class="fas fa-home"></i>Home</a></div>
             <div class="item"><a href="#"><i class="fas fa-th"></i>Analytics</a></div>
             <div class="item"><a href="../HTML/indexUserProfile.php"><i class="fas fa-user"></i>Profile</a></div>
-            <div class="item"><a href=""><i class="fas fa-sign-out">Log Out</i></a></div>
+            <div class="item"><a href="../HTML/indexHelp.php"><i class="fas fa-hands-helping"></i>Help</a></div>
+            <div class="item"><a href="../Includes/loginout.php"><i class="fas fa-sign-out">Log Out</i></a></div>
         </div>
 
     </div>
@@ -124,7 +125,7 @@ session_start();
 
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
 
-        <ul class="nav_list">
+        <ul class="nav_list" >
 
 
             <div class="login_regester" id="login_regester">
@@ -132,7 +133,7 @@ session_start();
                 <?php
                 if (isset($_SESSION["username"])) {
                     echo '<li><a id="RegisterdUser" href="#">Hello ' . $_SESSION["username"] . ' !</a></li>';
-                    echo '<li><a id="RegisterdUser" href="../Includes/loginout.php">Logout</a></li>';
+                   
                 } else {
                     echo '<li><button id="regester" class="regester" href="registerPage()" onclick="registerPage( )">Regester</button></li>
                                   <li><button id="Login" class="Login" onclick="loginPage()">Log in</button></li> ';

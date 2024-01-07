@@ -16,11 +16,13 @@ if (isset($_POST["save"])) {
     require_once 'function.php';
 
     if (emptyInputUser($fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword) !== false) {
+       
         header("Location: ../HTML/indexUserProfile.php?error=emptyinput");
         exit();
     }
-    
+     
     editProfile($conn,$fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword);
+   
 } else {
     header('location: ../HTML/index.php');
 }

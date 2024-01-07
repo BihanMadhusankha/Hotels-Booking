@@ -7,10 +7,12 @@ session_start();
 <html>
 
 <head>
-    <title>user profile</title>
-    <link rel="stylesheet" href="../CSS/styleUserProfile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../CSS/styleHelp.css">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Help</title>
     <style>
         .side-bar {
             background-color: #e3ebf4;
@@ -83,26 +85,15 @@ session_start();
         .side-bar.active {
             left: 0;
         }
-
-        form a {
-            color: white;
-            text-decoration: none;
-
-        }
-
-        form button {
-            margin-top: 16px;
-        }
-
-        fieldset {
-            margin: 1% 40%;
-            height: 44rem;
-        }
     </style>
+
+
 </head>
 
 <body>
-
+    <?php
+    if (isset($_SESSION["username"])) {
+        echo '
     <!-- menu-btn -->
     <div class="menu-btn">
         <i class="fas fa-bars"></i>
@@ -128,6 +119,9 @@ session_start();
         </div>
 
     </div>
+    ';
+    }
+    ?>
 
     <!-- navigation  -->
     <nav>
@@ -150,48 +144,73 @@ session_start();
 
         </ul>
     </nav>
+    <h1 style="margin-top: 1rem;color: #fff;">
+        <marquee behavior="scroll" direction="left">Help Center...</marquee>
 
-    <form action="../Includes/userProfile.php" class="user-edit-form" method="POST">
+        <p>
+        <h4>Stay safe online
+            Protect your security by never sharing your personal or credit card information
+            over the phone, by email, or chat.</h4>
+        </p>
+        <p>
+        <h2>Welcome to the Help Center</h2>
+        </p>
+        <p>
+        <h4>Sign in to contact Customer Service we're available 24 hours a day</h4>
+        </p>
+        </div> <br>
+        <form action="../Includes/help.php" method="post">
+            <div class="wrapper centered">
+                <article class="letter">
+                    <div class="side">
+                        <h2>Contact us</h2>
+                        <p>
+                            <textarea name="massage" placeholder="Your message"></textarea>
+                        </p>
+                    </div>
+                    <div class="side">
+                        <p>
+                            <input type="text" name="name" placeholder="Your name ">
+                        </p>
+                        <p>
+                            <input type="email" name="email" placeholder="Your email">
+                        </p>
+                        <p>
+                            <button id="sendLetter" name="send">Send</button>
+                        </p>
+                    </div>
+                    <div class="link" style="margin-top: 20px;">
+                        <a href="Security and awareness.html">Security and awareness</a>
+                        <a href="Link">Payment</a>
+                        <a href="Room Types.html">Room Types</a>
+                        <a href="Pricing.html">Pricing</a>
+                        <a href="Property Policies.html">Property Policies</a>
+                        <a href="Communication.html">Communication</a>
+                        <a href="Extra Facilities.html">Extra Facilities</a>
+                    </div>
+                </article>
 
-        <fieldset>
+            </div>
 
-            <center>
+        </form>
+        <p class="result-message centered">Thank you for your message</p>
 
-                <img src="#" class="img"></image>
-                <input type="file" id="file" name="file">
-                <label class="editpic" for="file">Add Profile</label>
-                <input type="text" id="fullname" placeholder="Full Name" name="fullname" value="<?php echo  $_SESSION["fullname"] ?>">
-                <input type="text" id="username" placeholder="User Name" name="username" value="<?php echo  $_SESSION["username"] ?>">
-                <input type="email" placeholder="Enter your email" name="email" value="<?php echo  $_SESSION["email"] ?>">
-                <input type="text" id="nic" placeholder="NIC" name="nic" value="<?php echo  $_SESSION["nic"] ?>">
-                <input type="date" placeholder="Birthday" name="date" value="<?php echo  $_SESSION["date"] ?>">
-                <input type="text" placeholder="Country" name="country" value="<?php echo  $_SESSION["country"] ?>">
-                <input type="text" placeholder="Contact Number" name="phonenum" value="<?php echo  $_SESSION["phonenum"] ?>">
-                <input type="password" placeholder=Create_Password name="createpassword" value="<?php echo  $_SESSION["createpassword"] ?>">
-                <input type="password" placeholder=Conform_Password name="conformpassword" value="<?php echo  $_SESSION["conformpassword"] ?>">
-                <button type="submit" id="button-edit-profile" name="save">SAVE</button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.menu-btn').click(function() {
+                    $('.side-bar').addClass('active');
+                    $('.menu-btn').css("visibility", "hidden");
+                });
 
-                </div>
-            </center>
-        </fieldset>
-    </form>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                //close button
 
-    <script>
-        $(document).ready(function() {
-            $('.menu-btn').click(function() {
-                $('.side-bar').addClass('active');
-                $('.menu-btn').css("visibility", "hidden");
-            });
-
-            //close button
-
-            $('.close-btn').click(function() {
-                $('.side-bar').removeClass('active');
-                $('.menu-btn').css("visibility", "visible");
-            });
-        })
-    </script>
+                $('.close-btn').click(function() {
+                    $('.side-bar').removeClass('active');
+                    $('.menu-btn').css("visibility", "visible");
+                });
+            })
+        </script>
 </body>
 
 </html>

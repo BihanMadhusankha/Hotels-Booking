@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -92,7 +91,7 @@ session_start();
 
 <body>
 
-<?php
+    <?php
     if (isset($_SESSION["username"])) {
         echo '
     <!-- menu-btn -->
@@ -115,11 +114,13 @@ session_start();
             <div class="item"><a href="../HTML/index.php"><i class="fas fa-home"></i>Home</a></div>
             <div class="item"><a href="#"><i class="fas fa-th"></i>Analytics</a></div>
             <div class="item"><a href="../HTML/indexUserProfile.php"><i class="fas fa-user"></i>Profile</a></div>
+            <div class="item"><a href="../HTML/indexHelp.php"><i class="fas fa-hands-helping"></i>Help</a></div>
             <div class="item"><a href=""><i class="fas fa-sign-out">Log Out</i></a></div>
         </div>
 
     </div>
-    ';}
+    ';
+    }
     ?>
     <!-- navigation  -->
     <nav>
@@ -136,44 +137,14 @@ session_start();
                 if (isset($_SESSION["username"])) {
                     echo '<li><a id="RegisterdUser" href="#">Hello ' . $_SESSION["username"] . ' !</a></li>';
                 }
-                    ?>
+                ?>
 
+            </div>
 
-                    <div class="nav_list_tem">
-                        <li id="analys"><a href="#">Analys</a></li>
-                    </div>
-    
-    
-                </div>
-    
-            </ul>
-        </nav>
+        </ul>
+    </nav>
 
     <div class="bigcolumn">
-
-        <div class="columnleft">
-
-            <div class="adnew">
-                <p class="dashboard leftone">dashboard1</p>
-            </div>
-
-            <div class="adnew">
-                <p class="dashboard leftone">dashboard2</p>
-            </div>
-
-            <div class="adnew">
-                <p class="dashboard leftone">dashboard3</p>
-            </div>
-
-            <div class="adnew">
-                <p class="dashboard leftone">dashboard4</p>
-            </div>
-
-            <div class="adnew">
-                <p class="dashboard leftone">dashboard5</p>
-            </div>
-
-        </div>
 
         <div class="columnright">
 
@@ -241,24 +212,30 @@ session_start();
         </div>
     </div>
 
-    <script src="../Script/script.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        function hotelADD(){
+    window.open("../HTML/indexAdmin2page.php");
+}
+hotelADD();
+    </script>
 
-<script>
-    $(document).ready(function() {
-        $('.menu-btn').click(function() {
-            $('.side-bar').addClass('active');
-            $('.menu-btn').css("visibility", "hidden");
-        });
+    <script>
+        $(document).ready(function() {
+            $('.menu-btn').click(function() {
+                $('.side-bar').addClass('active');
+                $('.menu-btn').css("visibility", "hidden");
+            });
 
-        //close button
+            //close button
 
-        $('.close-btn').click(function() {
-            $('.side-bar').removeClass('active');
-            $('.menu-btn').css("visibility", "visible");
-        });
-    })
-</script>
+            $('.close-btn').click(function() {
+                $('.side-bar').removeClass('active');
+                $('.menu-btn').css("visibility", "visible");
+            });
+        })
+    </script>
 
 
 </body>

@@ -1,75 +1,81 @@
-.adminpost {
-    flex: 10%;
-    width: 200px;
-    height: 250px;
-    background-color: rgba(206, 210, 211, 0.301);
-    border-radius: 19px;
-    box-shadow: initial;
-    border-style: ridge;
-    cursor: pointer;
-
-}
-
-.button {
-
-    border: none;
-    color: white;
-    padding: 7px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 2px 1px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    /* position: relative;
-    bottom: 20px;
-    top: 210PX;
-    left: 32PX; */
-
-}
-
-.hotelstar {
-    position: relative;
-    /* bottom: 10px; */
-    /* left: 15px; */
-    border-radius: 19px;
-    /* height: 210px; */
-
-}
-
-.ADD {
-    background-color: white;
-    color: black;
-    border: 2px solid #04AA6D;
-}
-
-.ADD:hover {
-    background-color: #0a0a0a;
-    color: white;
-}
-
-
-.hotelfulld {
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
     display: flex;
-    position: relative;
-    top: 60px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image:url("pool-vacation-oneandonly-the-palm-best-hotels-wallpaper-preview.jpeg");
+    
+  
+ 
+
+ fieldset{
+    background-image:url("depositphotos_425368112-stock-photo-tranquil-beach-scene-sunny-exotic.jpg");
+    
+ }
+
+h2{
+  align-items:center;
+  color:gray;
+  justify-content: center;
 }
 
 
-.textarea {
-    width: 500px;
+.container {
+    
+    padding: 20px;
+    border-radius: 8px;
+    
 }
 
-.hotelform {
-    position: relative;
-    top: 11px;
-    flex: 80%;
 
+label {
+    margin-bottom: 8px;
+    font-family: 'Nanum Gothic';
+    padding-bottom: 10px;
+    font-size: 10px;
+    background-color:#C0C0C0;
 }
 
-.uploadb {
-    position: relative;
-    left: 69px
 
+.form-group{
+    padding: 7px;
+    margin-bottom: 8px;
+    width:50%;
+    border-radius: 4px;
+    width: 95%;
+    display: inline-block;
+    font-size:9px;
+}
+
+
+
+textarea {
+  height: 45px;
+  width: 100;
+  box-sizing: border-box;
+  background-color:#f8f8f8;
+  resize:none;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+hr {
+  border: 1px dotted #ccc;
+}
+
+ input[type=button] {
+  height: 40px;
+  background-color:blue;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration:none;
+  margin: 4px 1px;
+  font-size: 1.25em;
+  font-family: 'Nanum Gothic';
+  border-radius: 4px;
+  cursor: pointer;
+ }
 }
