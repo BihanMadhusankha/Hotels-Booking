@@ -124,7 +124,7 @@ session_start();
             <div class="item"><a href="#"><i class="fas fa-th"></i>Analytics</a></div>
             <div class="item"><a href="../HTML/indexUserProfile.php"><i class="fas fa-user"></i>Profile</a></div>
             <div class="item"><a href="../HTML/indexHelp.php"><i class="fas fa-hands-helping"></i>Help</a></div>
-            <div class="item"><a href=""><i class="fas fa-sign-out">Log Out</i></a></div>
+            <div class="item"><a href="../Includes/loginout.php"><i class="fas fa-sign-out">Log Out</i></a></div>
         </div>
 
     </div>
@@ -151,13 +151,38 @@ session_start();
         </ul>
     </nav>
 
+
+
     <form action="../Includes/userProfile.php" class="user-edit-form" method="POST">
 
         <fieldset>
 
             <center>
+                <?php
+                require_once '../Includes/db.php';
 
-                <img src="#" class="img"></image>
+                // Assuming you have the user's NIC stored in $_SESSION['nic']
+                $logged_in_nic = $_SESSION['nic'];
+                
+                $sql = "SELECT * FROM userprofileid WHERE NIC = ?";
+                $stmt = mysqli_stmt_init($conn);
+                
+                if (mysqli_stmt_prepare($stmt, $sql)) {
+                    mysqli_stmt_bind_param($stmt, "s", $logged_in_nic);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_result($stmt, $profileID, $profilePhoto, $nic, $username);
+                
+                    // Fetch the data for the logged-in user
+                    if (mysqli_stmt_fetch($stmt)) {
+                        // Output the HTML for the user's profile photo
+                        echo '<img src="../assets/userprofilePic/' . $profilePhoto . '" class="img" name="images">';
+                    }
+                
+                    mysqli_stmt_close($stmt);
+                }
+                ?>
+
+                
                 <input type="file" id="file" name="file">
                 <label class="editpic" for="file">Add Profile</label>
                 <input type="text" id="fullname" placeholder="Full Name" name="fullname" value="<?php echo  $_SESSION["fullname"] ?>">
@@ -173,6 +198,7 @@ session_start();
 
                 </div>
             </center>
+
         </fieldset>
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

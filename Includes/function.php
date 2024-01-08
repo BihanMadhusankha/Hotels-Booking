@@ -116,15 +116,18 @@ function loginUser($conn, $username, $conformpassword)
         $_SESSION["nic"] = $uidExists["NIC"];
         $_SESSION["createpassword"] = $uidExists["password"];
         $_SESSION["conformpassword"] = $uidExists["conformPassword"];
+
+
         if ($uidExists['userRoole'] == "admin") {
-            header('Location:../HTML/indexAdmin.php');
+            header("Location:../HTML/index.php");
+            
         } else {
             header("Location:../HTML/index.php");
+            
         }
         exit();
     }
 }
-
 
 ////user
 
@@ -138,39 +141,152 @@ function emptyInputUser($fullname, $username, $email, $phonenum, $country, $dob,
     return $result;
 }
 
-function editProfile($conn,$fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword)
+function editProfile($conn, $fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword, $userprofile)
 {
-    $sql = "UPDATE userregistation SET fullName=?,userName=?, Email=? , contactNumber=? , homeTown=? , DOB=? , NIC=? , password=? , conformPassword=? WHERE userName='$username'";
+    $sql = "UPDATE userregistation SET fullName=?,userName=?, Email=? , contactNumber=? , homeTown=? , DOB=? , NIC=? , password=? , conformPassword=? WHERE userName=?";
     $stmt = mysqli_stmt_init($conn);
-   
+
+    // $sqlUserProfile = "UPDATE userprofileid SET profilePhoto=?  WHERE NIC=?";
+    // $stmtUserProfile = mysqli_stmt_init($conn);
+
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location:../HTML/indexLogin.php?error=stmtfailed");
+        header("Location:../HTML/indexUserProfile.php?error=stmtfailed");
         exit();
     }
-  
-    mysqli_stmt_bind_param($stmt, "sssssssss", $fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword);
-    
+
+    mysqli_stmt_bind_param($stmt, "ssssssssss", $fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword, $userprofile);
+
+
     mysqli_stmt_execute($stmt);
     $Rows = mysqli_stmt_affected_rows($stmt);
+
+
 
     mysqli_stmt_close($stmt);
 
     if ($Rows > 0) {
-        header("Location:../HTML/index.php?error=stmtfailed");
+        header("Location:../HTML/index.php?error=none");
         return true;  // Update successful
     } else {
         return false;  // No rows were updated
     }
+}
 
+function updateProfile($conn, $nic)
+{
+    $sqlUserProfile = "UPDATE userprofileid SET profilePhoto=? WHERE NIC=?";
+    $stmtUserProfile = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmtUserProfile, $sqlUserProfile)) {
+        header("Location:../HTML/indexLogin.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmtUserProfile, "ss", $profilePhoto, $nic);
+
+    mysqli_stmt_execute($stmtUserProfile);
+    $rowsUserProfile = mysqli_stmt_affected_rows($stmtUserProfile);
+
+    mysqli_stmt_close($stmtUserProfile);
+
+    if ($rowsUserProfile > 0) {
+        header("Location:../HTML/index.php?error=none");
+        return true; // Update successful
+    } else {
+        return false; // No rows were updated
+    }
+}
+
+////////////userprofile
+
+function addProfilePhoto($conn, $username, $userprofile)
+{
+
+    $Name = $username;
+
+    // Select NIC from userregistration based on userName
+    $selectQuery = "SELECT NIC FROM userregistation WHERE userName = ?";
+    $selectStmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($selectStmt, $selectQuery)) {
+        header("Location:../HTML/indexUserProfile.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($selectStmt, "s", $Name);
+    mysqli_stmt_execute($selectStmt);
+    mysqli_stmt_bind_result($selectStmt, $nic);
+
+    if (mysqli_stmt_fetch($selectStmt)) {
+        // Check if NIC is not empty
+        if (!empty($nic)) {
+            mysqli_stmt_close($selectStmt);
+
+            $checkQuery = "SELECT * FROM userprofileid WHERE NIC = ?";
+            $checkStmt = mysqli_stmt_init($conn);
+
+            if (mysqli_stmt_prepare($checkStmt, $checkQuery)) {
+                mysqli_stmt_bind_param($checkStmt, "s", $nic);
+                mysqli_stmt_execute($checkStmt);
+                mysqli_stmt_store_result($checkStmt);
+
+                if (mysqli_stmt_num_rows($checkStmt) > 0) {
+                    // Update the existing record
+                    $updateQuery = "UPDATE userprofileid SET profilePhoto = ? WHERE NIC = ?";
+                    $updateStmt = mysqli_stmt_init($conn);
+
+                    if (mysqli_stmt_prepare($updateStmt, $updateQuery)) {
+                        mysqli_stmt_bind_param($updateStmt, "ss", $userprofile, $nic);
+                        mysqli_stmt_execute($updateStmt);
+                        mysqli_stmt_close($updateStmt);
+                    } else {
+                        // Handle statement preparation failure for UPDATE query
+                        header("Location:../HTML/indexUserProfile.php?error=stmtfailed");
+                        exit();
+                    }
+                } else {
+
+                    // Insert data into userhelp table
+                    $insertQuery = "INSERT INTO userprofileid (profilePhoto,NIC, userName) VALUES (?, ?, ?)";
+                    $insertStmt = mysqli_stmt_init($conn);
+
+                    if (mysqli_stmt_prepare($insertStmt, $insertQuery)) {
+                        mysqli_stmt_bind_param($insertStmt, "sss", $userprofile, $nic, $Name);
+                        mysqli_stmt_execute($insertStmt);
+                        mysqli_stmt_close($insertStmt);
+                    } else {
+                        // Handle statement preparation failure for INSERT query
+                        header("Location:../HTML/indexUserProfile.php?error=stmtfailed");
+                        exit();
+                    }
+                }
+
+                header("Location:../HTML/index.php?error=none");
+                exit();
+            } else {
+                // Handle statement preparation failure for SELECT query
+                header("Location:../HTML/indexUserProfile.php?error=stmtfailed");
+                exit();
+            }
+        } else {
+            // Handle the case where NIC is empty
+            header("Location:../HTML/indexUserProfile.php?error=emptyNIC");
+            exit();
+        }
+    } else {
+        // Handle the case where userName is not found
+        header("Location:../HTML/indexUserProfile.php?error=userNotFound");
+        exit();
+    }
 }
 
 ////////////Help
 
 
-function emptyInputHelp($massage, $name, $email) 
+function emptyInputHelp($massage, $name, $email)
 {
     $result = false;
-    if (empty($massage) || empty($name) || empty($email) ) {
+    if (empty($massage) || empty($name) || empty($email)) {
         $result = true;
     }
     return $result;

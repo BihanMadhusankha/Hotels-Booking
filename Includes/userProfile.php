@@ -21,7 +21,11 @@ if (isset($_POST["save"])) {
         exit();
     }
      
-    editProfile($conn,$fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword);
+    editProfile($conn,$fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword,$userprofile);
+    
+    addProfilePhoto($conn,$username,$userprofile);
+    updateProfile($conn,$nic);
+ 
    
 } else {
     header('location: ../HTML/index.php');
