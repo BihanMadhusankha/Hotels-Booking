@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@300;400;600&family=Montserrat:wght@300;400;600&family=Poppins:wght@200;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins" "Kalnia";
+  
+}
+
+form{
+    width: 42%;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.formin{
+    padding-left: 1.5rem;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    align-items: center;
+    height: 100vh;
+    background-color: #ccc;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(3px); 
+ 
+}
+label {
+    margin-bottom: 8px;
+    font-family: 'poppins';
+    padding-bottom: 10px;
+    font-size: 15px;
+    
+}
+
+
+textarea {
+  height: 45px;
+  width: 100;
+  box-sizing: border-box;
+  background-color:#f8f8f8;
+  resize:none;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  
+}
+
+
+ input[type=submit] {
+  height: 50px;
+  background-color:cadetblue;
+  border: none;
+  color: white;
+  padding: 0 16px ;
+  font-size: 1.25em;
+  font-family: 'poppins';
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  margin: 1rem 0;
+  margin-left: 40%;
+}

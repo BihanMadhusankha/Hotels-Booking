@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@300;400;600&family=Montserrat:wght@300;400;600&family=Poppins:wght@200;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins" "Kalnia";
+}
+
+h1{
+    margin:2rem 0rem ;
+    text-align:  center;
+    color: rgb(34, 3, 84);
+}
+
+body { 
+
+  margin: 4rem; 
+
+} 
+
+
+
+#formContainer { 
+
+  margin-bottom: 20px; 
+
+} 
+
+
+
+label { 
+
+  display: block; 
+
+  margin-top: 10px; 
+
+} 
+
+
+
+input, 
+
+textarea { 
+
+  width: 300px; 
+
+  padding: 8px; 
+
+  margin-top: 5px; 
+
+  border: 1px solid #ccc; 
+
+  border-radius: 4px; 
+
+} 
+
+
+
+button { 
+
+  margin: 10px; 
+
+  padding: 8px 16px; 
+
+  background-color: #4CAF50; 
+
+  color: #fff; 
+
+  border: none; 
+
+  border-radius: 4px; 
+
+  cursor: pointer; 
+
+} 
+
+
+
+button:hover { 
+
+  background-color: #45a049; 
+
+} 
+
+
+
+table { 
+
+  border-collapse: collapse; 
+
+  margin-bottom: 20px; 
+
+  width: 100%; 
+
+} 
+
+th, 
+
+td { 
+
+  border: 1px solid #ddd; 
+
+  padding: 8px; 
+
+  text-align: left; 
+
+} 
+th { 
+
+  background-color: #4CAF50; 
+
+  color: #fff; 
+
+}

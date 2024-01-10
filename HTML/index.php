@@ -144,6 +144,8 @@ session_start();
 
         </ul>
     </nav>
+<!-- navigation close -->
+
     <!-- about -->
 
     <section class="About">

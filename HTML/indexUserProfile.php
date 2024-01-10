@@ -150,9 +150,7 @@ session_start();
 
         </ul>
     </nav>
-
-
-
+    
     <form action="../Includes/userProfile.php" class="user-edit-form" method="POST">
 
         <fieldset>
