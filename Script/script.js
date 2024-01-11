@@ -13,12 +13,16 @@ function lookingHotel(){
 }
 
 function addHotel(){
-    window.open("../HTML/indexHotelRegistation.html");
+    window.open("../HTML/indexHotelRegistation.php");
 }
 
 function addData() { 
 
     // Get input values 
+    let photo = 
+
+        document.getElementById("photoInput").value; 
+
 
     let name = 
 
@@ -48,15 +52,17 @@ function addData() {
 
     // Insert data into cells of the new row 
 
-    newRow.insertCell(0).innerHTML = name; 
+    newRow.insertCell(0).innerHTML = photo; 
 
-    newRow.insertCell(1).innerHTML = email; 
+    newRow.insertCell(1).innerHTML = name; 
 
-    newRow.insertCell(2).innerHTML = mobile; 
+    newRow.insertCell(2).innerHTML = email; 
 
-    newRow.insertCell(3).innerHTML = address; 
+    newRow.insertCell(3).innerHTML = mobile; 
 
-    newRow.insertCell(4).innerHTML = 
+    newRow.insertCell(4).innerHTML = address; 
+
+    newRow.insertCell(5).innerHTML = 
 
         '<button onclick="editData(this)">Edit</button>'+ 
 
@@ -83,18 +89,25 @@ function editData(button) {
     
 
     // Get the cells within the row 
+    let photoCell = row.cells[0]; 
 
-    let nameCell = row.cells[0]; 
+    let nameCell = row.cells[1]; 
 
-    let emailCell = row.cells[1]; 
+    let emailCell = row.cells[2]; 
 
-    let mobileCell = row.cells[2]; 
+    let mobileCell = row.cells[3]; 
 
-    let addressCell = row.cells[3]; 
+    let addressCell = row.cells[4]; 
 
     
 
     // Prompt the user to enter updated values 
+
+    let photoInput = 
+
+        prompt("Enter the updated name:", 
+
+            photoCell.innerHTML); 
 
     let nameInput = 
 
@@ -128,6 +141,8 @@ function editData(button) {
 
     // Update the cell contents with the new values 
 
+    nameCell.innerHTML = photoInput;
+
     nameCell.innerHTML = nameInput; 
 
     emailCell.innerHTML = emailInput; 
@@ -158,7 +173,9 @@ function clearInputs() {
 
     
 
-    // Clear input fields 
+    // Clear input fields
+    
+    document.getElementById("photoInput").value = "";
 
     document.getElementById("nameInput").value = ""; 
 
@@ -169,7 +186,6 @@ function clearInputs() {
     document.getElementById("addressInput").value = ""; 
 
 }
-
 
 function submitForgotPasswordForm() {
     // Implement the logic for handling the forgot password form submission

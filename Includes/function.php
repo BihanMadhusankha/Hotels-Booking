@@ -119,7 +119,7 @@ function loginUser($conn, $username, $conformpassword)
 
 
         if ($uidExists['userRoole'] == "admin") {
-            header("Location:../HTML/index.php");
+            header("Location:../HTML/indexAdminMain.php");
             
         } else {
             header("Location:../HTML/index.php");
