@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -14,16 +12,14 @@
 
 <body>
 
-<nav>
+    <nav>
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
 
         <ul class="nav_list">
 
             <div class="login_regester" id="login_regester">
-
-                   <li><button id="addHotel" class="addHotel" href="addHotel()" onclick="addHotel( )">Add Hotels</button></li>
-                                  
-               
+                <li><a href="../HTML/indexUserList.php">User Panel</a></li>
+                <li><a href="../HTML/indexHotelList.php">Hotel Panel</a></li>
             </div>
 
         </ul>
@@ -33,27 +29,62 @@
     <h1>1 Star Hotel</h1>
     <h2>Add Hotel Details</h2>
 
+    <div class="container">
+        <button onclick="addHotel()">Add Hotels</button>
+    </div>
+
     <table id="outputTable">
-    <tr>
-        <th>Hotel Image</th>
-        <th>Hotel Name</th>
-        <th>Email</th>
-        <th>TELL</th>
-        <th>Address</th>
-        <th>Action</th>
-    </tr>
-    <tr>
-        <td><img src="path/to/uploaded/image.jpg" alt="Hotel Image"></td>
-        <td>Hotel Name 1</td>
-        <td>email@example.com</td>
-        <td>123-456-7890</td>
-        <td>Address 1</td>
-        <td><button>Edit</button> <button>Delete</button></td>
-    </tr>
+        <thead>
+            <tr>
+                <th>Hotel ID</th>
+                <th>Hotel Name</th>
+                <th>Hotel Email</th>
+                <th>Hotel Phone Number</th>
+                <th>Hotel Location</th>
+                <th>Additional Comment</th>
+                <th>Action</th>
+               
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <?php
+
+            session_start();
+ 
+            include_once '../Includes/db.php'; 
+            $sql = "SELECT * FROM hoteldata";
+            $result = mysqli_query($conn, $sql);
+
+            if ($result) {
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $hotelId = $row['hotelID'];
+                    $hotelName = $row['hotelName'];
+                    $hotelEmail = $row['hotelEmail'];
+                    $hotelPhoneNo = $row['hotelPhoneNo'];
+                    $hotelLocation = $row['hotelLocation'];
+                    $additionalComment = $row['additionalComment'];
+                   
+
+                    echo '  <tr>
+                       
+                       <td>' . $hotelId . '</td>
+                       <td>' . $hotelName . '</td>
+                       <td>' . $hotelEmail . '</td>
+                       <td>' . $hotelPhoneNo . '</td>
+                       <td>' . $hotelLocation . '</td>
+                       <td>' . $additionalComment . '</td>
+                       
+                       </tr>';
+                }
+            }
+            ?>
+
+        </tbody>
+
     </table>
-
-    <!-- Your existing script imports and other content -->
-
 </body>
 
 </html>

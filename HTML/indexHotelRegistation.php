@@ -34,7 +34,7 @@
                 <input type="text" name="location" id="addressInput" placeholder="Location"><br></br>
 
 
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label><b>Category:<b></label>
                     <select class="form-control" id="room_number">
                         <option value="1"> One Star </option>
@@ -45,7 +45,7 @@
                         <option value="6"> Six Star </option>
                         <option value="7"> Seven Star </option>
                     </select>
-                </div><br> -->
+                </div><br>
 
                 <div class="photo-upload">
                     <label for="photo"><b>Upload Hotel Photo:</label><b>

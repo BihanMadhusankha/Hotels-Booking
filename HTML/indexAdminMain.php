@@ -122,15 +122,8 @@
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
 
         <ul class="nav_list">
-
-            <div class="login_regester" id="login_regester">
-
-                <?php
-                if (isset($_SESSION["username"])) {
-                    echo '<li><a id="RegisterdUser" href="#"><h1>Hello ' . $_SESSION["username"] . ' !</h1></a></li>';
-                }
-                ?>
-            </div>
+            <li><a href="../HTML/indexUserList.php">User Panel</a></li>
+            <li><a href="../HTML/indexHotelList.php">Hotel Panel</a></li>
 
         </ul>
     </nav>
