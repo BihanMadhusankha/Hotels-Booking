@@ -1,0 +1,21 @@
+.row {
+    display: grid;
+    grid-auto-rows:minmax(200px, auto);
+    
+   
+    
+  }
+  
+  .coloum-img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+  
+  .coloum1-img{
+  margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+  
+  

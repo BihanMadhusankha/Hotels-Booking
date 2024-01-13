@@ -6,11 +6,11 @@
 
         // Check if the NIC value is not empty before proceeding
         if (!empty($nic)) {
-            $sql = "DELETE FROM userregistation WHERE NIC = '$nic'";
+            $sql = "DELETE FROM hoteldata WHERE  hotelID= '$nic'";
             $result = mysqli_query($conn, $sql);
 
             if($result){
-               header('Location:../HTML/indexUserList.php');
+               header('Location:../HTML/indexHotelList.php');
             } else {
                 echo 'Error deleting user: ' . mysqli_error($conn);
             }

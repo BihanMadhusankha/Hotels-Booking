@@ -361,3 +361,34 @@ function createHelp($conn, $massage, $email, $name)
         exit();
     }
 }
+
+
+// hotel signup
+
+
+function emptyInputHotelSignup($hotelname, $email, $phone, $location, $category, $photo, $comment)
+{
+    $result = false;
+    if (empty($hotelname) || empty($email) || empty($phone) || empty($location) || empty($category) ) {
+        $result = true;
+    }
+    return $result;
+}
+
+
+function createHotel($conn,$hotelname, $email, $phone, $location, $comment,$photo,$category)
+{
+    $sql  = "INSERT INTO hoteldata( hotelName,hotelEmail, hotelPhoneNo,hotelLocation,additionalComment,hotelPhoto,hotelCategory) VALUES (?,?,?,?,?,?,?) ;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location:../HTML/indexLogin.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "sssssss",$hotelname, $email, $phone, $location, $comment,$photo,$category);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("Location:../HTML/indexHotelList.php?error=none");
+    exit();
+}
+

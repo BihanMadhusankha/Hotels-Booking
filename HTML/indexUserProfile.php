@@ -133,7 +133,7 @@ session_start();
     <nav>
 
 
-        <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
+        <label  class="brand_name" for="Brand_name">ROYAL HOTELS</label>
 
         <ul class="nav_list">
 

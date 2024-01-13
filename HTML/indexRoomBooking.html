@@ -1,0 +1,398 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+  
+
+<head> 
+
+    <meta charset="UTF-8"> 
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0"> 
+    <title>Online Payment-Page</title> 
+    <link rel="stylesheet" href="../CSS/styleRoomBooking.css"> 
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .side-bar {
+            background-color: #e3ebf4;
+
+            width: 250px;
+            left: -250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            overflow-y: auto;
+            transition: 0.6s ease;
+            transition-property: left;
+        }
+
+        header {
+            background-color: #bdcee3;
+
+        }
+
+        .close-btn {
+            position: absolute;
+            color: #fff;
+            font-size: 23px;
+            right: 0px;
+            margin: 15px;
+            cursor: pointer;
+        }
+
+        header h1 {
+            text-align: center;
+            font-weight: 500;
+            font-size: 35px;
+            padding: 20px;
+            font-family: sans-serif;
+            letter-spacing: 2px;
+            color: #010101;
+        }
+
+        .menu {
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .menu .item {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .menu .item a {
+            color: #008e45;
+            font-size: 16px;
+            text-decoration: none;
+            display: block;
+            padding: 5px 30px;
+            line-height: 60px;
+        }
+
+        .item i {
+            margin-right: 15px;
+        }
+
+        .menu-btn {
+            position: absolute;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 30px 10px;
+        }
+
+        .side-bar.active {
+            left: 0;
+        }
+    </style>
+   
+</head> 
+
+<body> 
+
+  
+        <!-- menu-btn -->
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+      </div>
+
+      <div class="side-bar">
+          <!-- header section -->
+          <header>
+              <!-- close button -->
+              <div class="close-btn">
+                  <i class="fas fa-times"></i>
+              </div>
+              <h1>MENU</h1>
+          </header>
+          <!-- menu item -->
+
+          <div class="menu">
+
+              <div class="item"><a href="../HTML/index.php"><i class="fas fa-home"></i>Home</a></div>
+              <div class="item"><a href="#"><i class="fas fa-th"></i>Analytics</a></div>
+              <div class="item"><a href="../HTML/indexUserProfile.php"><i class="fas fa-user"></i>Profile</a></div>
+              <div class="item"><a href="../HTML/indexHelp.php"><i class="fas fa-hands-helping"></i>Help</a></div>
+              <div class="item"><a href="../HTML/indexAboutUs.html"><i class="fas fa-info-circle"></i>About</a></div>
+              <div class="item"><a href="../Includes/loginout.php"><i class="fas fa-sign-out">Log Out</i></a></div>
+
+          </div>
+
+      </div>
+
+    <!-- navigation  -->
+    <nav>
+        <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
+
+    </nav>
+<!-- navigation close -->
+
+<div class="cart">
+    <h1>Shopping Cart</h1>
+  
+<img src="../assets/booking/cart.png" alt="Description" width="30" height="30">
+</div>
+
+<div class="shopping-cart">
+
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+
+  <div class="product">
+    <div class="product-image">
+      <img src="../assets/booking/mondrian_los_angeles_-_skybar_pool1.png">
+    </div>
+    <div class="product-details">
+      <div class="product-title">Pool Access</div>
+      
+    </div>
+    <div class="product-price">75</div>
+    <div class="product-quantity">
+      <input type="number" value="2" min="1">
+    </div>
+    <div class="product-removal">
+      <button class="remove-product">
+        Remove
+      </button>
+    </div>
+    
+  </div>
+
+  <div class="product">
+    <div class="product-image">
+      <img src="../assets/booking/HD-wallpaper-furniture-bar-piano-alcohol-drinks-the-hotel-berlin-bristol-kempinski-for-section-интерь.jpg">
+    </div>
+    <div class="product-details">
+      <div class="product-title">Bar & Spa</div>
+      
+    </div>
+    <div class="product-price">74</div>
+    <div class="product-quantity">
+      <input type="number" value="1" min="1">
+    </div>
+    <div class="product-removal">
+      <button class="remove-product">
+        Remove
+      </button>
+    </div>
+    
+  </div>
+
+  <div class="totals">
+    <div class="totals-item">
+      <label>Subtotal</label>
+      <div class="totals-value" id="cart-subtotal">71.97</div>
+    </div>
+    <div class="totals-item">
+      <label>Tax (5%)</label>
+      
+      <div class="totals-value" id="cart-tax">3.60</div>
+    </div>
+    
+    <div class="totals-item totals-item-total">
+      <label>Grand Total</label>
+      <div class="totals-value" id="cart-total">90.57</div>
+    </div>
+  </div>
+      
+      <button class="checkout">Checkout</button>
+
+</div>
+
+
+    <div class="container"> 
+        <form method = "get" action ="test.php"> 
+
+            <div class="row"> 
+                <div class="col"> 
+                   
+                        
+
+                    <h3 class="title"> Billing Address</h3> 
+
+                    <div class="inputBox"> 
+                        <label for="name">  Full Name: </label>
+                        <input type="text" id="name"  placeholder="Enter your full name"  required>
+                    </div> 
+
+  
+                    <div class="inputBox"> 
+                        <label for="email">Email: </label> 
+                        <input type="email" id="email" placeholder="Enter email address" required>
+                     </div> 
+
+  
+
+                    <div class="inputBox"> 
+                        <label for="address"> Address: </label>  
+                        <input type="text" id="address" placeholder="Enter address"  required> 
+                    </div> 
+
+  
+
+                    <div class="inputBox"> 
+                        <label for="city"> City:</label> 
+                        <input type="text" id="city"placeholder="Enter city" required>       
+                    </div> 
+
+  
+
+                    <div class="flex"> 
+                        <div class="inputBox"> 
+                            <label for="state"> State: </label>   
+                            <input type="text" id="state" placeholder="Enter state" required>  
+                        </div> 
+
+  
+
+                        <div class="inputBox"> 
+                            <label for="zip">  Zip Code:</label> 
+                             <input type="text" id="zip"  placeholder="123 456" required>
+                        </div> 
+                    </div> 
+
+  
+
+                </div> 
+
+                <div class="col"> 
+
+                    <h3 class="title">Payment</h3> 
+
+                    <div class="inputBox"> 
+                        <label for="name"> Card Accepted:</label>  
+
+                        <img src="../assets/booking/paymenttype.jpg" alt="credit/debit card image"> 
+                    </div> 
+
+  
+
+                    <div class="inputBox"> 
+                        <label for="cardName">  Name On Card: </label>    
+                        <input type="text" id="cardName"  placeholder="Enter card name"required> 
+                    </div> 
+
+  
+
+                    <div class="inputBox"> 
+                        <label for="cardNum"> Credit Card Number:</label>      
+                        <input type="text" id="cardNum"  placeholder="1111-2222-3333-4444"maxlength="18" required> 
+                    </div> 
+
+  
+
+                    <div class="inputBox"> 
+                        <label for="">Exp Month:</label> 
+                        <select name="ExpMonth" id="ExpMonth"> 
+                            <option value="chooseMonth">Choose month</option> 
+                            <option value="January">January</option> 
+                            <option value="February">February</option> 
+                            <option value="March">March</option> 
+                            <option value="April">April</option> 
+                            <option value="May">May</option> 
+                            <option value="June">June</option> 
+                            <option value="July">July</option> 
+                            <option value="August">August</option> 
+                            <option value="September">September</option> 
+                            <option value="October">October</option> 
+                            <option value="November">November</option> 
+                            <option value="December">December</option> 
+                        </select> 
+
+                    </div> 
+
+  
+                    <div class="flex"> 
+                        <div class="inputBox"> 
+                            <label for="">Exp Year:</label> 
+                            <select name="expYear" id="expYear"> 
+                                <option value="chooseYear">Choose Year</option> 
+                                <option value="2023">2023</option> 
+                                <option value="2024">2024</option> 
+                                <option value="2025">2025</option> 
+                                <option value="2026">2026</option> 
+                                <option value="2027">2027</option> 
+                            <option value="2028">2028</option>
+                            </select> 
+                        </div> 
+
+  
+                        <div class="inputBox"> 
+                            <label for="cvv">CVV:</label> 
+                            <input type="text" id="cvv"placeholder="1234" required>  
+                        </div>
+
+                    </div> 
+
+  
+
+                </div> 
+
+  
+
+            </div> 
+
+  
+
+            <input type="submit" value="Pay"  class="submit_btn"> 
+
+                    
+
+        </form> 
+
+  
+
+    </div> 
+
+    <footer>
+
+      <div class="footer_option">
+          <div class="option_one">
+              <a href="#">Countries</a>
+              <a href="#">Distric</a>
+              <a href="#">Home</a>
+          </div>
+          <div class="option_two">
+      
+              <a href="#">Hotels</a>
+              <a href="#">Villas</a>
+              <a href="#">Resorts</a>
+          </div>
+      
+          <div class="option_three">
+              <a href="#">Reviews</a>
+              <a href="#">Safty Resourse Center</a>
+              <a href="#">About RoyalGroup.com</a>
+          </div>
+      
+      </div>
+      </footer>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      
+      <script>
+      $(document).ready(function() {
+          $('.menu-btn').click(function() {
+              $('.side-bar').addClass('active');
+              $('.menu-btn').css("visibility", "hidden");
+          });
+      
+          //close button
+      
+          $('.close-btn').click(function() {
+              $('.side-bar').removeClass('active');
+              $('.menu-btn').css("visibility", "visible");
+          });
+      })
+      </script>
+   
+</body>
+
+</html>

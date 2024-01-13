@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +21,7 @@
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
     </nav>
 
-    <form method="POST" action="../HTML/indexHotelList.php" onsubmit="addData(); return false;">
+    <form method="POST" action="../Includes/hotelRegistation.php" onsubmit="addData(); return false;">
         <fieldset>
             <h2 style="text-align: center; margin: 1rem 0; color:#fff;">Hotel Registration Form</h2><br>
             <div class="formin">
@@ -36,7 +40,7 @@
 
                 <div class="form-group">
                     <label><b>Category:<b></label>
-                    <select class="form-control" id="room_number">
+                    <select class="form-control" name="category" id="room_number">
                         <option value="1"> One Star </option>
                         <option value="2"> Two Star </option>
                         <option value="3"> Three Star </option>
@@ -53,37 +57,13 @@
                         
                 </div>
 
-                <!-- <br>
-
-
-                <div class="room-group">
-                    <label><b>Additional Facility:</b></label><br><br>
-                    
-                    <input type="checkbox" name="session value" value="1"> Dining
-                    Restaurant
-
-                    <input type="checkbox" name="session value" value="2"> 24-hour front
-                    desk service
-
-                    <input type="checkbox" name="session value" value="1"> Pool
-
-
-                    <input type="checkbox" name="session value" value="1">Bars
-
-
-                    <input type="checkbox" name="session value" value="1">Spa
-
-
-                    <input type="checkbox" name="session value" value="1">JYM
-
-
-                </div> -->
+               
                 <br>
 
                 <label for="Name">Additional Comments:</label><br>
                 <textarea id="comment" name="comment"></textarea><br>
 
-                <button type="button" onclick="addData()">Add New Room</button>    
+                <button type="submit" name="submit" >Add New Hotels</button>    
         </fieldset>
     </form>
 

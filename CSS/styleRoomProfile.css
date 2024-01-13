@@ -5,55 +5,11 @@
     font-family: 'Josefin Sans',sans-serif;
 }
 fieldset{
+    
+    margin: 2rem;
     height: 48rem;
 }
 
-.first-flex-use{
-    display: flex;
-    flex-direction: row;
-    background-color:#77BFFE;
-    justify-content: center;
-   align-items: center;
-   padding: 1rem 2rem;
-   
-}
-
-.logo{
-    
-    margin-left: 3.5rem;
-    font-size: 35px;
-    
-    color: white;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-.nav_item{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-left: 40rem;
-    gap: 3rem; 
-    margin-top: 1rem;
-   
-}
-.main_list ul li a{
-    
-    text-decoration: none;
-    color: white;
-    
-}
-
-.main_list ul{
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
-    font-size: 20px;
-    list-style: none;
-    
-}
-
-.option_botton{
-    gap: 1rem;
-}
 header{
     text-align: center;
     letter-spacing: 5px;
@@ -62,7 +18,8 @@ header{
 }
 
 body {
-    background: #07545e;
+    background: #bce4d1;
+   
 }
 
 .wrapper{
@@ -76,16 +33,7 @@ body {
     display: flex;
     box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
 }
-.wrapper .left{
-    width: 80%;
-    height: 120%;
-    background: linear-gradient(to right, #01a9ac, #01dbdf);
-    padding: 30px 25px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    text-align: center;
-    color: #fff;
-}
+
 
 .wrapper .left h4{
     margin-bottom: 10px;
@@ -127,7 +75,7 @@ button{
     margin-left: 20rem;
     margin-bottom: 10px;
     border: 1px solid #3498db;
-    background-color: rgb(72, 215, 233);
+    background-color: rgb(52, 207, 122);
     color: white;
     height: 40px;
     width: 100px;

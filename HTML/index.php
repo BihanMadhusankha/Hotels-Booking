@@ -116,6 +116,7 @@ session_start();
             <div class="item"><a href="#"><i class="fas fa-th"></i>Analytics</a></div>
             <div class="item"><a href="../HTML/indexUserProfile.php"><i class="fas fa-user"></i>Profile</a></div>
             <div class="item"><a href="../HTML/indexHelp.php"><i class="fas fa-hands-helping"></i>Help</a></div>
+            <div class="item"><a href="../HTML/indexAboutUs.html"><i class="fas fa-info-circle"></i>About</a></div>
             <div class="item"><a href="../Includes/loginout.php"><i class="fas fa-sign-out">Log Out</i></a></div>
            
         </div>
@@ -164,12 +165,12 @@ session_start();
 
     <!-- search Bar -->
     <div class="container">
-        <form action="php file ek liyn thana" method="post" class="search-bar">
-            <input type="text" placeholder="Search Hotel or Cuntry" name="q">
-            <button type="submit"><img src="/assets/search.png" alt=""></button>
+        <form action="../Includes/search.php" method="post" class="search-bar">
+            <input type="text" placeholder="Search Hotel or Cuntry" name="search">
+            <button type="submit" name="submit"><img src="/assets/search.png" alt=""></button>
         </form>
     </div>
-
+<!-- over search bar -->
 
     <!-- select category-->
 
@@ -181,20 +182,21 @@ session_start();
 
                 <img src="../assets/onestar.png" alt="Leader images">
                 <h1><a href="#"><samp>★</samp>★★★★★★</a></h1>
-                <button type="menu" id="star_button">Continue</button>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
+                
 
             </div>
             <div class="star_rate">
 
                 <img src="../assets/2star.jpg" alt="Leader images">
                 <h1><a href="#"><samp>★★</samp>★★★★★</a></h1>
-                <button type="menu" id="star_button">Continue</button>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
             </div>
             <div class="star_rate">
 
                 <img src="../assets/threestar.png" alt="Leader images">
                 <h1><a href="#"><samp>★★★</samp>★★★★</a></h1>
-                <button type="menu" id="star_button">Continue</button>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
 
             </div>
 
@@ -202,28 +204,28 @@ session_start();
 
                 <img src="../assets/fourstar.png" alt="Leader images">
                 <h1><a href="#"><samp>★★★★</samp>★★★</a></h1>
-                <button type="menu" id="star_button">Continue</button>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
 
             </div>
             <div class="star_rate">
 
                 <img src="../assets/fivestar.jpg" alt="Leader images">
                 <h1><a href="#"><samp>★★★★★</samp>★★</a></h1>
-                <button type="menu" id="star_button">Continue</button>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
 
             </div>
             <div class="star_rate">
 
                 <img src="../assets/sixstasr.png" alt="Leader images">
                 <h1><a href="#"><samp>★★★★★★</samp>★</a></h1>
-                <button type="menu" id="star_button">Continue</button>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
 
             </div>
             <div class="star_rate">
 
                 <img src="../assets/sevenstar.jpg" alt="Leader images">
                 <h1><a href="#"><samp>★★★★★★★</samp></a></h1>
-                <button type="menu" id="star_button">Continue</button>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
 
             </div>
 
@@ -240,9 +242,9 @@ session_start();
         <div class="leader-image-data">
             <div class="leader-image">
 
-                <a href="../HTML/indexHotelprofile.php" onclick="lookingHotel()"><img src="../assets/Trending1.jpg" alt="Leader images"></a>
+                <a href="../HTML/indexHotelprofile.php" ><img src="../assets/Trending1.jpg" alt="Leader images"></a>
                 <div class="treanding_hotel_delais">
-                    <h2><a href="../HTML/indexHotelprofile.php" onclick="lookingHotel()">ROYAL COLOMBO</a></h2>
+                    <h2><a href="../HTML/indexHotelprofile.php" >ROYAL COLOMBO</a></h2>
                     <h2 id="status">Available</2>
                         <h2 id="star"><samp>★★★★★★★</samp></h2>
                 </div>
@@ -250,9 +252,9 @@ session_start();
             </div>
             <div class="leader-image">
 
-                <a href="../HTML/indexHotelprofile.php" onclick="lookingHotel()"><img src="../assets/trendind2.jpg" alt="Leader images" href="lookingHotel()" onclick="lookingHotel()"></a>
+                <a href="../HTML/indexHotelprofile.php"><img src="../assets/trendind2.jpg" alt="Leader images" ></a>
                 <div class="treanding_hotel_delais">
-                    <h2><a href="../HTML/indexHotelprofile.php" onclick="lookingHotel()">ROYAL GALLE</a></h2>
+                    <h2><a href="../HTML/indexHotelprofile.php">ROYAL GALLE</a></h2>
                     <h2 id="status">Available</2>
                         <h2 id="star"><samp>★★★★★★★</samp></h2>
                 </div>
@@ -260,9 +262,9 @@ session_start();
             </div>
             <div class="leader-image">
 
-                <a href="../HTML/indexHotelprofile.php" onclick="lookingHotel()"><img src="../assets/trending3.jpg" alt="Leader images" href="lookingHotel()" onclick="lookingHotel()"></a>
+                <a href="../HTML/indexHotelprofile.php" ><img src="../assets/trending3.jpg" alt="Leader images" ></a>
                 <div class="treanding_hotel_delais">
-                    <h2><a href="../HTML/indexHotelprofile.php" onclick="lookingHotel()">ROYAL NEGOMBO</a></h2>
+                    <h2><a href="../HTML/indexHotelprofile.php">ROYAL NEGOMBO</a></h2>
                     <h2 id="status">Available</2>
                         <h2 id="star"><samp>★★★★★★★</samp></h2>
 
