@@ -80,6 +80,16 @@
             .side-bar.active {
                 left: 0;
             }
+
+            .allCategory {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .allCategory .row{
+                display: flex;
+                flex-direction: row;
+            }
         </style>
     </head>
 
@@ -119,106 +129,219 @@
             <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
 
         </nav>
+        <div class="allCategory">
+            <div class="row" style="margin-left: 4rem;">
+                <?php
+                include_once '../Includes/db.php';
+                echo '<h1>One Star Category</h1>';
+                $sql = "SELECT * FROM hoteldata WHERE hotelCategory= 1";
+                $result = mysqli_query($conn, $sql);
 
-        <div class="row" style="margin-left: 4rem;">
-        <?php
-if(isset($_POST['menu'])) {
-    include_once('../Includes/db.php');
+                if ($result) {
+                    
+                    
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $hotelName = $row['hotelName'];
+                        $hotelCategory = $row['hotelCategory'];
+                        $hotelPhoto = $row['hotelPhoto'];
 
-    $hotelCategory = $_POST['menu'];
-
-    $query = "SELECT * FROM hoteldata WHERE hotelCategory  = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $hotelCategory);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    echo '<div class="row">';
-    while ($row = $result->fetch_assoc()) {
-        echo '<div class="coloum">';
-        echo '<a href="../HTML/indexHotelprofile.php">';
-        echo '<h2>1 Star Hotel</h2>';
-        echo '<div class="image">';
-        echo '<img src="' . $row['imagePath'] . '" width="270px" height="200px" ;>';
-        echo '</div>';
-        echo '</a>';
-        echo '</div>';
-    }
-    echo '</div>';
-
-    $stmt->close();
-    $conn->close();
-}
-?>
+                        echo '
+                            <div class="coloum">
+                                <a href="../HTML/indexHotelprofile.php">
+                                    <h2>' . $hotelName . ' </h2>
+                                    <div class="image">
+                                        <img src="../assets/userprofilePic/' . $hotelPhoto . '" width="270px" height="200px" ;>
+                                    </div>
+                                </a>
+                            </div>
+                        ';
+                    }
+                }
 
 
-        
-            <div class="coloum">
-                <a href="../HTML/indexHotelprofile.php">
-                    <h2></h2>
-                    <div class="image">
-
-                        <img src="../assets/room1.jpeg" width="270px" height="200px" ;>
-                        
-                    </div>
-                </a>
+                ?>
             </div>
-            <div class="coloum">
-                <a href="../HTML/indexHotelprofile.php">
-                    <h2>2 Star Hotel</h2>
-                    <div class="image">
+            <div class="row" style="margin-left: 4rem;">
+                <?php
+                include_once '../Includes/db.php';
 
-                        <img src="../assets/room4.jpeg" width="270px" height="200px" ;>
-                    </div>
-                </a>
-            </div>
-            <div class="coloum">
-                <a href="../HTML/indexHotelprofile.php">
-                    <h2>3 Star Hotel</h2>
-                    <div class="image">
+                $sql = "SELECT * FROM hoteldata WHERE hotelCategory= 2";
+                $result = mysqli_query($conn, $sql);
 
-                        <img src="../assets/room2.jpeg" width="270px" height="200px" ;>
-                        
-                    </div>
-                </a>
-            </div>
+                if ($result) {
+                    echo '<h1>Two Star Category</h1>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $hotelName = $row['hotelName'];
+                        $hotelCategory = $row['hotelCategory'];
+                        $hotelPhoto = $row['hotelPhoto'];
 
-            <div class="coloum">
-                <a href="../HTML/indexHotelprofile.php">
-                    <h2>4 Star Hotel</h2>
-                    <div class="image">
-                        <img src="../assets/room3.jpeg" width="270px" height="200px" ;>
-                    </div>
-                </a>
-            </div>
-            <div class="coloum">
-                <a href="../HTML/indexHotelprofile.php">
-                    <h2>5 Star Hotel</h2>
-                    <div class="image">
-                        <img src="../assets/room4.jpeg" width="270px" height="200px" ;>
-                    </div>
-                </a>
-            </div>
+                        echo '
+                            <div class="coloum">
+                                <a href="../HTML/indexHotelprofile.php">
+                                    <h2>' . $hotelName . ' </h2>
+                                    <div class="image">
+                                        <img src="../assets/userprofilePic/' . $hotelPhoto . '" width="270px" height="200px" ;>
+                                    </div>
+                                </a>
+                            </div>
+                        ';
+                    }
+                }
 
-            <div class="coloum">
-                <a href="../HTML/indexHotelprofile.php">
-                    <h2>6 Star Hotel</h2>
-                    <div class="image">
 
-                        <img src="../assets/room1.jpeg" width="270px" height="200px" ;>
-                        
-                    </div>
-                </a>
+                ?>
             </div>
-            <div class="coloum">
-                <a href="../HTML/indexHotelprofile.php">
-                    <h2>7 Star Hotel</h2>
-                    <div class="image">
-                        <img src="../assets/room2.jpeg" width="270px" height="200px" ;>
-                    </div>
-                </a>
-            </div>
+            <div class="row" style="margin-left: 4rem;">
+                <?php
+                include_once '../Includes/db.php';
 
+                $sql = "SELECT * FROM hoteldata WHERE hotelCategory= 3";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result) {
+                    echo '<h1>Three Star Category</h1>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $hotelName = $row['hotelName'];
+                        $hotelCategory = $row['hotelCategory'];
+                        $hotelPhoto = $row['hotelPhoto'];
+
+                        echo '
+                            <div class="coloum">
+                                <a href="../HTML/indexHotelprofile.php">
+                                    <h2>' . $hotelName . ' </h2>
+                                    <div class="image">
+                                        <img src="../assets/userprofilePic/' . $hotelPhoto . '" width="270px" height="200px" ;>
+                                    </div>
+                                </a>
+                            </div>
+                        ';
+                    }
+                }
+
+
+                ?>
+            </div>
+            <div class="row" style="margin-left: 4rem;">
+                <?php
+                include_once '../Includes/db.php';
+
+                $sql = "SELECT * FROM hoteldata WHERE hotelCategory= 4";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result) {
+                    echo '<h1>Four Star Category</h1>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $hotelName = $row['hotelName'];
+                        $hotelCategory = $row['hotelCategory'];
+                        $hotelPhoto = $row['hotelPhoto'];
+
+                        echo '
+                            <div class="coloum">
+                                <a href="../HTML/indexHotelprofile.php">
+                                    <h2>' . $hotelName . ' </h2>
+                                    <div class="image">
+                                        <img src="../assets/userprofilePic/' . $hotelPhoto . '" width="270px" height="200px" ;>
+                                    </div>
+                                </a>
+                            </div>
+                        ';
+                    }
+                }
+
+
+                ?>
+            </div>
+            <div class="row" style="margin-left: 4rem;">
+
+                <?php
+                include_once '../Includes/db.php';
+
+                $sql = "SELECT * FROM hoteldata WHERE hotelCategory= 5";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result) {
+                    echo '<h1>Five Star Category</h1>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $hotelName = $row['hotelName'];
+                        $hotelCategory = $row['hotelCategory'];
+                        $hotelPhoto = $row['hotelPhoto'];
+
+                        echo '
+                            <div class="coloum">
+                                <a href="../HTML/indexHotelprofile.php">
+                                    <h2>' . $hotelName . ' </h2>
+                                    <div class="image">
+                                        <img src="../assets/userprofilePic/' . $hotelPhoto . '" width="270px" height="200px" ;>
+                                    </div>
+                                </a>
+                            </div>
+                        ';
+                    }
+                }
+
+
+                ?>
+            </div>
+            <div class="row" style="margin-left: 4rem;">
+                <?php
+                include_once '../Includes/db.php';
+
+                $sql = "SELECT * FROM hoteldata WHERE hotelCategory= 6";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result) {
+                    echo '<h1>Six Star Category</h1>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $hotelName = $row['hotelName'];
+                        $hotelCategory = $row['hotelCategory'];
+                        $hotelPhoto = $row['hotelPhoto'];
+
+                        echo '
+                            <div class="coloum">
+                                <a href="../HTML/indexHotelprofile.php">
+                                    <h2>' . $hotelName . ' </h2>
+                                    <div class="image">
+                                        <img src="../assets/userprofilePic/' . $hotelPhoto . '" width="270px" height="200px" ;>
+                                    </div>
+                                </a>
+                            </div>
+                        ';
+                    }
+                }
+
+
+                ?>
+            </div>
+            <div class="row" style="margin-left: 4rem;">
+                <?php
+                include_once '../Includes/db.php';
+
+                $sql = "SELECT * FROM hoteldata WHERE hotelCategory= 7";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result) {
+                    echo '<h1>Seven Star Category</h1>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $hotelName = $row['hotelName'];
+                        $hotelCategory = $row['hotelCategory'];
+                        $hotelPhoto = $row['hotelPhoto'];
+
+                        echo '
+                            <div class="coloum">
+                                <a href="../HTML/indexHotelprofile.php">
+                                    <h2>' . $hotelName . ' </h2>
+                                    <div class="image">
+                                        <img src="../assets/userprofilePic/' . $hotelPhoto . '" width="270px" height="200px" ;>
+                                    </div>
+                                </a>
+                            </div>
+                        ';
+                    }
+                }
+
+
+                ?>
+            </div>
         </div>
 
         <!-- fotter -->

@@ -158,8 +158,6 @@ session_start();
             <center>
                 <?php
                 require_once '../Includes/db.php';
-
-                // Assuming you have the user's NIC stored in $_SESSION['nic']
                 $logged_in_nic = $_SESSION['nic'];
                 
                 $sql = "SELECT * FROM userprofileid WHERE NIC = ?";
@@ -170,19 +168,18 @@ session_start();
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $profileID, $profilePhoto, $nic, $username);
                 
-                    // Fetch the data for the logged-in user
+                   
                     if (mysqli_stmt_fetch($stmt)) {
-                        // Output the HTML for the user's profile photo
-                        echo '<img src="../assets/userprofilePic/' . $profilePhoto . '" class="img" name="images">';
+                        
+                        echo '<img src="../assets/userprofilePic/' .$profilePhoto.'" class="img" name="images">
+                        <input type="file" id="file" name="file" value="'.$profilePhoto.'">
+                <label class="editpic" for="file">Add Profile</label>';
                     }
                 
                     mysqli_stmt_close($stmt);
                 }
                 ?>
 
-                
-                <input type="file" id="file" name="file">
-                <label class="editpic" for="file">Add Profile</label>
                 <input type="text" id="fullname" placeholder="Full Name" name="fullname" value="<?php echo  $_SESSION["fullname"] ?>">
                 <input type="text" id="username" placeholder="User Name" name="username" value="<?php echo  $_SESSION["username"] ?>">
                 <input type="email" placeholder="Enter your email" name="email" value="<?php echo  $_SESSION["email"] ?>">

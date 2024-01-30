@@ -20,14 +20,7 @@ session_start();
     <nav>
 
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
-        <ul class="nav_list">
-
-            <div class="nav_list_tem">
-                <li id="list_property"><a href="#">List your property</a></li>
-                <li id="analys"><a href="#">Analys</a></li>
-            </div>
-
-        </ul>
+       
     </nav>
     <div class="Login_screan">
 
@@ -40,8 +33,7 @@ session_start();
                     <input type="password" placeholder=Password name="loginpassword"><br><br>
                 </div>
 
-
-                <a href="#">Forget Password?</a><br>
+                <a href="../HTML/indexForgot.html">Forget Password?</a>
 
                 <input type="submit" id="button-login" name="submit" value="Log in" button-align="center" onclick="comeHome()"><br>
 

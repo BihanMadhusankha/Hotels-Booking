@@ -19,7 +19,7 @@
 
             <div class="login_regester" id="login_regester">
                 <li><a href="../HTML/indexUserList.php">User Panel</a></li>
-                <li name='hotelpanel'><a href="../HTML/indexHotelList.php">Hotel Panel</a></li>
+                <li name='hotelpanel'><a href="../HTML/indexAdminMain.php">Hotel Panel</a></li>
             </div>
 
         </ul>

@@ -1,95 +1,78 @@
 *{
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "segoe ui", verdana, helvetica, arial, sans-serif;
-    font-size: 16px;
-    transition: all 500ms ease; 
-  }
-  
-  body {
+    
+}
+body {
+    background-color: rgba(10, 10, 235, 0.24);
+    
+}
+
+.forgotfull{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f1f1f1;
+    background-color: rgba(153, 0, 255, 0.628);
+    width: 1100px;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 20px;
+    
 }
 
-.container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 
-.card {
-    width: 300px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    display: none;
-}
-
-.card.show {
-    display: block;
-}
-
-h2 {
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.subtext {
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #666;
-}
-
-label {
-    display: block;
-    text-align: left;
-    margin-bottom: 8px;
-    color: #555;
-}
-
-input {
-    width: 100%;
+.forgotimg{
+    flex: 50%;
+    width: 500px;
+    height: 500px;
     padding: 10px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-left: 20px;
 }
 
-button {
-    padding: 12px;
-    background-color: #007BFF;
-    color: #fff;
+.FFF{
+    font-size: 67px;
+    color: white;
+}
+
+.emailaddress{
+    color: rgb(15, 15, 15);
+}
+
+.emailbox{
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
     border: none;
+    
+}
+
+.submitbox{
+    width: 255px;
+    height: 30px;
     border-radius: 5px;
+    background-color: rgb(13, 224, 13);
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    border: none;
+ 
+}
+
+.submitbox:hover{
+    background-color: rgb(218, 13, 250);
+    animation:forwards 2ms;
+    border: darkorange;
+    transform:scale(1.03);
+    transition:transform 0.5 seconds;
     cursor: pointer;
-    width: 100%;
+    border: rgb(7, 7, 245);
+
 }
 
-button:hover {
-    background-color: #0056b3;
+.forgotpassword{
+    flex: 50%;
+    margin: auto;
+    margin-left: 90px;
 }
 
-.error-message {
-    color: red;
-    margin-top: -5px;
-    margin-bottom: 15px;
-}
-
-.switch-link {
-    color: #007BFF;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.switch-link:hover {
-    text-decoration: underline;
+.login{
+    margin-left: 115px;
+   
 }

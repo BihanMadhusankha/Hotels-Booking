@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/styleHoProfile.css">
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Royal Hotel</title>
 </head>
 
@@ -47,11 +48,14 @@
         <div class="rooms">
 
             <div class="room-details">
+                <a href="../HTML/indexRoomProfile.html">
                 <img src="../assets/room1.jpeg" alt="">
                 <h3>Standard Room</h3>
                 <p>Standard Room</p>
                 <h4>Rs. 1000</h4>
                 <a href="../HTML/indexRoomBooking.html"><button type="submit">BOOK ROOM</button></a>
+                </a>
+                
 
             </div>
 

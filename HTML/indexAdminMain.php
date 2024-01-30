@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,12 +82,63 @@
         .side-bar.active {
             left: 0;
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@300;400;600&family=Montserrat:wght@300;400;600&family=Poppins:wght@200;400;500;600&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "poppins" "Kalnia";
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .image-container a {
+            text-align: center;
+            flex: 0 1 calc(33.33% - 20px);
+            margin: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .image-container label {
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .image-container a {
+                flex: 0 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-container a {
+                flex: 0 1 calc(100% - 20px);
+            }
+        }
     </style>
 </head>
 
 <body>
 
-  
+
     <!-- menu-btn -->
     <div class="menu-btn">
         <i class="fas fa-bars"></i>
@@ -104,86 +154,79 @@
             <h1>MENU</h1>
         </header>
         <!-- menu item -->
-       
+
         <div class="menu">
-        
+
             <div class="item"><a href="../HTML/index.php"><i class="fas fa-home"></i>Home</a></div>
             <div class="item"><a href="#"><i class="fas fa-th"></i>Analytics</a></div>
             <div class="item"><a href="../HTML/indexUserProfile.php"><i class="fas fa-user"></i>Profile</a></div>
             <div class="item"><a href="../HTML/indexHelp.php"><i class="fas fa-hands-helping"></i>Help</a></div>
             <div class="item"><a href="../Includes/loginout.php"><i class="fas fa-sign-out">Log Out</i></a></div>
-           
+
         </div>
-      
+
     </div>
-   
+
     <!-- navigation  -->
     <nav>
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
 
         <ul class="nav_list">
             <li><a href="../HTML/indexUserList.php">User Panel</a></li>
-            <li><a href="../HTML/indexHotelList.php">Hotel Panel</a></li>
+            <li><a href="../HTML/indexAdminMain.php">Hotel Panel</a></li>
 
         </ul>
     </nav>
     <!-- navigation close -->
 
     <div class="image-container">
-
         <a href="../HTML/indexHotelList.php">
 
             <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
-            <br<br>
-                <label><b>1 Star Hotel</b></label>
-        </a>
-
-
-        <a href="../HTML/indexHotelList.php">
-
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
-            <br<br>
-                <label><b>2 Star Hotel</b></label>
-        </a>
-
-
-
-        <a href="../HTML/indexHotelList.php">
-
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
-            <br<br>
-                <label><b>3 Star Hotel</b></label>
-        </a>
-
-
-        <a href="../HTML/indexHotelList.php">
-
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
-            <br<br>
-                <label><b>4 Star Hotel</b></label>
-        </a>
-
-
-        <a href="../HTML/indexHotelList.php">
-
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
-            <br<br>
-                <label><b>5 Star Hotel</b></label>
+            <br>
+            <label><b>7 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
             <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
-            <br<br>
-                <label><b>6 Star Hotel</b></label>
+            <br>
+            <label><b>7 Star Hotel</b></label>
         </a>
-
 
         <a href="../HTML/indexHotelList.php">
 
             <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
-            <br<br>
-                <label><b>7 Star Hotel</b></label>
+            <br>
+            <label><b>7 Star Hotel</b></label>
+        </a>
+
+        <a href="../HTML/indexHotelList.php">
+
+            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <br>
+            <label><b>7 Star Hotel</b></label>
+        </a>
+
+        <a href="../HTML/indexHotelList.php">
+
+            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <br>
+            <label><b>7 Star Hotel</b></label>
+        </a>
+
+        <a href="../HTML/indexHotelList.php">
+
+            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <br>
+            <label><b>7 Star Hotel</b></label>
+        </a>
+
+        <a href="../HTML/indexHotelList.php">
+
+            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <br>
+            <label><b>7 Star Hotel</b></label>
         </a>
 
     </div>

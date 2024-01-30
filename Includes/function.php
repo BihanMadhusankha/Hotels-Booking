@@ -120,12 +120,61 @@ function loginUser($conn, $username, $conformpassword)
 
         if ($uidExists['userRoole'] == "admin") {
             header("Location:../HTML/indexAdminMain.php");
-            
         } else {
             header("Location:../HTML/index.php");
-            
         }
         exit();
+    }
+}
+///forgetPassword
+
+function checkMail($conn, $email)
+{
+    $uidExists = uidExists($conn, $email, $email);
+    if ($uidExists === false) {
+        header("Location: ../HTML/indexForgot.html?error=wrongEmail");
+        exit();
+    }
+    $dEmail = $uidExists["Email"];
+    $sql = "SELECT Email  FROM   userregistation   WHERE Email = '$dEmail'";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location:../HTML/indexForgot.html?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        header("Location:../HTML/indexResetPass.html?error=none");
+    }
+}
+//////resetpassword
+function resetPassword($conn, $enterp, $comformp, $email)
+{
+    $sql = "UPDATE userregistation SET password=?, conformPassword=? WHERE Email=?";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location:../HTML/indexLogin.php?error=stmtfailed");
+        exit();
+    }
+
+    $hashedpwd1 = password_hash($enterp, PASSWORD_DEFAULT);
+    $hashedpwd = password_hash($comformp, PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt, "sss", $hashedpwd1, $hashedpwd, $email);
+
+    mysqli_stmt_execute($stmt);
+    $rowsUserProfile = mysqli_stmt_affected_rows($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    if ($rowsUserProfile > 0) {
+        header("Location:../HTML/index.php?error=none");
+        return true; // Update successful
+    } else {
+        return false; // No rows were updated
     }
 }
 
@@ -201,10 +250,9 @@ function updateProfile($conn, $nic)
 
 function addProfilePhoto($conn, $username, $userprofile)
 {
-
     $Name = $username;
 
-    // Select NIC from userregistration based on userName
+
     $selectQuery = "SELECT NIC FROM userregistation WHERE userName = ?";
     $selectStmt = mysqli_stmt_init($conn);
 
@@ -231,7 +279,7 @@ function addProfilePhoto($conn, $username, $userprofile)
                 mysqli_stmt_store_result($checkStmt);
 
                 if (mysqli_stmt_num_rows($checkStmt) > 0) {
-                    // Update the existing record
+
                     $updateQuery = "UPDATE userprofileid SET profilePhoto = ? WHERE NIC = ?";
                     $updateStmt = mysqli_stmt_init($conn);
 
@@ -240,13 +288,13 @@ function addProfilePhoto($conn, $username, $userprofile)
                         mysqli_stmt_execute($updateStmt);
                         mysqli_stmt_close($updateStmt);
                     } else {
-                        // Handle statement preparation failure for UPDATE query
+
                         header("Location:../HTML/indexUserProfile.php?error=stmtfailed");
                         exit();
                     }
                 } else {
 
-                    // Insert data into userhelp table
+
                     $insertQuery = "INSERT INTO userprofileid (profilePhoto,NIC, userName) VALUES (?, ?, ?)";
                     $insertStmt = mysqli_stmt_init($conn);
 
@@ -369,14 +417,14 @@ function createHelp($conn, $massage, $email, $name)
 function emptyInputHotelSignup($hotelname, $email, $phone, $location, $category, $photo, $comment)
 {
     $result = false;
-    if (empty($hotelname) || empty($email) || empty($phone) || empty($location) || empty($category) ) {
+    if (empty($hotelname) || empty($email) || empty($phone) || empty($location) || empty($category)) {
         $result = true;
     }
     return $result;
 }
 
 
-function createHotel($conn,$hotelname, $email, $phone, $location, $comment,$photo,$category)
+function createHotel($conn, $hotelname, $email, $phone, $location, $comment, $photo, $category)
 {
     $sql  = "INSERT INTO hoteldata( hotelName,hotelEmail, hotelPhoneNo,hotelLocation,additionalComment,hotelPhoto,hotelCategory) VALUES (?,?,?,?,?,?,?) ;";
     $stmt = mysqli_stmt_init($conn);
@@ -385,10 +433,9 @@ function createHotel($conn,$hotelname, $email, $phone, $location, $comment,$phot
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "sssssss",$hotelname, $email, $phone, $location, $comment,$photo,$category);
+    mysqli_stmt_bind_param($stmt, "sssssss", $hotelname, $email, $phone, $location, $comment, $photo, $category);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("Location:../HTML/indexHotelList.php?error=none");
     exit();
 }
-

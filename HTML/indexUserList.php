@@ -24,7 +24,7 @@
         <ul class="nav_list">
 
             <li name='userpanel'><a href="../HTML/indexUserList.php">User Panel</a></li>
-            <li name='hotelpanel'><a href="../HTML/indexHotelList.php">Hotel Panel</a></li>
+            <li name='hotelpanel'><a href="../HTML/indexAdminMain.php">Hotel Panel</a></li>
         </ul>
     </nav>
 

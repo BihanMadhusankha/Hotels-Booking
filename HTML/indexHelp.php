@@ -14,6 +14,47 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Help</title>
     <style>
+        /* Add this at the end of your existing styleForget.css */
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .subtext {
+        font-size: 14px;
+    }
+
+    form label {
+        font-size: 14px;
+    }
+
+    form input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .switch-link {
+        font-size: 14px;
+    }
+}
+
         .side-bar {
             background-color: #e3ebf4;
 
@@ -165,14 +206,16 @@ session_start();
                     <div class="side">
                         <h2>Contact us</h2>
                         <p>
-                            <textarea name="massage" placeholder="Your message"></textarea>
+                            <textarea name="massage" placeholder="Your message" required></textarea>
                         </p>
                     </div>
                     <div class="side">
                         <p>
-                            <input type="text" name="name" placeholder="Your name ">
+                            <label for="">Your Name:</label>
+                            <input type="text" name="name" placeholder="Your name " required>
                         </p>
                         <p>
+                            <label for="">Your Email:</label>
                             <input type="email" name="email" placeholder="Your email">
                         </p>
                         <p>
