@@ -182,7 +182,7 @@ session_start();
 
                 <img src="../assets/onestar.png" alt="Leader images">
                 <h1><a href="#"><samp>★</samp>★★★★★★</a></h1>
-                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" name="menu" id="star_button">Continue</button></a>
                 
 
             </div>
@@ -190,13 +190,13 @@ session_start();
 
                 <img src="../assets/2star.jpg" alt="Leader images">
                 <h1><a href="#"><samp>★★</samp>★★★★★</a></h1>
-                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" name="menu" id="star_button">Continue</button></a>
             </div>
             <div class="star_rate">
 
                 <img src="../assets/threestar.png" alt="Leader images">
                 <h1><a href="#"><samp>★★★</samp>★★★★</a></h1>
-                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" name="menu" id="star_button">Continue</button></a>
 
             </div>
 
@@ -204,28 +204,28 @@ session_start();
 
                 <img src="../assets/fourstar.png" alt="Leader images">
                 <h1><a href="#"><samp>★★★★</samp>★★★</a></h1>
-                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" name="menu" id="star_button">Continue</button></a>
 
             </div>
             <div class="star_rate">
 
                 <img src="../assets/fivestar.jpg" alt="Leader images">
                 <h1><a href="#"><samp>★★★★★</samp>★★</a></h1>
-                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" name="menu" id="star_button">Continue</button></a>
 
             </div>
             <div class="star_rate">
 
                 <img src="../assets/sixstasr.png" alt="Leader images">
                 <h1><a href="#"><samp>★★★★★★</samp>★</a></h1>
-                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" name="menu" id="star_button">Continue</button></a>
 
             </div>
             <div class="star_rate">
 
                 <img src="../assets/sevenstar.jpg" alt="Leader images">
                 <h1><a href="#"><samp>★★★★★★★</samp></a></h1>
-                <a href="../HTML/indexSelectCategory.php"><button type="menu" id="star_button">Continue</button></a>
+                <a href="../HTML/indexSelectCategory.php"><button type="menu" name="menu" id="star_button">Continue</button></a>
 
             </div>
 

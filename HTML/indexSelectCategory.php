@@ -85,9 +85,6 @@
 
     <body>
 
-
-
-
         <!-- menu-btn -->
         <div class="menu-btn">
             <i class="fas fa-bars"></i>
@@ -123,18 +120,46 @@
 
         </nav>
 
-
-
         <div class="row" style="margin-left: 4rem;">
+        <?php
+if(isset($_POST['menu'])) {
+    include_once('../Includes/db.php');
+
+    $hotelCategory = $_POST['menu'];
+
+    $query = "SELECT * FROM hoteldata WHERE hotelCategory  = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $hotelCategory);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    echo '<div class="row">';
+    while ($row = $result->fetch_assoc()) {
+        echo '<div class="coloum">';
+        echo '<a href="../HTML/indexHotelprofile.php">';
+        echo '<h2>1 Star Hotel</h2>';
+        echo '<div class="image">';
+        echo '<img src="' . $row['imagePath'] . '" width="270px" height="200px" ;>';
+        echo '</div>';
+        echo '</a>';
+        echo '</div>';
+    }
+    echo '</div>';
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+
+        
             <div class="coloum">
                 <a href="../HTML/indexHotelprofile.php">
-                    <h2>1 Star Hotel</h2>
+                    <h2></h2>
                     <div class="image">
 
                         <img src="../assets/room1.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room2.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room3.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room4.jpeg" width="270px" height="200px" ;>
+                        
                     </div>
                 </a>
             </div>
@@ -143,9 +168,6 @@
                     <h2>2 Star Hotel</h2>
                     <div class="image">
 
-                        <img src="../assets/room1.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room2.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room3.jpeg" width="270px" height="200px" ;>
                         <img src="../assets/room4.jpeg" width="270px" height="200px" ;>
                     </div>
                 </a>
@@ -155,10 +177,8 @@
                     <h2>3 Star Hotel</h2>
                     <div class="image">
 
-                        <img src="../assets/room1.jpeg" width="270px" height="200px" ;>
                         <img src="../assets/room2.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room3.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room4.jpeg" width="270px" height="200px" ;>
+                        
                     </div>
                 </a>
             </div>
@@ -167,11 +187,7 @@
                 <a href="../HTML/indexHotelprofile.php">
                     <h2>4 Star Hotel</h2>
                     <div class="image">
-
-                        <img src="../assets/room1.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room2.jpeg" width="270px" height="200px" ;>
                         <img src="../assets/room3.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room4.jpeg" width="270px" height="200px" ;>
                     </div>
                 </a>
             </div>
@@ -179,10 +195,6 @@
                 <a href="../HTML/indexHotelprofile.php">
                     <h2>5 Star Hotel</h2>
                     <div class="image">
-
-                        <img src="../assets/room1.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room2.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room3.jpeg" width="270px" height="200px" ;>
                         <img src="../assets/room4.jpeg" width="270px" height="200px" ;>
                     </div>
                 </a>
@@ -194,9 +206,7 @@
                     <div class="image">
 
                         <img src="../assets/room1.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room2.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room3.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room4.jpeg" width="270px" height="200px" ;>
+                        
                     </div>
                 </a>
             </div>
@@ -204,11 +214,7 @@
                 <a href="../HTML/indexHotelprofile.php">
                     <h2>7 Star Hotel</h2>
                     <div class="image">
-
-                        <img src="../assets/room1.jpeg" width="270px" height="200px" ;>
                         <img src="../assets/room2.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room3.jpeg" width="270px" height="200px" ;>
-                        <img src="../assets/room4.jpeg" width="270px" height="200px" ;>
                     </div>
                 </a>
             </div>
