@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
-         .side-bar {
+        .side-bar {
             background-color: #e3ebf4;
 
             width: 250px;
@@ -101,18 +101,18 @@
             <h1>MENU</h1>
         </header>
         <!-- menu item -->
-       
+
         <div class="menu">
-        
+
             <div class="item"><a href="../HTML/index.php"><i class="fas fa-home"></i>Home</a></div>
             <div class="item"><a href="#"><i class="fas fa-th"></i>Analytics</a></div>
             <div class="item"><a href="../HTML/indexUserProfile.php"><i class="fas fa-user"></i>Profile</a></div>
             <div class="item"><a href="../HTML/indexHelp.php"><i class="fas fa-hands-helping"></i>Help</a></div>
             <div class="item"><a href="../HTML/indexAboutUs.html"><i class="fas fa-info-circle"></i>About</a></div>
             <div class="item"><a href="../Includes/loginout.php"><i class="fas fa-sign-out">Log Out</i></a></div>
-           
+
         </div>
-      
+
     </div>
 
     <nav>
@@ -123,26 +123,35 @@
     <div class="fullbody">
 
         <div class="roomimg">
-
+            <?php
+            include_once '../Includes/db.php';
+            $sqlR = "SELECT * FROM roomsdelails";
+            $resultR = mysqli_query($conn, $sqlR);
+            if ($resultR) {
+                $rowR = mysqli_fetch_assoc($resultR);
+                $roomPhoto = $rowR['roomPhoto'];
+                echo '
             <div class="bigonephoto">
-                <img class="bigonephoto" src="Best Hotels in Islamabad.jpg" alt="">
+                <img class="bigonephoto" src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
             </div>
 
             <div class="photos4">
 
                 <div class="photos21">
-                    <img class="photos21 " src="6a54e395.avif" alt="">
-                    <img class="photos21 " src="room.webp" alt="">
+                    <img class="photos21 " src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
+                    <img class="photos21 " src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
                 </div>
 
                 <div class="photos2-2">
-                    <img class="photos2-2 two1" src="indoor-pool.jpg" alt="">
-                    <img class="photos2-2 two1" src="barthroom.jpeg" alt="">
+                    <img class="photos2-2 two1" src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
+                    <img class="photos2-2 two1" src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
                 </div>
 
 
             </div>
-
+                ';
+            }
+            ?>
         </div>
 
         <!-- ------------------------------------------------------------------------------------------- -->
@@ -182,7 +191,7 @@
 
                         <span class="material-symbols-outlined">
                             local_laundry_service
-                            </span>
+                        </span>
                         <label for="">Laundry facilities</label> <br><br>
 
 
@@ -195,7 +204,7 @@
 
 
             <div class="facilitise">
-                
+
                 <label class="Facility" for="">Facility</label> <br> <br>
 
                 <label for="">1 queen size bed,bathroom and</label> <br>

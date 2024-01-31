@@ -37,7 +37,7 @@ session_start();
 
                 <input type="submit" id="button-login" name="submit" value="Log in" button-align="center" onclick="comeHome()"><br>
 
-                <h4>Don't have an account? <a href="../HTML/indexRegester.php">Regester</a></h4>
+                <h4>Don't have an account? <a href="../HTML/indexRegester.php">Register</a></h4>
 
                 <div class="icon_logo">
                     <a href="#"><img src="../assets/facebook.png" alt="Description" width="30" height="30"></a>
@@ -47,7 +47,7 @@ session_start();
 
                 <div>
                     <hr><br>
-                    <p><b>By signing in or creating an account, you agree with out Terms & conditions and privacy statement</b></p>
+                    <p><b>By signing in or creating an account, you agree with our Terms & conditions and privacy statement</b></p>
 
                     <hr>
                     <p1>All rights reserved.</p1><br>

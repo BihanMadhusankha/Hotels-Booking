@@ -161,7 +161,7 @@ session_start();
                 if (isset($_SESSION["username"])) {
                     echo '<li><a id="RegisterdUser" href="#"><h1>Hello ' . $_SESSION["username"] . ' !</h1></a></li>';
                 } else {
-                    echo '<li><button id="regester" class="regester" href="registerPage()" onclick="registerPage( )">Regester</button></li>
+                    echo '<li><button id="regester" class="regester" href="registerPage()" onclick="registerPage( )">Register</button></li>
                                   <li><button id="Login" class="Login" onclick="loginPage()">Log in</button></li> ';
                 }
                 ?>
@@ -190,7 +190,7 @@ session_start();
     <!-- search Bar -->
     <div class="container">
         <form action="../Includes/search.php" method="post" class="search-bar">
-            <input type="text" placeholder="Search Hotel or Cuntry" name="search">
+            <input type="text" placeholder="Search Hotel or Country" name="search">
             <button type="submit" name="submit"><img src="/assets/search.png" alt=""></button>
         </form>
     </div>

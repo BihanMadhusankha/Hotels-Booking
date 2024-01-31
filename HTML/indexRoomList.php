@@ -26,23 +26,22 @@
     </nav>
 
 
-    <h1>1 Star Hotel</h1>
-    <h2>Add Hotel Details</h2>
+    <h1>1 Star Hotel Rooms</h1>
+    <h2>Add Room Details</h2>
 
     <div class="container">
-        <button onclick="addHotel()">Add Hotels</button>
+       <a href="../HTML/indexRoomRegister.php"><button >Add Rooms</button></a> 
     </div>
 
     <table id="outputTable">
         <thead>
             <tr>
-                <th>Hotel ID</th>
+                <th>Room ID</th>
                 <th>Hotel Name</th>
-                <th>Hotel Email</th>
-                <th>Hotel Phone Number</th>
-                <th>Hotel Location</th>
-                <th>Additional Comment</th>
+                <th>Offers</th>
+                <th>Room Price</th>
                 <th>Action</th>
+                
                
             </tr>
         </thead>
@@ -54,43 +53,36 @@
             session_start();
  
             include_once '../Includes/db.php'; 
-            $sql = "SELECT * FROM hoteldata";
+            $sql = "SELECT * FROM roomsdelails";
             $result = mysqli_query($conn, $sql);
 
             if ($result) {
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $hotelId = $row['hotelID'];
+                    $roomID = $row['roomID'];
                     $hotelName = $row['hotelName'];
-                    $hotelEmail = $row['hotelEmail'];
-                    $hotelPhoneNo = $row['hotelPhoneNo'];
-                    $hotelLocation = $row['hotelLocation'];
-                    $additionalComment = $row['additionalComment'];
-                   
+                    $offers = $row['offers'];
+                    $price = $row['price'];
+                    
 
                     echo '  <tr>
                        
-                       <td>' . $hotelId . '</td>
+                       <td>' . $roomID . '</td>
                        <td>' . $hotelName . '</td>
-                       <td>' . $hotelEmail . '</td>
-                       <td>' . $hotelPhoneNo . '</td>
-                       <td>' . $hotelLocation . '</td>
-                       <td>' . $additionalComment . '</td>
+                       <td>' . $offers . '</td>
+                       <td>' . $price. '</td>
+                       
                        <td id="updateDelete">
                        
-                            <form method="post" action="../Includes/deleteHotel.php">
-                                <input type="hidden" name="deletename" value="' . $hotelId . '">
+                            <form method="post" action="../Includes/deleteRoom.php">
+                                <input type="hidden" name="deletename" value="' .$roomID . '">
                                 <button type="submit" style="background-color:red; color:white;">Delete</button>
                             </form>                    
-                            <form method="post" action="../HTML/indexUpdateHotel.php">
-                                <input type="hidden" name="updatename" value="' . $hotelId . '">
+                            <form method="post" action="../HTML/indexRoomRegister.php">
+                                <input type="hidden" name="updatename" value="' .$roomID . '">
                                 <button type="submit" style="background-color:blue; color:white;">Update</button>
                             </form> 
                             
-                            <form method="post" action="../HTML/indexRoomList.php">
-                                <input type="hidden" name="updatename" value="' . $hotelId . '">
-                                <button type="submit" style="background-color:green; color:white;">Rooms</button>
-                            </form> 
                         </td>
                        </tr>';
                 }

@@ -438,3 +438,56 @@ function createHotel($conn, $hotelname, $email, $phone, $location, $comment, $ph
     header("Location:../HTML/indexHotelList.php?error=none");
     exit();
 }
+
+
+//////////Room
+
+function createRoom($conn,$hotelname, $offers, $veiw, $overView, $price,$photo){
+    
+    $hotel = $hotelname;
+
+    // Select NIC from userregistration based on userName
+    $selectQuery = "SELECT hotelID FROM hoteldata WHERE hotelName = ?";
+    $selectStmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($selectStmt, $selectQuery)) {
+        header("Location:../HTML/indexHelp.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($selectStmt, "s", $hotel);
+    mysqli_stmt_execute($selectStmt);
+    mysqli_stmt_bind_result($selectStmt, $hotelID);
+
+    if (mysqli_stmt_fetch($selectStmt)) {
+        // Check if NIC is not empty
+        if (!empty($hotelID)) {
+            mysqli_stmt_close($selectStmt);
+
+            // Insert data into userhelp table
+            $insertQuery = "INSERT INTO roomsdelails (hotelName,offers,veiuPoint,overView,price,hotelID,roomPhoto) VALUES (?,?,?,?,?,?,?)";
+            $insertStmt = mysqli_stmt_init($conn);
+
+            if (mysqli_stmt_prepare($insertStmt, $insertQuery)) {
+                mysqli_stmt_bind_param($insertStmt, "sssssss", $hotelname, $offers, $veiw, $overView, $price,$hotelID,$photo);
+                mysqli_stmt_execute($insertStmt);
+                mysqli_stmt_close($insertStmt);
+
+                header("Location:../HTML/indexRoomList.php?error=none");
+                exit();
+            } else {
+                // Handle statement preparation failure for INSERT query
+                header("Location:../HTML/indexRoomRegister.html?error=stmtfailed");
+                exit();
+            }
+        } else {
+            // Handle the case where NIC is empty
+            header("Location:../HTML/indexRoomRegister.html?error=emptyNIC");
+            exit();
+        }
+    } else {
+        // Handle the case where userName is not found
+        header("Location:../HTML/indexRoomRegister.html?error=userNotFound");
+        exit();
+    }
+}

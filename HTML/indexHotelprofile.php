@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Royal Hotel</title>
+    <style>
+        .room-details a h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #000;
+            letter-spacing: 1px;
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,12 +32,17 @@
        <?php 
        include_once '../Includes/db.php';
       $sql = "SELECT * FROM hoteldata";
+     
+
       $result = mysqli_query($conn, $sql);
+     
 
       if ($result) {
+       
             $row = mysqli_fetch_assoc($result);
             $hotelName = $row['hotelName'];
             $hotelPhoto = $row['hotelPhoto'];
+
 
        echo'
         <div class="hotelPhoto">
@@ -51,32 +68,50 @@
             <label for=""><b>Gym :</b><i class="fa-solid fa-dumbbell"></i></label>
 
 
-            <label for=""><b>Number Of Room :</b><i class="fa-solid fa-5"></i></label>
+            <label for=""><b>Number Of Rooms :</b><i class="fa-solid fa-5"></i></label>
             <a href="../HTML/indexBooking.html"><button type="submit">BOOK ROOM</button></a>
         </div>
         <div class="hotelRoomType">
-            <h2>ROOM TYPE</h2>
+        ';
+    }
 
-            <div class="rooms">
+        ?>
+            <h2>ROOM TYPES</h2>
+            <?php 
+    include_once '../Includes/db.php';
+    $hotelName = mysqli_real_escape_string($conn, $hotelName);
 
-                <div class="room-details">
-                    <a href="../HTML/indexRoomFrofile.html">
-                        <img src="../assets/room1.jpeg" alt="">
-                        <h3>Standard Room</h3>
-                        <p>Standard Room</p>
-                        <h4>Rs. 1000</h4>
+    $sqlR = "SELECT * FROM roomsdelails WHERE hotelName='$hotelName'";
+    $resultR = mysqli_query($conn, $sqlR);
+
+    if ($resultR) {
+        while ($rowR = mysqli_fetch_assoc($resultR)) {
+            $roomPhoto = $rowR['roomPhoto'];
+            $roomPrice = $rowR['price'];
+            $offers = $rowR['offers'];
+            $roomID = $rowR['roomID'];
+
+            echo '
+                <div class="rooms">
+                    <div class="room-details">
+                        <a href="../HTML/indexRoomFrofile.php">
+                            <img src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
+                        </a>
+                        <h3>Room Price: '.$roomPrice.'</h3>
+                        <h3>Discount: '.$offers.'</h3>
                         <a href="../HTML/indexBooking.html"><button type="submit">BOOK ROOM</button></a>
-                    </a>
-
-
+                        <a href="../HTML/indexAddToCart.php?id='.$roomID.'"><button type="submit">Add to Cart</button></a>
+                    </div>
                 </div>
-
-
-            </div>
+            ';
+        }
+    } else {
+        echo "Error in the query: " . mysqli_error($conn);
+    }
+?>
 
         </div>
-       ';
-        }
+      
     
        ?>
     </div>

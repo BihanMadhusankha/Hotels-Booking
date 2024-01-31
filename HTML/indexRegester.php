@@ -22,12 +22,6 @@ session_start();
 
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
         <ul class="nav_list">
-
-            <div class="nav_list_tem">
-                <li id="list_property"><a href="#">List your property</a></li>
-                <li id="analys"><a href="#">Analys</a></li>
-            </div>
-
         </ul>
     </nav>
 
@@ -35,7 +29,7 @@ session_start();
 
         <form action="../Includes/registation.php" class="registation_form" method="POST" id="registrationForm">
             <fieldset class="registation_form_fieldset">
-                <h2>Regester</h2>
+                <h2>Register</h2>
                 <div class="registation_form_fieldset_input">
                     <div class="fullName">
                         <input type="text" id="fullname" placeholder="Full Name" name="fullname">
@@ -56,11 +50,11 @@ session_start();
 
                 </div>
 
-                <input type="submit" id="button-login" name="submit" value="Regester" button-align="center"><br>
+                <input type="submit" id="button-login" name="submit" value="Register" button-align="center"><br>
                 <h3>You have account?<a href="../HTML/indexLogin.php">Log in</a></h3>
                 <div>
                     <hr>
-                    <p><b>By signing in or creating an account, you agree with out Terms & conditions and privacy statement</b></p>
+                    <p><b>By signing in or creating an account, you agree with our Terms & conditions and privacy statement</b></p>
 
                     <hr>
                     <p1>All rights reserved.</p1>

@@ -22,38 +22,32 @@
     <!-- navigation close -->
 
 
-    <form method="post" action="#">
+    <form method="post" action="../Includes/addRoom.php">
         <fieldset>
             <h2 style="text-align: center; margin: 1rem 0; color:#fff;">Room Registration Form</h2><br>
             <div class="formin">
-                <label><b>Bed Type:</b></label>
-                <input type="text" name="bedType" placeholder="Hotel Name"><br></br>
+                <label><b>Hotel Name:</b></label>
+                <input type="text" name="hotelname" placeholder="HotelName" required><br></br>
 
                 <label><b>Offers:</b></label>
-                <input type="text" name="offers" placeholder="Offers"><br></br>
+                <input type="text" name="offers" placeholder="Offers" required><br></br>
 
                 <label><b>Veiw Points:</b></label>
-                <input type="text" name="veiw" placeholder="View Points"><br></br>
+                <input type="text" name="veiw" placeholder="View Points" required><br></br>
 
                 <label><b>Over View:</b></label>
-                <input type="text" name="overView" placeholder="Over View"><br></br>
+                <input type="text" name="overView" placeholder="Over View" required><br></br>
 
                 <label><b>Price:</b></label>
-                <input type="text" name="overView" placeholder="Price"><br></br>
-
-
-
+                <input type="text" name="price" placeholder="Price" required><br></br>
 
                 <div class="photo-upload">
                     <label for="photo"><b>Upload Room Photo:</label><b>
-                        <input type="file" id="photo" name="photo" accept="image/*">
+                        <input type="file" id="photo" name="photo" accept="image/*" required>
                         <img id="preview" src="#" alt="Preview" style="display:none;">
                 </div>
 
                 <br>
-
-                <label for="Name">Additional Comments:</label><br>
-                <textarea id="comment" name="comment"></textarea><br>
 
                 <input type="submit" name="submit" value="Register">
 
