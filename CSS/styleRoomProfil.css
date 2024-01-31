@@ -1,0 +1,105 @@
+/* *{
+    margin: auto;
+    padding: 0;
+} */
+
+.photos21{
+    width: 300px;
+    height:160px;
+    margin-left: 2px;
+}
+
+.two1{
+    margin-left: 5px;
+}
+
+.photos2-2{
+    width: 300px;
+    height:160px;
+}
+
+.photos4{
+    display: flex;
+}
+
+.bigonephoto{
+    width: 600px;
+    height: 324px;
+}
+
+.roomimg{
+    display: flex;
+}
+
+.fullbody{
+    
+    margin-left: 30px;
+   
+}
+
+.hotelname{
+    font-size: 36px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.amenities{
+    font-size: 25px;
+}
+
+.allicon{
+    display: flex;
+}
+
+.iconnexttwo{
+    margin-left: 120px;
+}
+
+.roomdetails{
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.facilitise{
+    font-size: 18px;
+    margin-left: 300px;
+   
+    
+
+}
+
+
+
+.Facility{
+    font-size: 25px;
+}
+
+body{
+    background-color: rgba(244, 226, 204, 0.698);
+}
+
+.Reserve{
+    font-size: 15px;
+    margin-left: 250px;
+    height: 45px;
+    width: 100px;
+    border-radius: 30px;
+    background-color: blue;
+    color: white;
+    border: none;
+
+}
+
+.Reserve:hover{
+    background-color: rgb(10, 10, 10);
+    color: white;
+    cursor: pointer;
+  
+    animation:forwards 2ms;
+    border: darkorange;
+    transform:scale(1.03);
+    transition:transform 0.5 seconds;
+    cursor: pointer;
+    border: rgb(7, 7, 245);
+}

@@ -150,9 +150,9 @@ function checkMail($conn, $email)
     }
 }
 //////resetpassword
-function resetPassword($conn, $enterp, $comformp, $email)
+function resetPassword($conn, $enterp, $comformp)
 {
-    $sql = "UPDATE userregistation SET password=?, conformPassword=? WHERE Email=?";
+    $sql = "UPDATE userregistation SET password=? conformPassword=? WHERE Email=?";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -163,7 +163,7 @@ function resetPassword($conn, $enterp, $comformp, $email)
     $hashedpwd1 = password_hash($enterp, PASSWORD_DEFAULT);
     $hashedpwd = password_hash($comformp, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "sss", $hashedpwd1, $hashedpwd, $email);
+    mysqli_stmt_bind_param($stmt, "ss", $hashedpwd1, $hashedpwd);
 
     mysqli_stmt_execute($stmt);
     $rowsUserProfile = mysqli_stmt_affected_rows($stmt);
@@ -177,7 +177,6 @@ function resetPassword($conn, $enterp, $comformp, $email)
         return false; // No rows were updated
     }
 }
-
 ////user
 
 function emptyInputUser($fullname, $username, $email, $phonenum, $country, $dob, $nic, $createpassword, $conformpassword)

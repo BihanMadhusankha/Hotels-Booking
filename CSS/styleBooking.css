@@ -1,0 +1,172 @@
+.fullformandpay{
+    margin-left: 300px;
+    margin-top: 35px;
+}
+
+
+
+.fillbookform {
+
+    width: 350px;
+    height: 565px;
+    background-color: rgba(6, 23, 80, 0.684);
+    color:black;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+
+
+}
+
+.detailsform {
+
+    padding: 3rem;
+}
+
+.Continu {
+    width: 90px;
+    height: 25px;
+    margin-left: 160px;
+    background-color: rgb(12, 197, 12);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.Continu:hover {
+    background-color: rgb(13, 171, 250);
+    animation: forwards 2ms;
+    border: darkorange;
+    transform: scale(1.03);
+    transition: transform 0.5 seconds;
+    cursor: pointer;
+    border: rgb(7, 7, 245);
+}
+
+.rooms{
+    border: none;
+    border-radius: 3px;
+}
+
+.adults{
+    border: none;
+    border-radius: 3px;
+}
+
+.children{
+    border: none;
+    border-radius: 3px;
+}
+
+.date{
+    border: none;
+    border-radius: 3px;
+}
+
+
+/* ----------------------------------------------- */
+
+.fullformandpay {
+    display: flex;
+}
+
+/* ---------------------------------------------- */
+
+.balanceandpay {
+
+    background-color: rgba(118, 155, 205, 0.935);
+    padding: 20px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.doubledot1 {
+    margin-left: 70px;
+}
+
+.doubledot2 {
+    margin-left: 55px;
+
+}
+
+.doubledot3 {
+    margin-left: 144px;
+
+}
+
+.doubledot4 {
+    margin-left: 110px;
+
+}
+
+label {
+    margin-top: 10px;
+}
+.email{
+    width: 240px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.cardname {
+    width: 240px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.cardnumber {
+    width: 240px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.expireon {
+    width: 95px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.month {
+    width: 140px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.CVC {
+    width: 240px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.book{
+    width: 240px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 98, 0, 0.908);
+    color: white;
+}
+
+.book:hover{
+    background-color: rgb(250, 13, 167);
+    animation: forwards 2ms;
+    border: darkorange;
+    transform: scale(1.03);
+    transition: transform 0.5 seconds;
+    cursor: pointer;
+    border: rgb(7, 7, 245);
+}
+
+.paymentinfor{
+    color: rgb(253, 252, 251);
+}
+
+.receirtfor{
+    color: rgb(246, 244, 243);
+
+}

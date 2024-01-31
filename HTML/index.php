@@ -14,6 +14,30 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="../Script/script.js"></script>
     <style>
+        @keyframes slideshow {
+
+            /* Define keyframes for the slideshow */
+            0% {
+                background-image: url('../assets/back1.jpeg');
+            }
+
+            25% {
+                background-image: url('../assets/back2.jpeg');
+            }
+
+            50% {
+                background-image: url('../assets/back3.jpeg');
+            }
+
+            75% {
+                background-image: url('../assets/back4.jpeg');
+            }
+
+            100% {
+                background-image: url('../assets/back5.jpeg');
+            }
+        }
+
         .side-bar {
             background-color: #e3ebf4;
 
@@ -145,7 +169,7 @@ session_start();
 
         </ul>
     </nav>
-<!-- navigation close -->
+    <!-- navigation close -->
 
     <!-- about -->
 
@@ -170,7 +194,7 @@ session_start();
             <button type="submit" name="submit"><img src="/assets/search.png" alt=""></button>
         </form>
     </div>
-<!-- over search bar -->
+    <!-- over search bar -->
 
     <!-- select category-->
 
@@ -183,7 +207,7 @@ session_start();
                 <img src="../assets/onestar.png" alt="Leader images">
                 <h1><a href="#"><samp>★</samp>★★★★★★</a></h1>
                 <a href="../HTML/indexSelectCategory.php"><button type="menu" name="menu" id="star_button">Continue</button></a>
-                
+
 
             </div>
             <div class="star_rate">
@@ -242,9 +266,9 @@ session_start();
         <div class="leader-image-data">
             <div class="leader-image">
 
-                <a href="../HTML/indexHotelprofile.php" ><img src="../assets/Trending1.jpg" alt="Leader images"></a>
+                <a href="../HTML/indexHotelprofile.php"><img src="../assets/Trending1.jpg" alt="Leader images"></a>
                 <div class="treanding_hotel_delais">
-                    <h2><a href="../HTML/indexHotelprofile.php" >ROYAL COLOMBO</a></h2>
+                    <h2><a href="../HTML/indexHotelprofile.php">ROYAL COLOMBO</a></h2>
                     <h2 id="status">Available</2>
                         <h2 id="star"><samp>★★★★★★★</samp></h2>
                 </div>
@@ -252,7 +276,7 @@ session_start();
             </div>
             <div class="leader-image">
 
-                <a href="../HTML/indexHotelprofile.php"><img src="../assets/trendind2.jpg" alt="Leader images" ></a>
+                <a href="../HTML/indexHotelprofile.php"><img src="../assets/trendind2.jpg" alt="Leader images"></a>
                 <div class="treanding_hotel_delais">
                     <h2><a href="../HTML/indexHotelprofile.php">ROYAL GALLE</a></h2>
                     <h2 id="status">Available</2>
@@ -262,7 +286,7 @@ session_start();
             </div>
             <div class="leader-image">
 
-                <a href="../HTML/indexHotelprofile.php" ><img src="../assets/trending3.jpg" alt="Leader images" ></a>
+                <a href="../HTML/indexHotelprofile.php"><img src="../assets/trending3.jpg" alt="Leader images"></a>
                 <div class="treanding_hotel_delais">
                     <h2><a href="../HTML/indexHotelprofile.php">ROYAL NEGOMBO</a></h2>
                     <h2 id="status">Available</2>

@@ -82,8 +82,8 @@
                                 <input type="hidden" name="deletename" value="' . $hotelId . '">
                                 <button type="submit" style="background-color:red; color:white;">Delete</button>
                             </form>                    
-                            <form method="post" action="../Includes/update.php">
-                                <input type="hidden" name="deletename" value="' . $hotelId . '">
+                            <form method="post" action="../HTML/indexUpdateHotel.php">
+                                <input type="hidden" name="updatename" value="' . $hotelId . '">
                                 <button type="submit" style="background-color:blue; color:white;">Update</button>
                             </form>                    
                         </td>

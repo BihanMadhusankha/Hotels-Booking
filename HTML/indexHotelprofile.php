@@ -11,58 +11,76 @@
 </head>
 
 <body>
-    
+
     <nav>
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
 
     </nav>
+    <div class="hotelProfile">
+       <?php 
+       include_once '../Includes/db.php';
+      $sql = "SELECT * FROM hoteldata";
+      $result = mysqli_query($conn, $sql);
 
-    <div class="hotelPhoto">
-        <img src="../assets/hotelprofileBack.jpeg" alt="">
+      if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            $hotelName = $row['hotelName'];
+            $hotelPhoto = $row['hotelPhoto'];
 
-    </div>
-
-    <div class="hotelDetails">
-
-        <h1>ROYAL HOTEL GROUP</h1>
-    </div>
-    <div class="hotelFasility">
-        <h2>BOOK <br>YOUR ROOM</h2>
-
-        <label for=""><b>Wi-Fi :</b> <i class="fas fa-wifi"></i></label>
-
-        <label for=""><b>Pool Access :</b><i class="fa-solid fa-person-swimming"></i></label>
-        <label for=""><b>Parking :</b><i class="fas fa-parking"></i></label>
-        <label for=""><b>Restaurant :</b><i class="fas fa-utensils"></i></label>
-        <label for=""><b>Bar :</b><i class="fa-solid fa-beer-mug-empty"></i></label>
-        <label for=""><b>Cafe :</b><i class="fa-solid fa-mug-saucer"></i></label>
-        <label for=""><b>Gym :</b><i class="fa-solid fa-dumbbell"></i></label>
-
-
-        <label for=""><b>Number Of Room :</b><i class="fa-solid fa-5"></i></label>
-        <a href="../HTML/indexRoomBooking.html"><button type="submit">BOOK ROOM</button></a>
-    </div>
-    <div class="hotelRoomType">
-        <h2>ROOM TYPE</h2>
-
-        <div class="rooms">
-
-            <div class="room-details">
-                <a href="../HTML/indexRoomProfile.html">
-                <img src="../assets/room1.jpeg" alt="">
-                <h3>Standard Room</h3>
-                <p>Standard Room</p>
-                <h4>Rs. 1000</h4>
-                <a href="../HTML/indexRoomBooking.html"><button type="submit">BOOK ROOM</button></a>
-                </a>
-                
-
-            </div>
-
+       echo'
+        <div class="hotelPhoto">
+        
+            <img src="../assets/userprofilePic/' . $hotelPhoto . '" alt="Hotel profile">
 
         </div>
 
+        <div class="hotelDetails">
+
+            <h1>' . $hotelName . '</h1>
+        </div>
+        <div class="hotelFasility">
+            <h2>BOOK <br>YOUR ROOM</h2>
+
+            <label for=""><b>Wi-Fi :</b> <i class="fas fa-wifi"></i></label>
+
+            <label for=""><b>Pool Access :</b><i class="fa-solid fa-person-swimming"></i></label>
+            <label for=""><b>Parking :</b><i class="fas fa-parking"></i></label>
+            <label for=""><b>Restaurant :</b><i class="fas fa-utensils"></i></label>
+            <label for=""><b>Bar :</b><i class="fa-solid fa-beer-mug-empty"></i></label>
+            <label for=""><b>Cafe :</b><i class="fa-solid fa-mug-saucer"></i></label>
+            <label for=""><b>Gym :</b><i class="fa-solid fa-dumbbell"></i></label>
+
+
+            <label for=""><b>Number Of Room :</b><i class="fa-solid fa-5"></i></label>
+            <a href="../HTML/indexBooking.html"><button type="submit">BOOK ROOM</button></a>
+        </div>
+        <div class="hotelRoomType">
+            <h2>ROOM TYPE</h2>
+
+            <div class="rooms">
+
+                <div class="room-details">
+                    <a href="../HTML/indexRoomFrofile.html">
+                        <img src="../assets/room1.jpeg" alt="">
+                        <h3>Standard Room</h3>
+                        <p>Standard Room</p>
+                        <h4>Rs. 1000</h4>
+                        <a href="../HTML/indexBooking.html"><button type="submit">BOOK ROOM</button></a>
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+       ';
+        }
+    
+       ?>
     </div>
+
 </body>
 
 

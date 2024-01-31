@@ -16,44 +16,44 @@ session_start();
     <style>
         /* Add this at the end of your existing styleForget.css */
 
-/* Responsive styles */
-@media only screen and (max-width: 768px) {
-    .container {
-        width: 90%;
-        margin: auto;
-    }
+        /* Responsive styles */
+        @media only screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+                margin: auto;
+            }
 
-    .card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
+            .card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
 
-    h2 {
-        font-size: 24px;
-    }
+            h2 {
+                font-size: 24px;
+            }
 
-    .subtext {
-        font-size: 14px;
-    }
+            .subtext {
+                font-size: 14px;
+            }
 
-    form label {
-        font-size: 14px;
-    }
+            form label {
+                font-size: 14px;
+            }
 
-    form input {
-        font-size: 14px;
-        padding: 8px;
-    }
+            form input {
+                font-size: 14px;
+                padding: 8px;
+            }
 
-    button {
-        font-size: 16px;
-        padding: 10px;
-    }
+            button {
+                font-size: 16px;
+                padding: 10px;
+            }
 
-    .switch-link {
-        font-size: 14px;
-    }
-}
+            .switch-link {
+                font-size: 14px;
+            }
+        }
 
         .side-bar {
             background-color: #e3ebf4;
