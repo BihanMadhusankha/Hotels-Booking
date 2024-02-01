@@ -532,15 +532,15 @@ function createPaymentDetails($conn,$email, $cardname, $cardnumber, $expireon, $
             mysqli_stmt_close($selectStmt);
 
             // Insert data into userhelp table
-            $insertQuery = "INSERT INTO paymentdetails (email ,creditcardNumber,expireMonth ,year ,cvc ,NIC) VALUES (?,?,?,?,?,?,?)";
+            $insertQuery = "INSERT INTO paymentdetails (email ,creditcardNumber,expireMonth ,year ,cvc ,NIC,cardName) VALUES (?,?,?,?,?,?,?)";
             $insertStmt = mysqli_stmt_init($conn);
 
             if (mysqli_stmt_prepare($insertStmt, $insertQuery)) {
-                mysqli_stmt_bind_param($insertStmt, "sssssss",$email, $cardname, $cardnumber, $expireon, $year, $CVC,$nic);
+                mysqli_stmt_bind_param($insertStmt, "sssssss",$email, $cardnumber, $expireon, $year, $CVC,$nic, $cardname);
                 mysqli_stmt_execute($insertStmt);
                 mysqli_stmt_close($insertStmt);
 
-                header("Location:../HTML/indexRoomList.php?error=none");
+                header("Location:../HTML/indexQR.php?error=none");
                 exit();
             } else {
                 // Handle statement preparation failure for INSERT query
@@ -559,3 +559,4 @@ function createPaymentDetails($conn,$email, $cardname, $cardnumber, $expireon, $
     }
 
 }
+

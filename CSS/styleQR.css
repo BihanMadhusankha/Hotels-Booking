@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Poppins:wght@200;400;500;600&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat" ,sans-serif;
+}
+
+header{
+    background-color:#0297d4 ;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 5px;
+    columns: #fff;
+    font-weight: 600;
+}
+
+main{
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    text-align: center;
+}
+
+.content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin: 2rem 3rem;
+    text-align: left;
+    color: #505252;
+}
+
+#gennerate-code{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.inputURL{
+    border:2px solid#5052525d;
+    padding: 10px;
+    border-radius: 0.25rem;
+}
+
+.selected{
+    border:2px solid#5052525d;
+    padding: 10px;
+    border-radius: 0.25rem;
+}
+
+.submit-button{
+    padding: 10px;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    border:2px solid#5052525d;
+    background-color: #0297d4;
+    color: #fff;
+}
+
+/* spinner */
+
+.loader{
+    margin: 10px auto;
+    border: 1rem solid#f3f3f3;
+    border-radius: 50%;
+    border-top: 1rem solid #0297d4;
+    width: 3rem;
+    height: 3rem;
+
+    /* safari */
+
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.download-btn{
+    display: block;
+    width: 20%;
+    text-align: center;
+    background-color: orangered;
+    margin: 20px auto;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+#qrcode{
+    margin: auto;
+    max-width: 1200px;
+    width: max-content;
+}
+
+/* responsive design */
+
+@media screen and (max-width:600px){
+    main{
+        flex-direction: column;
+    }
+}

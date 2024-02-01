@@ -77,7 +77,7 @@
 
 
             <label for=""><b>Number Of Rooms :</b><i class="fa-solid fa-5"></i></label>
-            <a href="../HTML/indexBooking.html"><button type="submit">BOOK ROOM</button></a>
+            <a href="../HTML/indexBooking.php"><button type="submit">BOOK ROOM</button></a>
         </div>
         <div class="hotelRoomType">
         ';
@@ -107,7 +107,7 @@
                         </a>
                         <h3>Room Price: '.$roomPrice.'</h3>
                         <h3>Discount: '.$offers.'</h3>
-                        <a href="../HTML/indexBooking.html"><button type="submit">BOOK ROOM</button></a>
+                        <a href="../HTML/indexBooking.php"><button type="submit">BOOK ROOM</button></a>
                         <a href="../HTML/indexAddToCart.php?id='.$roomID.'"><button type="submit">Add to Cart</button></a>
                     </div>
                 </div>

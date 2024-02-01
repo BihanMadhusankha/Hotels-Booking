@@ -4,11 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROOM PROFILE</title>
-    <link rel="stylesheet" href="../CSS/styleRoomProfil.css">
+    <title>QR Genarator</title>
+    <link rel="stylesheet" href="../CSS/styleQR.css">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../Script/QR.js" defer></script>
+
     <style>
         .side-bar {
             background-color: #e3ebf4;
@@ -85,7 +90,7 @@
 </head>
 
 <body>
-
+    <!-- header -->
     <!-- menu-btn -->
     <div class="menu-btn">
         <i class="fas fa-bars"></i>
@@ -117,112 +122,45 @@
 
     <nav>
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
-
     </nav>
-
-    <div class="fullbody">
-
-        <div class="roomimg">
-            <?php
-            include_once '../Includes/db.php';
-            $sqlR = "SELECT * FROM roomsdelails";
-            $resultR = mysqli_query($conn, $sqlR);
-            if ($resultR) {
-                $rowR = mysqli_fetch_assoc($resultR);
-                $roomPhoto = $rowR['roomPhoto'];
-                echo '
-            <div class="bigonephoto">
-                <img class="bigonephoto" src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
-            </div>
-
-            <div class="photos4">
-
-                <div class="photos21">
-                    <img class="photos21 " src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
-                    <img class="photos21 " src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
-                </div>
-
-                <div class="photos2-2">
-                    <img class="photos2-2 two1" src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
-                    <img class="photos2-2 two1" src="../assets/userprofilePic/' . $roomPhoto . '" alt="">
-                </div>
-
-
-            </div>
-                ';
-            }
-            ?>
+    <!-- fex Box -->
+    <main>
+        <div class="image">
+            <img src="../assets/QRimage/qr-image.gif" alt="Qr GIF">
         </div>
 
-        <!-- ------------------------------------------------------------------------------------------- -->
-        <br>
-        <label class="hotelname " for="">ROYAL HOTEL</label> <br>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i> <br><br>
+        <div class="content">
+            <h2>QR Code Genarator</h2>
+           
+            <p>
+                Enter your User Name bellow to generate a QR Code and download the image.
+            </p>
 
+            <form id="gennerate-code">
+                <input type="text" id="url" placeholder="Enter your User Name" class="inputURL" />
+                <select name="size" id="size" class="selected">
+                    <option value="100">100x100</option>
+                    <option value="200">200x200</option>
+                    <option value="300">300x300</option>
+                    <option value="400">400x400</option>
+                    <option value="500">500x500</option>
+                    <option value="600">600x600</option>
+                    <option value="700">700x700</option>
+                </select>
 
-        <div class="roomdetails">
-
-
-
-
-            <div class="amenitiesbox">
-
-
-                <label class="amenities" for="">Popular amenities</label> <br> <br>
-
-                <div class="allicon">
-
-                    <div class="icontwo">
-
-                        <i class="fa-solid fa-paw"></i>
-                        <label for="">Pet-friendly</label> <br><br>
-
-                        <i class="fa-solid fa-square-parking"></i>
-                        <label for="">Free parking</label> <br><br>
-
-                    </div>
-
-                    <div class="iconnexttwo">
-
-                        <i class="fa-solid fa-wifi"></i>
-                        <label for="">Free WiFi</label> <br><br>
-
-                        <span class="material-symbols-outlined">
-                            local_laundry_service
-                        </span>
-                        <label for="">Laundry facilities</label> <br><br>
-
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="facilitise">
-
-                <label class="Facility" for="">Facility</label> <br> <br>
-
-                <label for="">1 queen size bed,bathroom and</label> <br>
-                <label for="">some living places.</label> <br>
-
-                <label for="">Offers light breakfast.</label> <br>
-
-                <label for="">Bed Type:</label> <br>
-                <label for="">Queen Size Bed Comfy</label> <br>
-                <label for="">fit for 2 people.</label> <br>
-
-                <a href="../HTML/indexBooking.php"><input type="submit" class="Reserve" name="Reserve" id="Reserve" value="Reserve"></a>
-
-            </div>
-
+                <button class="submit-button" type="submit">Genarate</button>
+            </form>
         </div>
 
+    </main>
+
+    <div class="generated" id="generated">
+        <!-- spinner -->
+        <div class="loader" id="spinner"></div>
+        <!-- qr code img append -->
+        <div id="qrcode"></div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <script>
@@ -240,7 +178,6 @@
             });
         })
     </script>
-
 
 </body>
 

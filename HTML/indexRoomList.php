@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -50,7 +54,6 @@
 
             <?php
 
-            session_start();
  
             include_once '../Includes/db.php'; 
             $sql = "SELECT * FROM roomsdelails";

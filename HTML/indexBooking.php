@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -227,30 +231,32 @@
                     <input class="date" type="date" id="checkout-date" name="checkout" required placeholder="none">
                     <br><br> <br>
 
-                    <input class="Continu" type="submit" name="submit" id="submit" value="Continue">
+                    <input class="Continu" type="submit" name="submits" id="submit" value="Continue">
                     <div class="recipt">
                         <h2 class="receirtfor">Receipt Form</h2>
-                    <div id="receiptForm" style="display: none;" class="recipt">
-                        <label for="roomCharges">Room Charges </label>
-                        <label class="doubledot1" for="">: </label>
-                        <label id="roomChargesValue">print</label> <br>
+                        <div id="receiptForm" style="display: none;" class="recipt">
+                            <label for="roomCharges">Room Charges </label>
+                            <label class="doubledot1" for="">: </label>
+                            <label id="roomChargesValue">print</label> <br>
 
-                        <label for="servicesCharges">Services Charges </label>
-                        <label class="doubledot2" for="">: </label>
-                        <label id="servicesChargesValue">print</label> <br>
+                            <label for="servicesCharges">Services Charges </label>
+                            <label class="doubledot2" for="">: </label>
+                            <label id="servicesChargesValue">print</label> <br>
 
-                        <label for="vat">Vat </label>
-                        <label class="doubledot3" for="">: </label>
-                        <label id="vatValue">print</label> <br>
+                            <label for="vat">Vat </label>
+                            <label class="doubledot3" for="">: </label>
+                            <label id="vatValue">print</label> <br>
 
-                        <h2>Total <label class="doubledot4" for="">: </label> <span id="totalAmount">print</span> <br></h2>
-                        
-            <button type="button" class="cancelButton" onclick="cancelBooking();">Cancel</button>
+                            <h2>Total <label class="doubledot4" for="">: </label> <span id="totalAmount">print</span>
+                                <br>
+                            </h2>
+
+                            <button type="button" class="cancelButton" onclick="cancelBooking();">Cancel</button>
+                        </div>
+
                     </div>
 
-                    </div>
-                    
-                    
+
 
                 </form>
             </div>
@@ -259,59 +265,63 @@
 
         <!-- ------------------------------------------------------------------------------------ -->
 
-
-        <div class="balanceandpay">
-
-            <hr class="lineeka">
+        <form id="bookingForm" action="../Includes/booking.php" method="post">
 
 
-            <h2 class="paymentinfor">Payment Information</h2><BR></BR>
+            <div class="balanceandpay">
 
-            <label for="">EMAIL ADDRESS</label> <br>
-            <input type="email" class="email" name="email" id="email" required placeholder="none"> <br><br>
-
-            <label for="">NIC NUMBER</label> <br>
-            <input type="text" class="nic" name="nic" id="nic" required placeholder="none"> <br><br>
+                <hr class="lineeka">
 
 
-            <label for="">NAME ON CREDIT CARD</label> <br>
-            <input type="text" class="cardname" name="cardname" id="cardname" required placeholder="none"> <br><br>
+                <h2 class="paymentinfor">Payment Information</h2><BR></BR>
+
+                <label for="">EMAIL ADDRESS</label> <br>
+                <input type="email" class="email" name="email" id="email" required placeholder="none"> <br><br>
+
+                <label for="">NIC NUMBER</label> <br>
+                <input type="text" class="nic" name="nic" id="nic" required placeholder="none"> <br><br>
 
 
-            <label for="">CREDIT CARD NUMBER</label> <br>
-            <input type="text" class="cardnumber" name="cardnumber" id="cardnumber" required placeholder="none">
-            <br><br>
-
-            <label for="">EXPIRES ON</label> <label for="" style="margin-left: 8px;">YEAR</label> <br>
-            <select class="expireon" name="expireon" id="expireon" required placeholder="none">month
-
-                <option value="">January</option>
-                <option value="">February</option>
-                <option value="">March</option>
-                <option value="">April</option>
-                <option value="">May</option>
-                <option value="">June</option>
-                <option value="">July</option>
-                <option value="">August</option>
-                <option value="">September</option>
-                <option value="">October</option>
-                <option value="">November</option>
-                <option value="">December</option>
+                <label for="">NAME ON CREDIT CARD</label> <br>
+                <input type="text" class="cardname" name="cardname" id="cardname" required placeholder="none"> <br><br>
 
 
-            </select>
+                <label for="">CREDIT CARD NUMBER</label> <br>
+                <input type="text" class="cardnumber" name="cardnumber" id="cardnumber" required placeholder="none">
+                <br><br>
+
+                <label for="">EXPIRES ON</label> <label for="" style="margin-left: 8px;">YEAR</label> <br>
+                <select class="expireon" name="expireon" id="expireon" required placeholder="none">month
+
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
 
 
-            <input type="text" class="month" name="year" id="month" placeholder="Year"> <br><br>
-
-            <label for="">CVC</label> <br>
-            <input type="text" class="CVC" name="CVC" id="CVC" required placeholder="none"> <br><br>
+                </select>
 
 
-            <input type="submit" class="book" name="book" id="book" value="BOOK NOW" onclick="handleBookingAndPayment(); return false;">
+                <input type="text" class="month" name="year" id="month" placeholder="Year"> <br><br>
+
+                <label for="">CVC</label> <br>
+                <input type="text" class="CVC" name="CVC" id="CVC" required placeholder="none"> <br><br>
 
 
-        </div>
+                <input type="submit" class="book" name="submit" id="book" value="BOOK NOW">
+
+
+            </div>
+        </form>
+
 
     </div>
 
@@ -342,131 +352,131 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('.menu-btn').click(function () {
+        $(document).ready(function() {
+            $('.menu-btn').click(function() {
                 $('.side-bar').addClass('active');
                 $('.menu-btn').css("visibility", "hidden");
             });
 
-            $('.close-btn').click(function () {
+            $('.close-btn').click(function() {
                 $('.side-bar').removeClass('active');
                 $('.menu-btn').css("visibility", "visible");
             });
         })
-
     </script>
 
-<script>
-    function calculateTotal() {
-        
-        var rooms = parseInt(document.getElementById("rooms").value);
-        var poolAccess = document.querySelector('input[name="poolaccess"]:checked').value === "Yes" ? 1 : 0;
-        var spa = document.querySelector('input[name="spa"]:checked').value === "Yes" ? 1 : 0;
-        var gym = document.querySelector('input[name="gym"]:checked').value === "Yes" ? 1 : 0;
-        var bar = document.querySelector('input[name="bar"]:checked').value === "Yes" ? 1 : 0;
+    <script>
+        function calculateTotal() {
 
-        
-        var roomCharges = rooms * 100; 
-        var servicesCharges = (poolAccess + spa + gym + bar) * 50;
-        var vat = (roomCharges + servicesCharges) * 0.1; 
+            var rooms = parseInt(document.getElementById("rooms").value);
+            var poolAccess = document.querySelector('input[name="poolaccess"]:checked').value === "Yes" ? 1 : 0;
+            var spa = document.querySelector('input[name="spa"]:checked').value === "Yes" ? 1 : 0;
+            var gym = document.querySelector('input[name="gym"]:checked').value === "Yes" ? 1 : 0;
+            var bar = document.querySelector('input[name="bar"]:checked').value === "Yes" ? 1 : 0;
 
-        
-        var total = roomCharges + servicesCharges + vat;
 
-        
-        document.getElementById("roomChargesValue").innerText = "$" + roomCharges;
-        document.getElementById("servicesChargesValue").innerText = "$" + servicesCharges;
-        document.getElementById("vatValue").innerText = "$" + vat;
+            var roomCharges = rooms * 100;
+            var servicesCharges = (poolAccess + spa + gym + bar) * 50;
+            var vat = (roomCharges + servicesCharges) * 0.1;
 
-        
-        document.getElementById("totalAmount").innerText = "$" + total;
 
-       
-        document.getElementById("receiptForm").style.display = "block";
-        
-        return false;
-    }
-</script>
+            var total = roomCharges + servicesCharges + vat;
 
-<!-- Add the following script to handle the booking and payment -->
-<script>
-    function handleBookingAndPayment() {
-    // Get payment details from the form
-    var email = document.getElementById("email").value;
-    var cardName = document.getElementById("cardname").value;
-    var cardNumber = document.getElementById("cardnumber").value;
-    var expireMonth = document.getElementById("expireon").value;
-    var expireYear = document.getElementById("month").value;
-    var cvc = document.getElementById("CVC").value;
 
-    // Validate payment details
-    if (!isValidEmail(email)) {
-        alert("Invalid email address.");
-        return false;
-    }
+            document.getElementById("roomChargesValue").innerText = "$" + roomCharges;
+            document.getElementById("servicesChargesValue").innerText = "$" + servicesCharges;
+            document.getElementById("vatValue").innerText = "$" + vat;
 
-    if (!isValidCardName(cardName)) {
-        alert("Invalid name on credit card.");
-        return false;
-    }
 
-    if (!isValidCardNumber(cardNumber)) {
-        alert("Invalid credit card number.");
-        return false;
-    }
+            document.getElementById("totalAmount").innerText = "$" + total;
 
-    if (!isValidExpireMonth(expireMonth) || !isValidExpireYear(expireYear)) {
-        alert("Invalid expiration date.");
-        return false;
-    }
 
-    if (!isValidCVC(cvc)) {
-        alert("Invalid CVC.");
-        return false;
-    }
+            document.getElementById("receiptForm").style.display = "block";
 
-    // If payment details are valid, proceed with booking
-    alert("Booking Successful! Thank you for choosing Royal Hotels.");
-    // You can redirect the user or perform any other necessary actions here
-}
+            return false;
+        }
+    </script>
 
-// Example validation functions
-function isValidEmail(email) {
-    // Implement your email validation logic
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+  
+    <script>
+        function handleBookingAndPayment() {
+            
+            var email = document.getElementById("email").value;
+            var nic = document.getElementById("nic").value; 
+            var cardName = document.getElementById("cardname").value;
+            var cardNumber = document.getElementById("cardnumber").value;
+            var expireMonth = document.getElementById("expireon").value;
+            var expireYear = document.getElementById("month").value;
+            var cvc = document.getElementById("CVC").value;
 
-function isValidCardName(cardName) {
-    // Implement your credit card name validation logic
-    return /^[a-zA-Z ]+$/.test(cardName);
-}
+            // Validate payment details
+            if (!isValidEmail(email)) {
+                alert("Invalid email address.");
+                return false;
+            }
 
-function isValidCardNumber(cardNumber) {
-    // Implement your credit card number validation logic
-    return /^\d{16}$/.test(cardNumber);
-}
+            if (!isValidCardName(cardName)) {
+                alert("Invalid name on credit card.");
+                return false;
+            }
 
-function isValidExpireMonth(expireMonth) {
-    // Implement your expiration month validation logic
-    return /^[01]?\d$/.test(expireMonth) && parseInt(expireMonth) >= 1 && parseInt(expireMonth) <= 12;
-}
+            if (!isValidCardNumber(cardNumber)) {
+                alert("Invalid credit card number.");
+                return false;
+            }
 
-function isValidExpireYear(expireYear) {
-    // Implement your expiration year validation logic
-    return /^\d{4}$/.test(expireYear) && parseInt(expireYear) >= new Date().getFullYear();
-}
+            if (!isValidCVC(cvc)) {
+                alert("Invalid CVC.");
+                return false;
+            }
 
-function isValidCVC(cvc) {
-    // Implement your CVC validation logic
-    return /^\d{3,4}$/.test(cvc);
-}
+            // If payment details are valid, proceed with booking
+            var form = document.getElementById('bookingForm');
+            var formData = new FormData(form);
 
-    function cancelBooking() {
-        // Placeholder for cancel booking logic
-        alert("Booking canceled.");
-        // You can redirect the user or perform any other necessary actions here
-    }
-</script>
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Handle the response from booking.php
+                    var response = xhr.responseText;
+                    alert(response); // Display response in an alert (you can modify this part)
+                }
+            };
+
+            xhr.send(formData);
+
+            return false;
+        }
+
+        // Example validation functions
+        function isValidEmail(email) {
+            // Implement your email validation logic
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function isValidCardName(cardName) {
+            // Implement your credit card name validation logic
+            return /^[a-zA-Z ]+$/.test(cardName);
+        }
+
+        function isValidCardNumber(cardNumber) {
+            // Implement your credit card number validation logic
+            return /^\d{16}$/.test(cardNumber);
+        }
+
+
+        function isValidCVC(cvc) {
+            // Implement your CVC validation logic
+            return /^\d{3,4}$/.test(cvc);
+        }
+
+        function cancelBooking() {
+            // Placeholder for cancel booking logic
+            alert("Booking canceled.");
+            window.location.href = "../HTML/indexRoomFrofile.php";
+        }
+    </script>
 
 
 </body>
