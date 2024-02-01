@@ -32,18 +32,18 @@ session_start();
                 <h2>Register</h2>
                 <div class="registation_form_fieldset_input">
                     <div class="fullName">
-                        <input type="text" id="fullname" placeholder="Full Name" name="fullname">
-                        <input type="text" id="username" placeholder="User Name" name="username">
+                        <input type="text" id="fullname" placeholder="Full Name" required name="fullname">
+                        <input type="text" id="username" placeholder="User Name" required name="username">
                     </div>
 
                     <div class="anyData">
-                        <input type="email" placeholder="Enter your email" name="email">
-                        <input type="text" id="nic" placeholder="NIC" name="nic">
-                        <input type="date" placeholder="Birthday" name="date">
-                        <input type="text" placeholder="Country" name="country">
-                        <input type="text" placeholder="Contact Number" name="phonenum">
-                        <input type="password" placeholder=Create_Password name="createpassword">
-                        <input type="password" placeholder=Conform_Password name="conformpassword">
+                        <input type="email" placeholder="Enter your email" name="email" required>
+                        <input type="text" id="nic" placeholder="NIC" name="nic" required>
+                        <input type="date" placeholder="Birthday" name="date" required>
+                        <input type="text" placeholder="Country" name="country" required>
+                        <input type="text" placeholder="Contact Number" name="phonenum" required>
+                        <input type="password" placeholder=Create_Password name="createpassword" required>
+                        <input type="password" placeholder=Conform_Password name="conformpassword" required>
 
 
                     </div>

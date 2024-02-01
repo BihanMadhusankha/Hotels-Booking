@@ -23,11 +23,10 @@ if (isset($_POST['submit'])) {
 
     $stmt = mysqli_prepare($conn, $sql);
 
-    // Bind parameters
     mysqli_stmt_bind_param($stmt, 'ssssssss', 
         $newHotelName, $newEmail, $newPhone, $newLocation, $newComment, $newPhoto, $newCategory, $newHotelName);
 
-    // Execute the statement
+   
     $result = mysqli_stmt_execute($stmt);
 
     if ($result) {
@@ -36,7 +35,7 @@ if (isset($_POST['submit'])) {
         echo 'Error updating hotel: ' . mysqli_error($conn);
     }
 
-    // Close the statement
+  
     mysqli_stmt_close($stmt);
 } else {
     echo 'Invalid form submission.';

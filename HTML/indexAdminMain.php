@@ -138,8 +138,6 @@
 
 <body>
 
-
-    <!-- menu-btn -->
     <div class="menu-btn">
         <i class="fas fa-bars"></i>
     </div>
@@ -184,42 +182,42 @@
 
             <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
             <br>
-            <label><b>7 Star Hotel</b></label>
+            <label><b>1 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
             <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
             <br>
-            <label><b>7 Star Hotel</b></label>
+            <label><b>2 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
             <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
             <br>
-            <label><b>7 Star Hotel</b></label>
+            <label><b>3 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
             <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
             <br>
-            <label><b>7 Star Hotel</b></label>
+            <label><b>4 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
             <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
             <br>
-            <label><b>7 Star Hotel</b></label>
+            <label><b>5 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
             <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
             <br>
-            <label><b>7 Star Hotel</b></label>
+            <label><b>6 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">

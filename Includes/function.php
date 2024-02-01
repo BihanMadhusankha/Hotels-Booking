@@ -21,7 +21,7 @@ function invalidUid($username)
 function invalidEmail($email)
 {
     $result = false;
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { //preg_match ekk dann one email eke letter and symble check krnn
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { 
         $result = true;
     }
     return $result;
@@ -172,9 +172,9 @@ function resetPassword($conn, $enterp, $comformp)
 
     if ($rowsUserProfile > 0) {
         header("Location:../HTML/index.php?error=none");
-        return true; // Update successful
+        return true; 
     } else {
-        return false; // No rows were updated
+        return false; 
     }
 }
 ////user
@@ -194,9 +194,6 @@ function editProfile($conn, $fullname, $username, $email, $phonenum, $country, $
     $sql = "UPDATE userregistation SET fullName=?,userName=?, Email=? , contactNumber=? , homeTown=? , DOB=? , NIC=? , password=? , conformPassword=? WHERE userName=?";
     $stmt = mysqli_stmt_init($conn);
 
-    // $sqlUserProfile = "UPDATE userprofileid SET profilePhoto=?  WHERE NIC=?";
-    // $stmtUserProfile = mysqli_stmt_init($conn);
-
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("Location:../HTML/indexUserProfile.php?error=stmtfailed");
         exit();
@@ -214,9 +211,9 @@ function editProfile($conn, $fullname, $username, $email, $phonenum, $country, $
 
     if ($Rows > 0) {
         header("Location:../HTML/index.php?error=none");
-        return true;  // Update successful
+        return true;  
     } else {
-        return false;  // No rows were updated
+        return false; 
     }
 }
 
@@ -239,9 +236,9 @@ function updateProfile($conn, $nic)
 
     if ($rowsUserProfile > 0) {
         header("Location:../HTML/index.php?error=none");
-        return true; // Update successful
+        return true; 
     } else {
-        return false; // No rows were updated
+        return false;
     }
 }
 
@@ -302,7 +299,6 @@ function addProfilePhoto($conn, $username, $userprofile)
                         mysqli_stmt_execute($insertStmt);
                         mysqli_stmt_close($insertStmt);
                     } else {
-                        // Handle statement preparation failure for INSERT query
                         header("Location:../HTML/indexUserProfile.php?error=stmtfailed");
                         exit();
                     }
@@ -311,17 +307,14 @@ function addProfilePhoto($conn, $username, $userprofile)
                 header("Location:../HTML/index.php?error=none");
                 exit();
             } else {
-                // Handle statement preparation failure for SELECT query
                 header("Location:../HTML/indexUserProfile.php?error=stmtfailed");
                 exit();
             }
         } else {
-            // Handle the case where NIC is empty
             header("Location:../HTML/indexUserProfile.php?error=emptyNIC");
             exit();
         }
     } else {
-        // Handle the case where userName is not found
         header("Location:../HTML/indexUserProfile.php?error=userNotFound");
         exit();
     }
@@ -363,7 +356,6 @@ function createHelp($conn, $massage, $email, $name)
 {
     $userName = $name;
 
-    // Select NIC from userregistration based on userName
     $selectQuery = "SELECT NIC FROM userregistation WHERE userName = ?";
     $selectStmt = mysqli_stmt_init($conn);
 
@@ -377,11 +369,9 @@ function createHelp($conn, $massage, $email, $name)
     mysqli_stmt_bind_result($selectStmt, $nic);
 
     if (mysqli_stmt_fetch($selectStmt)) {
-        // Check if NIC is not empty
         if (!empty($nic)) {
             mysqli_stmt_close($selectStmt);
 
-            // Insert data into userhelp table
             $insertQuery = "INSERT INTO userhelp (NIC, massages, email, userName) VALUES (?, ?, ?, ?)";
             $insertStmt = mysqli_stmt_init($conn);
 
@@ -393,17 +383,14 @@ function createHelp($conn, $massage, $email, $name)
                 header("Location:../HTML/index.php?error=none");
                 exit();
             } else {
-                // Handle statement preparation failure for INSERT query
                 header("Location:../HTML/indexHelp.php?error=stmtfailed");
                 exit();
             }
         } else {
-            // Handle the case where NIC is empty
             header("Location:../HTML/indexHelp.php?error=emptyNIC");
             exit();
         }
     } else {
-        // Handle the case where userName is not found
         header("Location:../HTML/indexHelp.php?error=userNotFound");
         exit();
     }
@@ -446,7 +433,6 @@ function createRoom($conn,$hotelname, $offers, $veiw, $overView, $price,$photo){
     
     $hotel = $hotelname;
 
-    // Select NIC from userregistration based on userName
     $selectQuery = "SELECT hotelID FROM hoteldata WHERE hotelName = ?";
     $selectStmt = mysqli_stmt_init($conn);
 
@@ -460,11 +446,9 @@ function createRoom($conn,$hotelname, $offers, $veiw, $overView, $price,$photo){
     mysqli_stmt_bind_result($selectStmt, $hotelID);
 
     if (mysqli_stmt_fetch($selectStmt)) {
-        // Check if NIC is not empty
         if (!empty($hotelID)) {
             mysqli_stmt_close($selectStmt);
 
-            // Insert data into userhelp table
             $insertQuery = "INSERT INTO roomsdelails (hotelName,offers,veiuPoint,overView,price,hotelID,roomPhoto) VALUES (?,?,?,?,?,?,?)";
             $insertStmt = mysqli_stmt_init($conn);
 
@@ -476,17 +460,14 @@ function createRoom($conn,$hotelname, $offers, $veiw, $overView, $price,$photo){
                 header("Location:../HTML/indexRoomList.php?error=none");
                 exit();
             } else {
-                // Handle statement preparation failure for INSERT query
                 header("Location:../HTML/indexRoomRegister.html?error=stmtfailed");
                 exit();
             }
         } else {
-            // Handle the case where NIC is empty
             header("Location:../HTML/indexRoomRegister.html?error=emptyNIC");
             exit();
         }
     } else {
-        // Handle the case where userName is not found
         header("Location:../HTML/indexRoomRegister.html?error=userNotFound");
         exit();
     }
@@ -505,7 +486,6 @@ function getRoomDetailsById($conn, $id) {
             return false;
         }
     } else {
-        // Handle the case where $conn is not valid
         return false;
     }
 }
@@ -513,7 +493,6 @@ function getRoomDetailsById($conn, $id) {
 function createPaymentDetails($conn,$email, $cardname, $cardnumber, $expireon, $year, $CVC,$nic){
     $NIC = $nic;
 
-    // Select NIC from userregistration based on userName
     $selectQuery = "SELECT NIC FROM userregistation WHERE NIC = ?";
     $selectStmt = mysqli_stmt_init($conn);
 
@@ -527,11 +506,9 @@ function createPaymentDetails($conn,$email, $cardname, $cardnumber, $expireon, $
     mysqli_stmt_bind_result($selectStmt, $nic);
 
     if (mysqli_stmt_fetch($selectStmt)) {
-        // Check if NIC is not empty
         if (!empty($nic)) {
             mysqli_stmt_close($selectStmt);
 
-            // Insert data into userhelp table
             $insertQuery = "INSERT INTO paymentdetails (email ,creditcardNumber,expireMonth ,year ,cvc ,NIC,cardName) VALUES (?,?,?,?,?,?,?)";
             $insertStmt = mysqli_stmt_init($conn);
 
@@ -543,17 +520,14 @@ function createPaymentDetails($conn,$email, $cardname, $cardnumber, $expireon, $
                 header("Location:../HTML/indexQR.php?error=none");
                 exit();
             } else {
-                // Handle statement preparation failure for INSERT query
                 header("Location:../HTML/indexBooking.html?error=stmtfailed");
                 exit();
             }
         } else {
-            // Handle the case where NIC is empty
             header("Location:../HTML/indexBooking.html?error=emptyNIC");
             exit();
         }
     } else {
-        // Handle the case where userName is not found
         header("Location:../HTML/indexBooking.html?error=userNotFound");
         exit();
     }

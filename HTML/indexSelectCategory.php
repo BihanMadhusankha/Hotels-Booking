@@ -9,11 +9,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <title>Hotel Category</title>
         <style>
-             nav i{
-            font-size: 40px;
-            color: #fff;
-            margin-right: 10px;
-        }
+            nav i {
+                font-size: 40px;
+                color: #fff;
+                margin-right: 10px;
+            }
+
             .side-bar {
                 background-color: #e3ebf4;
 
@@ -91,7 +92,7 @@
                 flex-direction: column;
             }
 
-            .allCategory .row{
+            .allCategory .row {
                 display: flex;
                 flex-direction: row;
             }
@@ -144,8 +145,8 @@
                 $result = mysqli_query($conn, $sql);
 
                 if ($result) {
-                    
-                    
+
+
                     while ($row = mysqli_fetch_assoc($result)) {
                         $hotelName = $row['hotelName'];
                         $hotelCategory = $row['hotelCategory'];

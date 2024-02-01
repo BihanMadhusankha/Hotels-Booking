@@ -23,23 +23,23 @@ session_start();
 
             /* Define keyframes for the slideshow */
             0% {
-                background-image: url('../assets/back1.jpeg');
+                background-image: url('../assets/back1.jpg');
             }
 
             25% {
-                background-image: url('../assets/back2.jpeg');
+                background-image: url('../assets/back2.jpg');
             }
 
             50% {
-                background-image: url('../assets/back3.jpeg');
+                background-image: url('../assets/back3.jpg');
             }
 
             75% {
-                background-image: url('../assets/back4.jpeg');
+                background-image: url('../assets/back4.jpg');
             }
 
             100% {
-                background-image: url('../assets/back5.jpeg');
+                background-image: url('../assets/back5.jpg');
             }
         }
 

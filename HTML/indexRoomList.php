@@ -6,7 +6,7 @@
 <html>
 
 <head>
-    <!-- Your existing head content -->
+    
 
     <title>Hotel List</title>
     <link rel="stylesheet" href="../CSS/styleHotelList.css">

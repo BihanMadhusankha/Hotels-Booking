@@ -4,7 +4,6 @@
     if(isset($_POST['deletename'])){
         $id = mysqli_real_escape_string($conn, $_POST['deletename']);
 
-        // Check if the NIC value is not empty before proceeding
         if (!empty($id)) {
             $sql = "DELETE FROM roomsdelails WHERE  roomID= '$id'";
             $result = mysqli_query($conn, $sql);

@@ -81,6 +81,23 @@
         .side-bar.active {
             left: 0;
         }
+
+        .roomdetails {
+            width: 1200px;
+            margin: auto;
+        }
+
+        .roomimg {
+            margin-left: 135px;
+        }
+
+        .hotelname {
+            margin-left: 135px;
+        }
+
+        .tharu{
+            margin-left: 135px;
+        }
     </style>
 </head>
 
@@ -157,15 +174,17 @@
         <!-- ------------------------------------------------------------------------------------------- -->
         <br>
         <label class="hotelname " for="">ROYAL HOTEL</label> <br>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i> <br><br>
+
+        <div class="tharu">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+
+        </div>
+        <br><br>
 
 
         <div class="roomdetails">
-
-
-
 
             <div class="amenitiesbox">
 

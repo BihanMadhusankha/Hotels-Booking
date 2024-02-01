@@ -9,9 +9,9 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOOK NOW</title>
-    <link rel="stylesheet" href="../CSS/styleBooking.css">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/styleBooking.css">
     <style>
         nav i {
             font-size: 40px;
@@ -89,6 +89,22 @@ session_start();
 
         .side-bar.active {
             left: 0;
+        }
+
+        .nic {
+            width: 240px;
+            height: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .balanceandpay{
+            height: 566px;
+        }
+
+        .fullformandpay{
+            margin-left: 450px;
+            
         }
     </style>
 </head>
@@ -270,10 +286,11 @@ session_start();
 
             <div class="balanceandpay">
 
-                <hr class="lineeka">
 
 
-                <h2 class="paymentinfor">Payment Information</h2><BR></BR>
+                <h2 class="paymentinfor">Payment Information</h2>
+                <hr class="lineeka"> <br><br>
+
 
                 <label for="">EMAIL ADDRESS</label> <br>
                 <input type="email" class="email" name="email" id="email" required placeholder="none"> <br><br>
@@ -317,13 +334,13 @@ session_start();
 
 
                 <input type="submit" class="book" name="submit" id="book" value="BOOK NOW">
-
+                <br>
 
             </div>
         </form>
 
 
-    </div>
+    </div> <br><br>
 
     <!-- fotter -->
     <footer>
@@ -348,6 +365,7 @@ session_start();
             </div>
 
         </div>
+
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -375,9 +393,9 @@ session_start();
             var bar = document.querySelector('input[name="bar"]:checked').value === "Yes" ? 1 : 0;
 
 
-            var roomCharges = rooms * 100;
+            var roomCharges = (rooms * 100)+2399 ;
             var servicesCharges = (poolAccess + spa + gym + bar) * 50;
-            var vat = (roomCharges + servicesCharges) * 0.1;
+            var vat = (roomCharges + servicesCharges) * 0.2;
 
 
             var total = roomCharges + servicesCharges + vat;
@@ -397,12 +415,12 @@ session_start();
         }
     </script>
 
-  
+
     <script>
         function handleBookingAndPayment() {
-            
+
             var email = document.getElementById("email").value;
-            var nic = document.getElementById("nic").value; 
+            var nic = document.getElementById("nic").value;
             var cardName = document.getElementById("cardname").value;
             var cardNumber = document.getElementById("cardnumber").value;
             var expireMonth = document.getElementById("expireon").value;
@@ -430,7 +448,6 @@ session_start();
                 return false;
             }
 
-            // If payment details are valid, proceed with booking
             var form = document.getElementById('bookingForm');
             var formData = new FormData(form);
 
@@ -438,9 +455,8 @@ session_start();
             xhr.open('POST', form.action, true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Handle the response from booking.php
                     var response = xhr.responseText;
-                    alert(response); // Display response in an alert (you can modify this part)
+                    alert(response); 
                 }
             };
 
@@ -449,30 +465,30 @@ session_start();
             return false;
         }
 
-        // Example validation functions
+        
         function isValidEmail(email) {
-            // Implement your email validation logic
+            
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
 
         function isValidCardName(cardName) {
-            // Implement your credit card name validation logic
+            
             return /^[a-zA-Z ]+$/.test(cardName);
         }
 
         function isValidCardNumber(cardNumber) {
-            // Implement your credit card number validation logic
+            
             return /^\d{16}$/.test(cardNumber);
         }
 
 
         function isValidCVC(cvc) {
-            // Implement your CVC validation logic
+            
             return /^\d{3,4}$/.test(cvc);
         }
 
         function cancelBooking() {
-            // Placeholder for cancel booking logic
+            
             alert("Booking canceled.");
             window.location.href = "../HTML/indexRoomFrofile.php";
         }
