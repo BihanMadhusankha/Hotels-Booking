@@ -1,47 +1,93 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
     session_start();
+    include_once '../Includes/function.php'; 
+    include_once '../Includes/db.php';
+
+    // Initialize cart from session or cookies
+    if (isset($_SESSION['user_id'])) {
+        // If user is logged in, use session
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
+        $cart = &$_SESSION['cart'];
+    } else {
+        // If user is not logged in, use cookies
+        $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : array();
+    }
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        // Fetch room details from the database based on $id (you may need to modify this part)
-        // For demonstration purposes, let's assume you have a function getRoomDetailsById
-        $roomDetails = getRoomDetailsById($id);
-
-        // Check if the room details are found
-        if ($roomDetails) {
-            // Add the room details to the cart session
-            $_SESSION['cart'][$id] = array(
-                'id' => $id,
-                'roomPhoto' => $roomDetails['roomPhoto'],
-                'roomPrice' => $roomDetails['price'],
-                'offers' => $roomDetails['offers']
-                // Add other details as needed
-            );
-
-            // Print the cart for debugging
-            echo '<pre>';
-            print_r($_SESSION['cart']);
-            echo '</pre>';
+        // Check if the action is to remove all items
+        if ($id === 'remove_all') {
+            $cart = array(); // Empty the cart
+            echo 'All items removed from favorites.<br>';
         } else {
-            echo 'Room details not found.';
+            // Check if the room is already in the cart
+            if (isset($cart[$id])) {
+                // Room is in the cart, remove it
+                unset($cart[$id]);
+                echo 'Room removed from favorites.<br>';
+            } else {
+                // Room is not in the cart, add it
+                $roomDetails = getRoomDetailsById($conn, $id);
+
+                if ($roomDetails) {
+                    $cart[$id] = array(
+                        'id' => $id,
+                        'roomPhoto' => $roomDetails['roomPhoto'],
+                        'roomPrice' => $roomDetails['price'],
+                        'offers' => $roomDetails['offers']
+                    );
+                    echo 'Room added to favorites.<br>';
+                } else {
+                    echo 'Room details not found.';
+                }
+            }
         }
     }
-    
-    // Function to get room details from the database (replace this with your actual implementation)
-    function getRoomDetailsById($id) {
-        // Assume $conn is your database connection
-        include_once '../Includes/db.php';
 
-        $id = mysqli_real_escape_string($conn, $id);
+    // Display the cart contents in a table
+    if (!empty($cart)) {
+        echo '<table border="1">';
+        echo '<tr>';
+        echo '<th>ID</th>';
+        echo '<th>Room Photo</th>';
+        echo '<th>Room Price</th>';
+        echo '<th>Offers</th>';
+        echo '<th>Action</th>';
+        echo '</tr>';
 
-        $sql = "SELECT * FROM roomsdelails WHERE roomID='$id'";
-        $result = mysqli_query($conn, $sql);
-
-        if ($result && mysqli_num_rows($result) > 0) {
-            return mysqli_fetch_assoc($result);
-        } else {
-            return false;
+        foreach ($cart as $id => $item) {
+            echo '<tr>';
+            echo '<td>' . $item['id'] . '</td>';
+            echo '<td>' . $item['roomPhoto'] . '</td>';
+            echo '<td>' . $item['roomPrice'] . '</td>';
+            echo '<td>' . $item['offers'] . '</td>';
+            echo '<td><a href="?id=' . $item['id'] . '">Toggle favorite</a></td>';
+            echo '</tr>';
         }
+
+        echo '</table>';
+        echo '<br><a href="?id=remove_all">Remove All Favorites</a>';
+    } else {
+        echo 'No rooms in favorites.';
     }
-?>
+
+    // Update or set cookies if user is not logged in
+    if (!isset($_SESSION['user_id'])) {
+        setcookie('cart', json_encode($cart), time() + (30 * 24 * 60 * 60), '/'); // 30 days expiration
+    }
+    ?>
+</body>
+</html>

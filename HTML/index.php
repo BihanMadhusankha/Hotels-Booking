@@ -14,6 +14,11 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="../Script/script.js"></script>
     <style>
+         nav i{
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+        }
         @keyframes slideshow {
 
             /* Define keyframes for the slideshow */
@@ -159,7 +164,8 @@ session_start();
 
                 <?php
                 if (isset($_SESSION["username"])) {
-                    echo '<li><a id="RegisterdUser" href="#"><h1>Hello ' . $_SESSION["username"] . ' !</h1></a></li>';
+                    echo '<li><a id="RegisterdUser" href="#"><h1>Hello ' . $_SESSION["username"] . ' !</h1></a></li>
+                    <a href="../HTML/indexAddToCart.php"><i class="fa-solid fa-cart-shopping"></i></a>';
                 } else {
                     echo '<li><button id="regester" class="regester" href="registerPage()" onclick="registerPage( )">Register</button></li>
                                   <li><button id="Login" class="Login" onclick="loginPage()">Log in</button></li> ';

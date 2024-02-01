@@ -9,6 +9,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <title>Hotel Category</title>
         <style>
+             nav i{
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+        }
             .side-bar {
                 background-color: #e3ebf4;
 
@@ -127,6 +132,7 @@
 
         <nav style="margin-bottom: 3rem;">
             <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
+            <a href="../HTML/indexAddToCart.php"><i class="fa-solid fa-cart-shopping"></i></a>
 
         </nav>
         <div class="allCategory">

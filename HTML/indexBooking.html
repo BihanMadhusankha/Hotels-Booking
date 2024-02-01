@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        nav i {
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+        }
+
         .side-bar {
             background-color: #e3ebf4;
 
@@ -115,16 +121,18 @@
 
 
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
+        <a href="../HTML/indexAddToCart.php"><i class="fa-solid fa-cart-shopping"></i></a>
 
     </nav>
 
     <div class="fullformandpay">
 
+
         <div class="fillbookform">
 
             <div class="detailsform">
 
-                <form action="" method="post">
+                <form onsubmit="return calculateTotal()">
 
                     <label for="rooms"><b>Number of rooms:</b></label>
                     <select class="rooms" id="rooms" name="rooms" required>
@@ -156,8 +164,8 @@
 
                     </select> <br><br>
 
-                    <label for=" children"><b>Number of children: </b></label>
-                    <select class="children" id="children" name="children" required >
+                    <label for="children"><b>Number of children: </b></label>
+                    <select class="children" id="children" name="children" required>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="4">4</option>
@@ -172,11 +180,11 @@
                     </select> <br><br>
 
                     <label><b>Pool Access:</b></label>
-                    <input type="radio" id="yes" name="pool access" value="Yes" required placeholder="none">
+                    <input type="radio" id="yes" name="poolaccess" value="Yes" required placeholder="none">
                     <label>Yes:</label>
 
-                    <input type="radio" id="no" name="pool access" value="No" required placeholder="none">
-                    <label>NO</label>
+                    <input type="radio" id="no" name="poolaccess" value="No" required placeholder="none">
+                    <label>NO:</label>
                     <i class="fa-solid fa-person-swimming"></i>
                     <br><br>
 
@@ -186,7 +194,7 @@
                     <label>Yes:</label>
 
                     <input type="radio" id="no" name="spa" value="No" required placeholder="none">
-                    <label>NO</label>
+                    <label>NO:</label>
                     <i class="fas fa-parking"></i> <br><br>
 
 
@@ -195,7 +203,7 @@
                     <label>Yes:</label>
 
                     <input type="radio" id="no" name="gym" value="No" required placeholder="none">
-                    <label>NO</label>
+                    <label>NO:</label>
                     <i class="fa-solid fa-dumbbell"></i> <br><br>
 
 
@@ -205,20 +213,45 @@
                     <label>Yes:</label>
 
                     <input type="radio" id="no" name="bar" value="No" required placeholder="none">
-                    <label>NO</label>
+                    <label>NO:</label>
                     <i class="fa-solid fa-beer-mug-empty"></i> <br><br>
 
 
                     <label><b>Check-in Date</b></label>
-                    <input class="date" type="date" id="checkin-date" name="checkin" required placeholder="none"> <br> <br>
+                    <input class="date" type="date" id="checkin-date" name="checkin" required placeholder="none">
+                    <br>
+                    <br>
 
 
                     <label><b>Check-out Date</b></label>
-                    <input class="date" type="date" id="checkout-date" name="checkout" required placeholder="none"> <br><br> <br>
-
-                    <input class="Continu" type="submit" name="submit" id="submit" value="Add To Cart" style="margin-bottom: 16px;">
+                    <input class="date" type="date" id="checkout-date" name="checkout" required placeholder="none">
+                    <br><br> <br>
 
                     <input class="Continu" type="submit" name="submit" id="submit" value="Continue">
+                    <div class="recipt">
+                        <h2 class="receirtfor">Receipt Form</h2>
+                    <div id="receiptForm" style="display: none;" class="recipt">
+                        <label for="roomCharges">Room Charges </label>
+                        <label class="doubledot1" for="">: </label>
+                        <label id="roomChargesValue">print</label> <br>
+
+                        <label for="servicesCharges">Services Charges </label>
+                        <label class="doubledot2" for="">: </label>
+                        <label id="servicesChargesValue">print</label> <br>
+
+                        <label for="vat">Vat </label>
+                        <label class="doubledot3" for="">: </label>
+                        <label id="vatValue">print</label> <br>
+
+                        <h2>Total <label class="doubledot4" for="">: </label> <span id="totalAmount">print</span> <br></h2>
+                        
+            <button type="button" class="cancelButton" onclick="cancelBooking();">Cancel</button>
+                    </div>
+
+                    </div>
+                    
+                    
+
                 </form>
             </div>
 
@@ -229,26 +262,6 @@
 
         <div class="balanceandpay">
 
-            <h2 class="receirtfor">Receipt Form</h2>
-
-            <label for="">Room Charges </label>
-            <label class="doubledot1" for="">: </label>
-
-            <label for="">print</label> <br>
-
-            <label for="">Services Charges </label>
-            <label class="doubledot2" for="">: </label>
-
-            <label for="">print</label> <br>
-
-            <label for="">Vat </label>
-            <label class="doubledot3" for="">: </label>
-
-            <label for="">print</label> <br>
-
-            <h2>Total <label class="doubledot4" for="">: </label> <label for="">print</label> <br> </h2>
-
-
             <hr class="lineeka">
 
 
@@ -257,12 +270,17 @@
             <label for="">EMAIL ADDRESS</label> <br>
             <input type="email" class="email" name="email" id="email" required placeholder="none"> <br><br>
 
+            <label for="">NIC NUMBER</label> <br>
+            <input type="text" class="nic" name="nic" id="nic" required placeholder="none"> <br><br>
+
+
             <label for="">NAME ON CREDIT CARD</label> <br>
             <input type="text" class="cardname" name="cardname" id="cardname" required placeholder="none"> <br><br>
 
 
             <label for="">CREDIT CARD NUMBER</label> <br>
-            <input type="text" class="cardnumber" name="cardnumber" id="cardnumber" required placeholder="none"> <br><br>
+            <input type="text" class="cardnumber" name="cardnumber" id="cardnumber" required placeholder="none">
+            <br><br>
 
             <label for="">EXPIRES ON</label> <label for="" style="margin-left: 8px;">YEAR</label> <br>
             <select class="expireon" name="expireon" id="expireon" required placeholder="none">month
@@ -283,14 +301,14 @@
 
             </select>
 
-            
-            <input type="text" class="month" name="month" id="month" placeholder="Year"> <br><br>
+
+            <input type="text" class="month" name="year" id="month" placeholder="Year"> <br><br>
 
             <label for="">CVC</label> <br>
             <input type="text" class="CVC" name="CVC" id="CVC" required placeholder="none"> <br><br>
 
 
-            <input type="submit" class="book" name="book" id="book" value="BOOK NOW">
+            <input type="submit" class="book" name="book" id="book" value="BOOK NOW" onclick="handleBookingAndPayment(); return false;">
 
 
         </div>
@@ -324,20 +342,132 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('.menu-btn').click(function() {
+        $(document).ready(function () {
+            $('.menu-btn').click(function () {
                 $('.side-bar').addClass('active');
                 $('.menu-btn').css("visibility", "hidden");
             });
 
-            //close button
-
-            $('.close-btn').click(function() {
+            $('.close-btn').click(function () {
                 $('.side-bar').removeClass('active');
                 $('.menu-btn').css("visibility", "visible");
             });
         })
+
     </script>
+
+<script>
+    function calculateTotal() {
+        
+        var rooms = parseInt(document.getElementById("rooms").value);
+        var poolAccess = document.querySelector('input[name="poolaccess"]:checked').value === "Yes" ? 1 : 0;
+        var spa = document.querySelector('input[name="spa"]:checked').value === "Yes" ? 1 : 0;
+        var gym = document.querySelector('input[name="gym"]:checked').value === "Yes" ? 1 : 0;
+        var bar = document.querySelector('input[name="bar"]:checked').value === "Yes" ? 1 : 0;
+
+        
+        var roomCharges = rooms * 100; 
+        var servicesCharges = (poolAccess + spa + gym + bar) * 50;
+        var vat = (roomCharges + servicesCharges) * 0.1; 
+
+        
+        var total = roomCharges + servicesCharges + vat;
+
+        
+        document.getElementById("roomChargesValue").innerText = "$" + roomCharges;
+        document.getElementById("servicesChargesValue").innerText = "$" + servicesCharges;
+        document.getElementById("vatValue").innerText = "$" + vat;
+
+        
+        document.getElementById("totalAmount").innerText = "$" + total;
+
+       
+        document.getElementById("receiptForm").style.display = "block";
+        
+        return false;
+    }
+</script>
+
+<!-- Add the following script to handle the booking and payment -->
+<script>
+    function handleBookingAndPayment() {
+    // Get payment details from the form
+    var email = document.getElementById("email").value;
+    var cardName = document.getElementById("cardname").value;
+    var cardNumber = document.getElementById("cardnumber").value;
+    var expireMonth = document.getElementById("expireon").value;
+    var expireYear = document.getElementById("month").value;
+    var cvc = document.getElementById("CVC").value;
+
+    // Validate payment details
+    if (!isValidEmail(email)) {
+        alert("Invalid email address.");
+        return false;
+    }
+
+    if (!isValidCardName(cardName)) {
+        alert("Invalid name on credit card.");
+        return false;
+    }
+
+    if (!isValidCardNumber(cardNumber)) {
+        alert("Invalid credit card number.");
+        return false;
+    }
+
+    if (!isValidExpireMonth(expireMonth) || !isValidExpireYear(expireYear)) {
+        alert("Invalid expiration date.");
+        return false;
+    }
+
+    if (!isValidCVC(cvc)) {
+        alert("Invalid CVC.");
+        return false;
+    }
+
+    // If payment details are valid, proceed with booking
+    alert("Booking Successful! Thank you for choosing Royal Hotels.");
+    // You can redirect the user or perform any other necessary actions here
+}
+
+// Example validation functions
+function isValidEmail(email) {
+    // Implement your email validation logic
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidCardName(cardName) {
+    // Implement your credit card name validation logic
+    return /^[a-zA-Z ]+$/.test(cardName);
+}
+
+function isValidCardNumber(cardNumber) {
+    // Implement your credit card number validation logic
+    return /^\d{16}$/.test(cardNumber);
+}
+
+function isValidExpireMonth(expireMonth) {
+    // Implement your expiration month validation logic
+    return /^[01]?\d$/.test(expireMonth) && parseInt(expireMonth) >= 1 && parseInt(expireMonth) <= 12;
+}
+
+function isValidExpireYear(expireYear) {
+    // Implement your expiration year validation logic
+    return /^\d{4}$/.test(expireYear) && parseInt(expireYear) >= new Date().getFullYear();
+}
+
+function isValidCVC(cvc) {
+    // Implement your CVC validation logic
+    return /^\d{3,4}$/.test(cvc);
+}
+
+    function cancelBooking() {
+        // Placeholder for cancel booking logic
+        alert("Booking canceled.");
+        // You can redirect the user or perform any other necessary actions here
+    }
+</script>
+
 
 </body>
 

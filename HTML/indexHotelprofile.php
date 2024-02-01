@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 
@@ -19,6 +21,12 @@
             text-align: center;
             text-decoration: none;
         }
+
+        nav i{
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+        }
     </style>
 </head>
 
@@ -26,7 +34,7 @@
 
     <nav>
         <label class="brand_name" for="Brand_name">ROYAL HOTELS</label>
-
+        <a href="../HTML/indexAddToCart.php"><i class="fa-solid fa-cart-shopping"></i></a>
     </nav>
     <div class="hotelProfile">
        <?php 

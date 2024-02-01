@@ -491,3 +491,71 @@ function createRoom($conn,$hotelname, $offers, $veiw, $overView, $price,$photo){
         exit();
     }
 }
+
+function getRoomDetailsById($conn, $id) {
+    if ($conn) {
+        $id = mysqli_real_escape_string($conn, $id);
+
+        $sql = "SELECT * FROM roomsdelails WHERE roomID='$id'";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            return mysqli_fetch_assoc($result);
+        } else {
+            return false;
+        }
+    } else {
+        // Handle the case where $conn is not valid
+        return false;
+    }
+}
+
+function createPaymentDetails($conn,$email, $cardname, $cardnumber, $expireon, $year, $CVC,$nic){
+    $NIC = $nic;
+
+    // Select NIC from userregistration based on userName
+    $selectQuery = "SELECT NIC FROM userregistation WHERE NIC = ?";
+    $selectStmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($selectStmt, $selectQuery)) {
+        header("Location:../HTML/indexHelp.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($selectStmt, "s", $NIC);
+    mysqli_stmt_execute($selectStmt);
+    mysqli_stmt_bind_result($selectStmt, $nic);
+
+    if (mysqli_stmt_fetch($selectStmt)) {
+        // Check if NIC is not empty
+        if (!empty($nic)) {
+            mysqli_stmt_close($selectStmt);
+
+            // Insert data into userhelp table
+            $insertQuery = "INSERT INTO paymentdetails (email ,creditcardNumber,expireMonth ,year ,cvc ,NIC) VALUES (?,?,?,?,?,?,?)";
+            $insertStmt = mysqli_stmt_init($conn);
+
+            if (mysqli_stmt_prepare($insertStmt, $insertQuery)) {
+                mysqli_stmt_bind_param($insertStmt, "sssssss",$email, $cardname, $cardnumber, $expireon, $year, $CVC,$nic);
+                mysqli_stmt_execute($insertStmt);
+                mysqli_stmt_close($insertStmt);
+
+                header("Location:../HTML/indexRoomList.php?error=none");
+                exit();
+            } else {
+                // Handle statement preparation failure for INSERT query
+                header("Location:../HTML/indexBooking.html?error=stmtfailed");
+                exit();
+            }
+        } else {
+            // Handle the case where NIC is empty
+            header("Location:../HTML/indexBooking.html?error=emptyNIC");
+            exit();
+        }
+    } else {
+        // Handle the case where userName is not found
+        header("Location:../HTML/indexBooking.html?error=userNotFound");
+        exit();
+    }
+
+}

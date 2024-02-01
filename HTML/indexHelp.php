@@ -14,9 +14,12 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Help</title>
     <style>
-        /* Add this at the end of your existing styleForget.css */
+        nav i {
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+        }
 
-        /* Responsive styles */
         @media only screen and (max-width: 768px) {
             .container {
                 width: 90%;
@@ -177,7 +180,8 @@ session_start();
 
                 <?php
                 if (isset($_SESSION["username"])) {
-                    echo '<li><h1>Hello ' . $_SESSION["username"] . ' !</h1></li>';
+                    echo '<li><h1>Hello ' . $_SESSION["username"] . ' !</h1></li>
+                    <a href="../HTML/indexAddToCart.php"><i class="fa-solid fa-cart-shopping"></i></a>';
                 }
                 ?>
 

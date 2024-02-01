@@ -19,24 +19,27 @@
             if (isset($_POST["submit"]))
 
                 $search = $_POST['search'];
-
-            require_once 'db.php';
+                if (empty($search)) {
+                    echo "Please enter a search term.";
+                } else {
+                    require_once 'db.php';
             
-            $sql = "SELECT * FROM hoteldata WHERE hotelName LIKE '%$search%'";
-
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<a href="../HTML/indexHotelprofile.php"><h2>' . $row['hotelName'] . '</h2></a>';
-                    echo '<a href="../HTML/indexHotelprofile.php"><img src="../assets/userprofilePic/' . $row['hotelPhoto'] .  '" class="img" name="images" width="100px" height="100px"></a>';
+                    $sql = "SELECT * FROM hoteldata WHERE hotelName LIKE '%$search%'";
+            
+                    $result = mysqli_query($conn, $sql);
+            
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo '<a href="../HTML/indexHotelprofile.php"><h2>' . $row['hotelName'] . '</h2></a>';
+                            echo '<a href="../HTML/indexHotelprofile.php"><img src="../assets/userprofilePic/' . $row['hotelPhoto'] .  '" class="img" name="images" width="100px" height="100px"></a>';
+                        }
+                    } else {
+                        echo "No results found.";
+                    }
+            
+                    mysqli_close($conn);
                 }
-            } else {
-                echo "No results found.";
-            }
-
-            mysqli_close($conn);
+            
             ?>
         </div>
 
