@@ -8,7 +8,6 @@ function loginPage(){
     window.open("../HTML/indexLogin.php");    
 }
 
-
 function addHotel(){
     window.open("../HTML/indexHotelRegistation.php");
 }
