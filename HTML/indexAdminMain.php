@@ -180,49 +180,49 @@
     <div class="image-container">
         <a href="../HTML/indexHotelList.php">
 
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <img src="../assets/category/1.jpeg" alt="1starhotel">
             <br>
             <label><b>1 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <img src="../assets/category/2.jpeg" alt="1starhotel">
             <br>
             <label><b>2 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <img src="../assets/category/3.jpeg" alt="1starhotel">
             <br>
             <label><b>3 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <img src="../assets/category/4.jpeg" alt="1starhotel">
             <br>
             <label><b>4 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <img src="../assets/category/5.jpeg" alt="1starhotel">
             <br>
             <label><b>5 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <img src="../assets/category/6.jpeg" alt="1starhotel">
             <br>
             <label><b>6 Star Hotel</b></label>
         </a>
 
         <a href="../HTML/indexHotelList.php">
 
-            <img src="../assets/admin1/1starhoteladd.jpg" alt="1starhotel">
+            <img src="../assets/category/7.jpeg" alt="1starhotel">
             <br>
             <label><b>7 Star Hotel</b></label>
         </a>

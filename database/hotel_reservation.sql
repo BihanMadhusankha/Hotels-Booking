@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2024 at 01:21 PM
+-- Generation Time: Feb 02, 2024 at 02:12 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,7 +43,10 @@ CREATE TABLE `hoteldata` (
 --
 
 INSERT INTO `hoteldata` (`hotelID`, `hotelName`, `hotelEmail`, `hotelPhoneNo`, `hotelLocation`, `additionalComment`, `hotelPhoto`, `hotelCategory`) VALUES
-(17, 'Royal Colombo', 'royalcolombo@gmail.c', 119090900, 'Colombo', 'Best One', 'WhatsApp Image 2024-01-30 at 19.35.02.jpeg', '7');
+(17, 'Royal Colombo', 'royalcolombo@gmail.c', 119090900, 'Colombo', 'Best One', 'WhatsApp Image 2024-01-30 at 19.35.02.jpg', '7'),
+(18, 'Royal Negombo', 'negambo@gmail.com', 767676766, 'Negambo', 'superb', 'WhatsApp Image 2024-01-30 at 19.44.05.jpg', '3'),
+(19, 'Royal Galle', 'galle@gmail.com', 789898765, 'Galle', 'One of the best\r\n', 'WhatsApp Image 2024-01-30 at 19.45.19.jpg', '1'),
+(20, 'Royal Western', 'western@gmail.com', 786767677, 'Western', 'Superb', 'WhatsApp Image 2024-01-30 at 19.33.52.jpg', '2');
 
 -- --------------------------------------------------------
 
@@ -67,7 +70,9 @@ CREATE TABLE `paymentdetails` (
 --
 
 INSERT INTO `paymentdetails` (`bookinID`, `email`, `creditcardNumber`, `expireMonth`, `year`, `cvc`, `NIC`, `cardName`) VALUES
-(1, 'bihan@gmail.com', '1234567890123456', 'January', '2025', '123', '22222v', 'Debit');
+(1, 'bihan@gmail.com', '1234567890123456', 'January', '2025', '123', '22222v', 'Debit'),
+(2, 'bihan@gmail.com', '1234567890123456', 'January', '2025', '123', '22222v', 'BOC'),
+(3, 'bihan@gmail.com', '1234512345123451', 'January', '2025', '254', '22222v', 'BOC');
 
 -- --------------------------------------------------------
 
@@ -91,8 +96,8 @@ CREATE TABLE `roomsdelails` (
 --
 
 INSERT INTO `roomsdelails` (`roomID`, `hotelName`, `offers`, `veiuPoint`, `overView`, `price`, `hotelID`, `roomPhoto`) VALUES
-(4, 'Royal Colombo', '20%', 'Lotous Tower', 'Best Room', 2000, 17, 'WhatsApp Image 2024-01-30 at 19.37.34.jpeg'),
-(5, 'Royal Colombo', '40%', 'fghjk', 'ghjk', 5000, 17, 'WhatsApp Image 2024-01-30 at 19.44.05.jpeg');
+(6, 'Royal Colombo', '20%', 'Lotous Tower', 'Quen Room', 2499, 17, 'WhatsApp Image 2024-01-30 at 19.37.34.jpg'),
+(7, 'Royal Colombo', '20%', 'Beach', 'king room', 2699, 17, 'WhatsApp Image 2024-01-30 at 19.44.05.jpg');
 
 -- --------------------------------------------------------
 
@@ -209,19 +214,19 @@ ALTER TABLE `userregistation`
 -- AUTO_INCREMENT for table `hoteldata`
 --
 ALTER TABLE `hoteldata`
-  MODIFY `hotelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `hotelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `paymentdetails`
 --
 ALTER TABLE `paymentdetails`
-  MODIFY `bookinID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `bookinID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roomsdelails`
 --
 ALTER TABLE `roomsdelails`
-  MODIFY `roomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `roomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `userhelp`
